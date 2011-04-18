@@ -1,0 +1,41 @@
+To properly install and configure PeoplePods:
+
+1) Create a MySQL database for PeoplePods to use.  Note the server name, database name, username and password.
+
+2) Choose your upload destination carefully.  Place the PeoplePods tarball inside the folder where you use PeoplePods.
+
+To run PeoplePods at the root of your site:
+If the root directory of your website is /var/www/httpdocs, place the tarball inside that directory.  Once you
+uncompress the file, you will have a new folder called /var/www/httdocs/peoplepods.   The PeoplePods admin tool
+will then be present at http://myurl.com/peoplepods/, while the public-facing functionality will be at http://myurl.com
+
+To run PeoplePods in a sub-folder:
+If the folder you'd like to run PeoplePods from is called /var/www/httpdocs/community, place the tarball inside 
+that directory.   Once you uncompress the file, you will have a new folder called /var/www/httpdocs/community/peoplepods.
+The PeoplePods admin tool will then be present at http://myurl.com/community/peoplepods, while the public-facing functionality
+will be at http://myurl.com/community/
+
+3) Upload and uncompress your PeoplePods tarball into your web folder.  
+
+> tar -zxvf peoplepods-0.9.tar.gz
+
+4) Before running the install, you will need to set the permissions on several folders:
+
+> chmod -R 777 peoplepods/files
+> chmod 777 peoplepods/lib/etc
+
+5) Visit your PeoplePods folder in a web browser.  The installer will load automagically!
+
+> load http://myurl.com/peoplepods/
+
+6) After successful install, visit the PeoplePods admin tool at the same url
+
+> load http://myurl.com/peoplepods/
+
+7) Turn on built in functionality by visited the Options -> Plugin Pods menu.  
+
+8) You MUST turn on core_authentication_login, or else you will not be able to log in to your own site! *** IMPORTANT ***
+
+9) Visit your new PeoplePods powered site!
+
+> load http://myurl.com

@@ -1,0 +1,1 @@
+<p class="crumbs"><a href="<? $POD->siteRoot(); ?>/peoplepods/admin/files/index.php?contentId=<?= $doc->id; ?>">New File</p>

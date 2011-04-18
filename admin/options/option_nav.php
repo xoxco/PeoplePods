@@ -1,0 +1,5 @@
+<div id="tools">
+	<ul>
+		<li <? if ($current_tab=="options"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options">Site Options</a></li><li <? if ($current_tab=="themes"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/themes.php">Theme</a></li><li <? if ($current_tab=="pods"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/pods.php">Plugin Pods</a></li><li <? if ($current_tab=="emails"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/emails.php">Email</a></li><li <? if ($current_tab=="notifications"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/events.php">Notifications</a></li><li <? if ($current_tab=="images"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/images.php">Images</a></li><li <? if ($current_tab=="database"){?>class="active"<? } ?>><a href="<? $POD->podRoot(); ?>/admin/options/database.php">Database</a></li>
+	</ul>
+</div>

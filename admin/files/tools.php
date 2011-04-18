@@ -1,0 +1,5 @@
+	<div id="tools">
+		<ul>
+			<li id="section_name">Files</li><? if (isset($file)) { ?><? if (isset($user)) { ?><li><A href="<? $POD->podRoot(); ?>/admin/files/?userId=<? $user->write('id'); ?>">&larr; Back to <? $user->write('nick'); ?>'s files</a></li><? } ?><? if (isset($content)) { ?><li><A href="<? $POD->podRoot(); ?>/admin/files/?contentId=<? $content->write('id'); ?>">&larr; Back to <? $content->write('headline'); ?>'s files</a></li><? } ?><? } ?><? if (isset($user)) { ?><li><A href="<? $POD->podRoot(); ?>/admin/people/?id=<? $user->write('id'); ?>">&larr; Back to <? $user->write('nick'); ?></a></li><? } ?><? if ($content) { ?><li><A href="<? $POD->podRoot(); ?>/admin/content/?id=<? $content->write('id'); ?>">&larr; Back to <? $content->write('headline'); ?></a></li><? } ?><? if ($group) { ?><li><A href="<? $POD->podRoot(); ?>/admin/groups/?id=<? $group->write('id'); ?>">&larr; Back to <? $group->write('groupname'); ?></a></li><? } ?>
+		</ul>
+	</div>
