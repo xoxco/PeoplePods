@@ -956,7 +956,21 @@ class PeoplePod {
 				return false;
 			}
 		}
-				
+
+		if (!file_exists($this->libOptions('etcPath'))) {
+		  echo "<p>The directory <b>{$this->libOptions('etcPath')}</b> does not exist. Attempting to create it...";
+		  
+		  mkdir($this->libOptions('etcPath'));
+		  if (file_exists($this->libOptions('etcPath'))) {
+		    echo "success!</p>";
+		  } else {
+		    echo "failed :(</p>";
+		  }
+		} else {
+		  echo "<p>{$this->libOptions('etcPath')} exists.</p>";
+		}
+		
+		
 		$file = $this->libOptions('etcPath') . "/options.php";
 		$fh = fopen($file, 'w');
 		if (!$fh) { $this->throwError("Can't open config file!  Check file permissions on " . $this->libOptions('etcPath') . "/options.php"); return false; }
