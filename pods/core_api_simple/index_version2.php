@@ -573,5 +573,13 @@
 	
 	
 	function results($data,$format='json') {
-		return json_encode($data);
+		// if a callback function has been passed in as a parameter, this is a jsonP request
+		if ($func = $_GET['callback']) { 
+		
+			return "{$func}(" . json_encode($data) . ")";
+		
+		} else {
+		
+			return json_encode($data);
+		}
 	}
