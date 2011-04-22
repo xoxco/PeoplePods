@@ -957,17 +957,12 @@ class PeoplePod {
 			}
 		}
 
-		if (!file_exists($this->libOptions('etcPath'))) {
-		  echo "<p>The directory <b>{$this->libOptions('etcPath')}</b> does not exist. Attempting to create it...";
-		  
+		if (!file_exists($this->libOptions('etcPath'))) {		  
 		  mkdir($this->libOptions('etcPath'));
-		  if (file_exists($this->libOptions('etcPath'))) {
-		    echo "success!</p>";
-		  } else {
-		    echo "failed :(</p>";
+		  if (!file_exists($this->libOptions('etcPath'))) {
+			$this->throwError("Can't create lib/etc folder at " . $this->libOptions('etcPath'));
+			return false;
 		  }
-		} else {
-		  echo "<p>{$this->libOptions('etcPath')} exists.</p>";
 		}
 		
 		
