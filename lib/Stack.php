@@ -580,12 +580,11 @@
 
 					$select = "SELECT count(distinct(" . $q->table_shortname() . ".id)) AS totalCount ";			
 					$from = $this->baseFrom;
-					$sort = $this->baseSort;
-	
+				
 	
 					$this->POD->tolog("stack->totalCount() Getting total count for stack");				
 
-					$rows = $q->query($conditions,$sort,99999999,0,$from,$select,$glue);
+					$rows = $q->query($conditions,null,99999999,0,$from,$select,$glue);
 					if ($rows) {
 						$row = array_shift($rows);
 						$this->TOTAL_COUNT = $row['totalCount'];
