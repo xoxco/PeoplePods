@@ -708,7 +708,7 @@
 					
 		}
 				
-		function generateFrom(&$from,&$conditions,$join_type='LEFT',$existing_joins=null) { 
+		function generateFrom($from,&$conditions,$join_type='LEFT',$existing_joins=null) { 
 			
 			# $joins will contain a list of all the necessary joins which will be combined at the end to generate the FROM
 			$joins = array();
@@ -1255,6 +1255,9 @@
 			if (!$select) {
 				$select = "SELECT " . $this->table_shortname . ".*,(TIME_TO_SEC(TIMEDIFF(NOW()," . $this->table_shortname . ".date)) / 60) as minutes ";
 			}
+
+			$select .= $this->specialSelect();
+	
 			if (!$from) {
 				$from = "FROM " . $this->table_name . " ". $this->table_shortname;
 			}
