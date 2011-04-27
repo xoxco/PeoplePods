@@ -2,7 +2,7 @@
 
 	include_once("../../PeoplePods.php");	
 	
-	$POD = new PeoplePod(array('debug'=>0,'lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
+	$POD = new PeoplePod(array('debug'=>2,'lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
 	$POD->changeTheme('admin');
 	
 	
@@ -59,6 +59,30 @@
 				$doc->set('userId',$_POST['userId']);
 			}
 			
+			foreach ($_POST as $field => $value) {
+
+				if (preg_match("/meta_(.*)/",$field,$matches)) { 
+
+					// if this field is a meta field, add it!
+					$field = $matches[1];
+					if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
+					// we need to match this with its value (meta_value_1)
+						$new_field = $value;
+						$new_value = $_POST['meta_value_' . $field];
+						if ($new_field) { 
+							$doc->set($new_field,$new_value);
+						}
+
+					} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
+						next;
+					} else { // this is an existing field, it has its value with it.  					
+						$doc->set($field,$value);
+					}						
+					
+				}				
+			
+			}
+
 			$doc->save();
 			
 			if (!$doc->success()) { 
@@ -78,30 +102,6 @@
 				// add meta fields.
 				
 				$doc->tagsFromString($_POST['tags']);
-			
-				foreach ($_POST as $field => $value) {
-
-					if (preg_match("/meta_(.*)/",$field,$matches)) { 
-
-						// if this field is a meta field, add it!
-						$field = $matches[1];
-						if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
-						// we need to match this with its value (meta_value_1)
-							$new_field = $value;
-							$new_value = $_POST['meta_value_' . $field];
-							if ($new_field) { 
-								$doc->addMeta($new_field,$new_value);
-							}
-
-						} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
-							next;
-						} else { // this is an existing field, it has its value with it.  					
-							$doc->addMeta($field,$value);
-						}						
-						
-					}				
-				
-				}
 
 
 
@@ -126,6 +126,34 @@
 		$doc->set('status',$_POST['status']);
 		$doc->set('stub',$_POST['stub']);
 		$doc->set('date',$_POST['date']);					
+
+
+		// add meta fields.				
+		foreach ($_POST as $field => $value) {
+
+			if (preg_match("/meta_(.*)/",$field,$matches)) { 
+
+				// if this field is a meta field, add it!
+				$field = $matches[1];
+				if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
+				// we need to match this with its value (meta_value_1)
+					$new_field = $value;
+					$new_value = $_POST['meta_value_' . $field];
+					if ($new_field) { 
+						$doc->set($new_field,$new_value);
+					}
+
+				} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
+					next;
+				} else { // this is an existing field, it has its value with it.  					
+					$doc->set($field,$value);
+				}						
+				
+			}				
+		
+		}
+
+
 		$doc->save();
 		
 		if (!$doc->success()) { 
@@ -141,31 +169,6 @@
 			}
 			$doc->files()->fill();
 
-
-			// add meta fields.				
-			foreach ($_POST as $field => $value) {
-
-				if (preg_match("/meta_(.*)/",$field,$matches)) { 
-
-					// if this field is a meta field, add it!
-					$field = $matches[1];
-					if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
-					// we need to match this with its value (meta_value_1)
-						$new_field = $value;
-						$new_value = $_POST['meta_value_' . $field];
-						if ($new_field) { 
-							$doc->addMeta($new_field,$new_value);
-						}
-
-					} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
-						next;
-					} else { // this is an existing field, it has its value with it.  					
-						$doc->addMeta($field,$value);
-					}						
-					
-				}				
-			
-			}
 
 
 
