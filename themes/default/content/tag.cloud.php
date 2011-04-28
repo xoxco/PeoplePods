@@ -12,4 +12,4 @@
 /**********************************************/
 ?>
 
-<a href="<? $tag->POD->siteRoot(); ?>/lists/tags/<? $tag->write('value'); ?>" title="See posts tagged <? $tag->write('value'); ?>" rel="tag" class="tag"><? $tag->write('value'); ?> (<?= $tag->count; ?>)</a>&nbsp;
+<a href="<? $tag->POD->siteRoot(); ?>/lists/tags/<? $tag->write('value'); ?>" title="See posts tagged <? $tag->write('value'); ?>" rel="tag" class="tag"><? $tag->write('value'); ?> (<?= $tag->contentCount(); ?>)</a>&nbsp;

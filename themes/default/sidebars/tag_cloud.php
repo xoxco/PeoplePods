@@ -1,6 +1,6 @@
 <div class="padded sidebar" id="tag_cloud_sidebar">
 <? 
-	$tags = $POD->getTagCount();
+	$tags = $POD->getTags();
 	
 	while ($tag = $tags->getNext()) { 
 	
