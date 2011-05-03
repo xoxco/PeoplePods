@@ -730,7 +730,12 @@ class Person extends Obj {
 			$width = $this->POD->libOptions('peopleIconMaxWidth');
 		}
 		if ($img = $this->files()->contains('file_name','img')) {
-			return $img->thumbnail;
+			if ($width == $this->POD->libOptions('peopleIconMaxWidth')) {
+				return $img->thumbnail;
+			} else {
+				return $img->src($width,true);
+			}
+
 		} else {
 			return $this->POD->templateDir(false) . '/img/noimage.png';
 		}
