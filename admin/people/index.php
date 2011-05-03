@@ -50,6 +50,33 @@
 		$user->set('password',$_POST['password']);
 		$user->set('stub',$_POST['stub']);
 		$user->set('fullname',$_POST['fullname']);
+
+
+		
+		foreach ($_POST as $field => $value) {
+
+			if (preg_match("/meta_(.*)/",$field,$matches)) { 
+
+				// if this field is a meta field, add it!
+				$field = $matches[1];
+				if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
+				// we need to match this with its value (meta_value_1)
+					$new_field = $value;
+					$new_value = $_POST['meta_value_' . $field];
+					if ($new_field) { 
+						$user->set($new_field,$new_value);
+					}
+
+				} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
+					next;
+				} else { // this is an existing field, it has its value with it.  					
+					$user->set($field,$value);
+				}						
+				
+			}				
+		
+		}
+
 		
 		$user->save(true);
 		if (!$user->success()) { 
@@ -72,31 +99,6 @@
 				// add meta fields.
 				$user->tagsFromString($_POST['tags']);
 
-
-				
-				foreach ($_POST as $field => $value) {
-
-					if (preg_match("/meta_(.*)/",$field,$matches)) { 
-
-						// if this field is a meta field, add it!
-						$field = $matches[1];
-						if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
-						// we need to match this with its value (meta_value_1)
-							$new_field = $value;
-							$new_value = $_POST['meta_value_' . $field];
-							if ($new_field) { 
-								$user->addMeta($new_field,$new_value);
-							}
-
-						} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
-							next;
-						} else { // this is an existing field, it has its value with it.  					
-							$user->addMeta($field,$value);
-						}						
-						
-					}				
-				
-				}
 			
 				if ($_POST['adminUser']) { 
 					$user->addMeta('adminUser',1);
@@ -119,6 +121,30 @@
 			$user->set('stub',$_POST['stub']);
 			$user->set('fullname',$_POST['fullname']);
 
+			foreach ($_POST as $field => $value) {
+
+				if (preg_match("/meta_(.*)/",$field,$matches)) { 
+
+					// if this field is a meta field, add it!
+					$field = $matches[1];
+					if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
+					// we need to match this with its value (meta_value_1)
+						$new_field = $value;
+						$new_value = $_POST['meta_value_' . $field];
+						if ($new_field) { 
+							$user->set($new_field,$new_value);
+						}
+
+					} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
+						next;
+					} else { // this is an existing field, it has its value with it.  					
+						$user->set($field,$value);
+					}						
+					
+				}				
+			
+			}
+
 			$user->save();
 			if (!$user->success()) { 
 				$message = "SAVE FAILED! Error: " . $user->error();
@@ -136,29 +162,7 @@
 				// add meta fields.
 				$user->tagsFromString($_POST['tags']);
 				
-				foreach ($_POST as $field => $value) {
 
-					if (preg_match("/meta_(.*)/",$field,$matches)) { 
-
-						// if this field is a meta field, add it!
-						$field = $matches[1];
-						if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
-						// we need to match this with its value (meta_value_1)
-							$new_field = $value;
-							$new_value = $_POST['meta_value_' . $field];
-							if ($new_field) { 
-								$user->addMeta($new_field,$new_value);
-							}
-
-						} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
-							next;
-						} else { // this is an existing field, it has its value with it.  					
-							$user->addMeta($field,$value);
-						}						
-						
-					}				
-				
-				}
 			
 				if ($_POST['adminUser']) { 
 					$user->addMeta('adminUser',1);

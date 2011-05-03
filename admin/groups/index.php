@@ -39,6 +39,27 @@
 			$group->set('type',$_POST['type']);
 			$group->set('stub',$_POST['stub']);
 			$group->set('date',$_POST['date']);
+
+			foreach ($_POST as $field => $value) {
+
+				if (preg_match("/meta_(.*)/",$field,$matches)) { 
+
+					// if this field is a meta field, add it!
+					$field = $matches[1];
+					if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
+					// we need to match this with its value (meta_value_1)
+						$new_field = $value;
+						$new_value = $_POST['meta_value_' . $field];
+						if ($new_field) { 
+							$group->set($new_field,$new_value);
+						}
+					} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
+						next;
+					} else { // this is an existing field, it has its value with it.  	
+						$group->set($field,$value);
+					}						
+				}				
+			}
 			
 			$group->save();
 			
@@ -57,26 +78,7 @@
 				$group->files()->fill();
 
 				$group->tagsFromString($_POST['tags']);
-				foreach ($_POST as $field => $value) {
 
-					if (preg_match("/meta_(.*)/",$field,$matches)) { 
-
-						// if this field is a meta field, add it!
-						$field = $matches[1];
-						if (is_numeric($field)) { // this is a new meta field name (meta_1 meta_2 meta_3) 
-						// we need to match this with its value (meta_value_1)
-							$new_field = $value;
-							$new_value = $_POST['meta_value_' . $field];
-							if ($new_field) { 
-								$group->addMeta($new_field,$new_value);
-							}
-						} else if (strpos($field,"value")===0) { // this is a new meta value... we don't need to do anything
-							next;
-						} else { // this is an existing field, it has its value with it.  	
-							$group->addMeta($field,$value);
-						}						
-					}				
-				}
 			}
 		}
 	

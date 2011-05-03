@@ -164,6 +164,7 @@ class PeoplePod {
 			$this->useCache(true);
 		}
 		
+		$this->processIncludes();
 		
 		// validate user and set auth status
 		if (isset($PARAMETERS['authSecret'])) {
@@ -180,9 +181,6 @@ class PeoplePod {
 			self::$IS_AUTHENTICATED = false;
 			self::$CURRENT_USER = null;
 		}
-
-		$this->processIncludes();
-		
 
 		if (isset($PARAMETERS['lockdown']) && $PARAMETERS['lockdown'] == "login" && !self::$IS_AUTHENTICATED) {
 			$this->tolog('POD LOGIN REQUIRED!');
