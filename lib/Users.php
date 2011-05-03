@@ -724,7 +724,7 @@ class Person extends Obj {
 
 	function avatar($width=null) {
 		if ($this->hasMethod(__FUNCTION__)) { 
-			return $this->override(__FUNCTION__,array());
+			return $this->override(__FUNCTION__,array($width));
 		}	
 		if ($width==null) {
 			$width = $this->POD->libOptions('peopleIconMaxWidth');
