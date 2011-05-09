@@ -1,2 +1,3 @@
 lib/etc/options.php
 files/*
+.DS_Store
