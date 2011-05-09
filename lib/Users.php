@@ -724,13 +724,18 @@ class Person extends Obj {
 
 	function avatar($width=null) {
 		if ($this->hasMethod(__FUNCTION__)) { 
-			return $this->override(__FUNCTION__,array());
+			return $this->override(__FUNCTION__,array($width));
 		}	
 		if ($width==null) {
 			$width = $this->POD->libOptions('peopleIconMaxWidth');
 		}
 		if ($img = $this->files()->contains('file_name','img')) {
-			return $img->thumbnail;
+			if ($width == $this->POD->libOptions('peopleIconMaxWidth')) {
+				return $img->thumbnail;
+			} else {
+				return $img->src($width,true);
+			}
+
 		} else {
 			return $this->POD->templateDir(false) . '/img/noimage.png';
 		}
