@@ -1372,7 +1372,7 @@
 	
 	}
 	
-	function addFlag($flag,$person,$value=true,$force=false) { 
+	function addFlag($flag,$person,$value=true) { 
 		$this->success = false;
 		if (!$this->get('id')) {
 			$this->throwError("Object not saved yet!");
@@ -1402,7 +1402,7 @@
 		} else {
 
 		
-			if ($this->hasFlag($flag,$person)!=$value || $force == true) {  
+			if ($this->hasFlag($flag,$person)!=$value) { 
 				$this->removeFlag($flag,$person);
 				$this->addFlag($flag,$person,$value);
 			}
