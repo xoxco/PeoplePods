@@ -28,7 +28,7 @@ require_once($libPath ."/Alerts.php");
 
 require_once($libPath ."/Files.php");		
 require_once($libPath ."/Stack.php");		
-require_once($libPath ."/Events.php");			
+	
 	
 class PeoplePod {
 
@@ -1226,17 +1226,7 @@ class PeoplePod {
 		}
 		return new Stack($this,'group',$conditions,$sort,$count,$offset);
 	}
-
-/*********************************************************************************************
-* Event Dispatcher System
-*********************************************************************************************/
-	function getDispatcher() {
-		return StaticEventDispatcher::getInstance();
-	}
-
-	function newRequestEvent($request) {
-		return new RequestEvent($request);
-	}
+	
 	
 /*********************************************************************************************
 * Accessors
