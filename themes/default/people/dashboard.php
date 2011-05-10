@@ -104,6 +104,7 @@
 			<? $POD->output('sidebars/activity_stream'); ?>
 			
 			<? $POD->output('sidebars/ad_unit'); ?>
+			<? $POD->output('sidebars/tag_cloud'); ?>
 			
 			<? $POD->output('sidebars/recent_visitors'); ?>
 
