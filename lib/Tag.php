@@ -53,7 +53,7 @@
 		
 		function contentCount() { 
 			
-			$docs = $this->POD->getContents(array('t.id'=>$this->get('id')));
+			$docs = $this->POD->getContents(array('t.id'=>$this->get('id')),'d.date desc');
 			return $docs->totalCount();
 		
 		}
