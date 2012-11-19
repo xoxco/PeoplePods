@@ -13,14 +13,14 @@
 /**********************************************/
 
 
-	include_once("content_type.php"); // this defines some variables for use within this pod
+	include_once("../unauthorized_landing_page/content_type.php"); // this defines some variables for use within this pod
 	include_once("../../PeoplePods.php");
 	if ($_POST) {
 		$lockdown = 'verified';
 	} else {
 		$lockdown = null;
 	}
-	$POD = new PeoplePod(array('debug'=>0,'lockdown'=>$lockdown,'authSecret'=>@$_COOKIE['pp_auth']));
+	$POD = new PeoplePod(array('debug'=>0,'lockdown'=>$lockdown,'authSecret'=>@$_COOKIE['pp_auth'])); //todo this line check to see if auth is current, must change to opposite
 	if (!$POD->libOptions("enable_core_pages")) { 
 		header("Location: " . $POD->siteRoot(false));
 		exit;

@@ -46,7 +46,9 @@
 	
 	
 	if ($redirect_after_login) {
-		// if we logged in correctly, we redirect to the homepage of the site, or to any url passed in as a parameter	
+		// if we logged in correctly, we redirect to the homepage of the site, or to any url passed in as a parameter
+		//todo these few lines redirect to only 2 places, we have lots of roles now, and they must be heeded.
+		//todo see to it that we ammend $POD->isAuthenticated() to be able to split the auth hairs needed.
 		if ($_POST['redirect']) { 
 		 	header("Location: " . $_POST['redirect']);
 		} else {
