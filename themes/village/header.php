@@ -29,6 +29,10 @@
 	<script src="<? $POD->templateDir(); ?>/js/jquery-1.8.3.js"></script>
 	<script src="<? $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
 	<script src="<? $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
+	<script src="<? $POD->templateDir(); ?>/js//underscore.js"></script>
+    <script src="<? $POD->templateDir(); ?>/js/sjcl.js"></script>
+    <script src="<? $POD->templateDir(); ?>/js/moment.min.js"></script>
+    <script src="<? $POD->templateDir(); ?>/js/unauthorized.js"></script>
 
 	<? $POD->extraJS(); ?>
 	
