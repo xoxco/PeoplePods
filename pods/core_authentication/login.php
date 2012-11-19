@@ -29,7 +29,7 @@
 				$POD->addMessage($POD->error());
 	 		}		
 			if (!$POD->isAuthenticated()) {
-				$POD->addMessage("Oops!  We could not log you in using that email address and password.");
+				$POD->addMessage("Oops!  We could not log you in using that email address or password.");
 			} else {
 
 					$days = 15;

@@ -35,7 +35,7 @@
 		$NEWUSER = $POD->getPerson(array('nick'=>$_POST['name'],'email'=>$_POST['email'],'password'=>$password,'invite_code'=>$_POST['code']));
 		$NEWUSER->save();		
 		if ($NEWUSER->success()) {
-				setcookie('pp_auth',$NEWUSER->get('authSecret'),time()+60*60*24*30,"/");
+				setcookie('pp_auth',$NEWUSER->get('authSecret'),time()+60*60*24*30,"/"); //@todo this cookie is central and has a incorrect hardcoded path; needs to be set to installation directory
 				$POD = new PeoplePod(array('authSecret'=>$NEWUSER->get('authSecret')));
 				$redir = true;
 

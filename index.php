@@ -13,7 +13,8 @@
 	if ($POD->success()) {
 		header("Location: admin");
 	} else {
-		header("Location: install");
+		//header("Location: install");//@todo investigate the particular heading/routing that this function uses
+		header( "Location: unauthorized_landing_page" );
 	} 
 
 ?>	

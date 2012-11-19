@@ -29,7 +29,7 @@
 	$POD->header('What\'s New?'); ?>
 
 	<div class="column_8">
-		<? $docs->output('short','header','pager','What\'s New?','Nothing has been posted on this site yet. Wow, it must be brand new!'); ?>
+		<? $docs->output('short','header','pager','What\'s New?','Nothing has been posted on this site yet. Wow, it must be brand new!'); //@todo this line should be in the template ?> 
 	</div>	
 	<div class="column_4 structure_only">
 		

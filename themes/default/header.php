@@ -26,7 +26,7 @@
 	<link rel="icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
 	<link rel="shortcut icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
 
-	<script src="<? $POD->templateDir(); ?>/js/jquery-1.4.2.min.js"></script>
+	<script src="<? $POD->templateDir(); ?>/js/jquery-1.8.2.js"></script>
 	<script src="<? $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
 	<script src="<? $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
 
