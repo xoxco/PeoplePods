@@ -207,24 +207,7 @@ class Person extends Obj {
 			return $this->FRIENDS;	
 
 		}
-<<<<<<< HEAD
-=======
-		
-		function patients($count = 20,$offset=0) { 
-			if (!$this->get('id')) {
-				return null;
-			}
-			if (!$this->PATIENTS || $count != 20 || $offset != 0) {
-				$this->PATIENTS =   new Stack($this->POD,'user',array('flag.name'=>'patients','flag.userId'=>$this->get('id')),"flag.date DESC",$count,$offset,null,null,null,$this->id.'-person-patients');
-				if (!$this->FRIENDS->success()) { 
-					return null;
-				}
-			}
-			return $this->PATIENTS;	
 
-		}
-
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 
 		function followers($count=20,$offset=0) { 
 			if (!$this->get('id')) {
@@ -797,16 +780,6 @@ class Person extends Obj {
 		return $this->friends()->extract('id');		
 	
 	}
-<<<<<<< HEAD
-=======
-	
-	function patientsList() {
-		
-		return $this->patients()->extract('id');		
-	
-	}
-
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 
 	
 	function getVote($doc) {
@@ -837,11 +810,7 @@ class Person extends Obj {
 		}
 	}
 	
-<<<<<<< HEAD
-
-=======
-	//@todo learn this function completely...
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
+	//todo learn this function completely...
 	function publishActivity($message,$userMessage=null,$targetMessage=null,$targetUser=null,$targetContent=null,$resultContent=null,$gid=null) {
 	
 		if ($this->hasMethod(__FUNCTION__)) { 
@@ -1125,159 +1094,7 @@ class Person extends Obj {
 		return $person;	
 	}
 
-
-<<<<<<< HEAD
-
-=======
-/*************************************************************************************	
-* Patients 																			
-*************************************************************************************/
-
-
-
-	function isPatientOf($person) {
-		
-		$val = $person->hasFlag('patients',$this);		
-		$this->success = $person->success();
-		if (!$this->success()) { 
-			$this->throwError('isPatientOf ' . $person->error());
-			$this->error_code = $person->errorCode();
-		}
-		return $val;
-	}
-
-	function removePatient($person) {
 	
-		$val = $person->removeFlag('patients',$this);		
-		$this->success = $person->success();
-		$this->POD->cachefact($this->id . '-person-patients',null);
-		$this->POD->cachefact($person->id . '-person-followers',null);
-
-		if (!$this->success()) { 
-			$this->throwError('removePatient ' .$person->error());
-			$this->error_code = $person->errorCode();
-		} else {
-			if ($this->favorites()->full()) { 
-				$this->favorites()->fill();
-			}
-		}
-		return $person;
-		
-	
-	}
-	
-	
-	function addPatient($person,$sendEmail=true) {
-		
-		$this->POD->tolog("user->addPatient(): Adding patient relationship between " . $this->get('nick') . " and " . $person->get('nick'));
-
-		$wasAlreadyPateints = $this->isPatientOf($person);
-		$val = $person->addFlag('patients',$this);		
-		$this->success = $person->success();
-		$this->POD->cachefact($this->id . '-person-patients',null);
-		$this->POD->cachefact($person->id . '-person-followers',null);
-
-		if (!$this->success()) { 
-			$this->throwError('addFriend ' . $person->error());
-			$this->error_code = $person->errorCode();
-		} else {
-			//@todo learn libOptions from core and amend this implementation - INCOMPLETE...
-			if ($this->POD->libOptions('patientActivity')) { 
-				$this->publishActivity('{actor.nick} is now following {targetUser.nick}','You are now following {targetUser.nick}','{actor.nick} is now following you',$person,null,null,$this->id . '-friend-' . $person->id);
-			}
-			
-			if ($this->POD->libOptions('friendAlert')) { 
-				$person->sendAlert('{actor.nick} is now following you.',$this);
-			}
-			
-			if ($sendEmail && !$wasAlreadyFriends) {
-				if ($this->POD->libOptions('friendEmail')) {
-					$this->sendEmail("addFriend",array('to'=>$person->get('email')));
-				}
-			}
-
-			if ($this->friends()->full()) { 
-				$this->friends()->fill();
-			}
-		}
-		return $person;	
-	}
-
-
-/*************************************************************************************	
-* Doctors 																			
-*************************************************************************************/
-
-
-
-	function isDoctorOf($person) {
-		
-		$val = $person->hasFlag('doctor',$this);		
-		$this->success = $person->success();
-		if (!$this->success()) { 
-			$this->throwError('isDoctorOf ' . $person->error());
-			$this->error_code = $person->errorCode();
-		}
-		return $val;
-	}
-
-	function removeDoctor($person) {
-	
-		$val = $person->removeFlag('doctor',$this);		
-		$this->success = $person->success();
-		$this->POD->cachefact($this->id . '-person-doctors',null);
-		$this->POD->cachefact($person->id . '-person-followers',null);
-
-		if (!$this->success()) { 
-			$this->throwError('removeDoctor ' .$person->error());
-			$this->error_code = $person->errorCode();
-		} else {
-			if ($this->favorites()->full()) { 
-				$this->favorites()->fill();
-			}
-		}
-		return $person;
-		
-	
-	}
-	
-	
-	function addDoctor($person,$sendEmail=true) {
-		
-		$this->POD->tolog("user->addDoctor(): Adding Doctor relationship between " . $this->get('nick') . " and " . $person->get('nick'));
-
-		$wasAlreadyDoctor = $this->isDoctorOf($person);
-		$val = $person->addFlag('doctor',$this);		
-		$this->success = $person->success();
-		$this->POD->cachefact($this->id . '-person-doctors',null);
-		$this->POD->cachefact($person->id . '-person-followers',null);
-
-		if (!$this->success()) { 
-			$this->throwError('addDoctor ' . $person->error());
-			$this->error_code = $person->errorCode();
-		} else {
-			//@todo learn libOptions completely to allow for this relationship notification
-			if ($this->POD->libOptions('friendActivity')) { 
-				$this->publishActivity('{actor.nick} is now following {targetUser.nick}','You are now following {targetUser.nick}','{actor.nick} is now following you',$person,null,null,$this->id . '-friend-' . $person->id);
-			}
-			
-			if ($this->POD->libOptions('friendAlert')) { 
-				$person->sendAlert('{actor.nick} is now following you.',$this);
-			}
-			
-			if ($sendEmail && !$wasAlreadyFriends) {
-				if ($this->POD->libOptions('friendEmail')) {
-					$this->sendEmail("addFriend",array('to'=>$person->get('email')));
-				}
-			}
-
-			if ($this->friends()->full()) { 
-				$this->friends()->fill();
-			}
-		}
-		return $person;	
-	}
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 
 /*************************************************************************************	
 * COMMENTS 																			

@@ -11,12 +11,6 @@
 * http://peoplepods.net/readme/group-object
 /**********************************************/
 
-<<<<<<< HEAD
-
-=======
-//@todo assess clearly the role of this object, as it has potential for value adds and to mashup the wrong people,
-//@todo possibly a double confirmation for doctors publishing to a group would be a good idea
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 class Group extends Obj {
 
 	protected $ALLMEMBERS;	 // contains all invitees, applicants, etc

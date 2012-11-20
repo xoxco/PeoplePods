@@ -21,19 +21,10 @@
 		protected $IS_FAVORITE = false;
 
 		protected $VOTE = null;
-<<<<<<< HEAD
-
-		// base database configuration for this object.
-		static private $DEFAULT_FIELDS = array('id','userId','createdBy','parentId','groupId','date','changeDate','body','headline','link','type','privacy','status','flagDate','commentCount','yes_votes','no_votes','stub','editDate','commentDate','hidden');
-		static private $IGNORE_FIELDS =array('timesince','permalink','yes_percent','no_percent','editlink','editpath','minutes');	
-=======
 		
 		// base database configuration for this object.
 		static private $DEFAULT_FIELDS = array('id','userId','createdBy','parentId','groupId','date','changeDate','body','headline','link','type','privacy','status','flagDate','commentCount','yes_votes','no_votes','stub','editDate','commentDate','hidden');
 		static private $IGNORE_FIELDS =array('timesince','permalink','yes_percent','no_percent','editlink','editpath','minutes');	
-		//@todo Review these default joins as you may need to add your own for exclusive doctor/patient content, but still don't understand if that is the case yet.
-		//@todo Either way, this is where the data is pulled.
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 		static private $DEFAULT_JOINS = array ( 
 						'u' => 'inner join users u on u.id=d.userId',  // link to content author
 						'a' => 'inner join users a on a.id=d.userId',  // link to content author
@@ -164,14 +155,11 @@
 		if ($this->hasMethod(__FUNCTION__)) { 
 			return $this->override(__FUNCTION__,array());
 		}
-<<<<<<< HEAD
-			
-=======
+
 		//@todo core content object method isViewable has a privacy test that could be elaborated to your specialized needs
 		//@todo assess the difference between a specialized flag-related coupling, or specialized group for the doctor/patient
 		//@both are essentially the same thing as both seem to be implemented in flags
 		//@todo however it may be useful to abstract into a specialized group
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 		if ($this->get('privacy') == "friends_only") { 
 		
 			if ($this->POD->isAuthenticated() && $this->author()->isFriendsWith($this->POD->currentUser())) {

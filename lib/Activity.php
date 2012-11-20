@@ -56,11 +56,8 @@
 		
 		}
 
-<<<<<<< HEAD
-	
-=======
+
 		//@todo spend A LOT of time with this method "publish" as it is central to the service - particularly be aware of the $targetUser param
->>>>>>> 1f7cf457993ef185a960744695e79229b2acc055
 		// publish a simple news item
 		// $message is the singular message "Ben added a comment"
 		// $userId is the acting user.  "[Ben] did something."
