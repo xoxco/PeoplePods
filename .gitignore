@@ -5,6 +5,7 @@ files/*
 
 #Dreamweaver _notes directories should not come along for the ride...
 */_notes
+dwsync.xml
 
 #Eclipse-based project files that should be left out
 *.pydevproject
