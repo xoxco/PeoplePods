@@ -26,19 +26,19 @@ $( document ).ready( function(){
 	
 	//reorganize main buttons to link to their childrens' a href attributes
 	$( '.demoButton' ).click( function(){
-		alert( $( this ).children( 'a:first' ).attr( 'href' ) );
+		alert( $( this ).children( 'a:first' ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
 	} );
 	
 	$( 'a' ).click( function( event ){
 		event.preventDefault();
 		event.stopImmediatePropagation();
-		alert( $( this ).attr( 'href' ) );
+		alert( $( this ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
 	} );
 	
 	//send login to custom route inside of PeoplePods
 	$( 'form' ).submit( function( event ){
 		//stop form from sending to action file
-		event.preventDefault();
+		event.preventDefault();//todo clearly we need to actually handle the click with a routed request...
 	} );
 	//continuation of last intent
 	$( '#loginBox input:last' ).click( function(){
