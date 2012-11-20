@@ -7,7 +7,7 @@
 	
 		
 		
-		// lets verify this shit before saving it!
+		// lets verify this before saving it!
 		
 		$newDb = $POD->connectToDatabase($_POST['mysql_server'],$_POST['mysql_user'],$_POST['mysql_pass'],$_POST['mysql_db']);
 

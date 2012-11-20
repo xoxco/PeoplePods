@@ -823,7 +823,7 @@ class Auth_OpenID_GenericConsumer {
         $result = Auth_OpenID_GenericConsumer::_verifyReturnToArgs(
                                            $message->toPostArgs());
         if (Auth_OpenID::isFailure($result)) {
-			error_log("FUCKADOODLEDOO");
+			error_log("oAuth error occurred " . $result );
             return false;
         }
 

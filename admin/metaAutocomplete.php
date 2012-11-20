@@ -12,6 +12,6 @@
 			echo "{$r['name']}\n";
 		}
 	} else {
-		echo "FUCKLE";
+		echo "No data found";
 	}
 	

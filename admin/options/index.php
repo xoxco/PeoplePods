@@ -31,7 +31,7 @@
 			$siteRoot = "/$siteRoot";
 		}
 
-		// lets verify this shit before saving it!
+		// lets verify this before saving it!
 		
 		$res = (file_exists("$installDir/PeoplePods.php"));
 		if ($res) { 
