@@ -63,7 +63,9 @@ RewriteRule ^openid/(.*)	/sn/pp2/peoplepods/pods/openid_connect/index.php?mode=$
  * */
 
 Moor::
-	route( '/', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/dashboard/index.php	[QSA,L] # core_dashboard									
+	route( '/', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/dashboard/index.php	[QSA,L] # core_dashboard
+	route( '/dashboard',					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/dashboard/index.php	[QSA,L] # core_dashboard								
+	route( '/unauthorized',					'unauthorized' )->
 	route( '/authentication', 				'authentication' )-> //needs to go to 
 	route( '/login',  						'login' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/login.php	[QSA,L] # core_authentication_login
 	route( '/logout',						'logout' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
@@ -76,7 +78,7 @@ Moor::
 	route( '/show',  						'content' )-> //needs to go to /sn/pp2/peoplepods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
 	route( '/show/:stub', 					'content' )-> //needs to go to /sn/pp2/peoplepods/pods/core_usercontent/view.php?stub=$1	[QSA,L] # contenttype_document_view
 	route( '/feeds/:args', 					'feeds' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
-	route( '/feeds',  						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
+	route( '/feeds',  						'feeds' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 	route( '/files/:id/:size', 				'files' )-> //needs to go to /sn/pp2/peoplepods/pods/core_files/index.php?id=$1&size=$2	[QSA,L] # core_files
 	route( '/files',						'files' )->
 	route( '/friends',						'friends' )->
@@ -88,42 +90,38 @@ Moor::
 	route( '/groups',  						'groups' )-> //needs to go to /sn/pp2/peoplepods/pods/core_groups/index.php	[QSA,L] # core_groups
 	route( '/invite', 						'invite' )-> //needs to go to /sn/pp2/peoplepods/pods/core_invite/index.php	[QSA,L] # core_invite
 	route( '/pages',						'pages' )->
-	route( '/pages/:stub', 					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_pages/view.php?stub=$1	[QSA,L] # core_pages
+	route( '/pages/:stub', 					'view' )-> //needs to go to /sn/pp2/peoplepods/pods/core_pages/view.php?stub=$1	[QSA,L] # core_pages
 	route( '/patients',						'patients' )->
 	route( '/pm',							'private_messaging' )->
 	route( '/inbox/conversationwith/:username', 'conversation' )-> //needs to go to /sn/pp2/peoplepods/pods/core_private_messaging/thread.php?username=$1	[QSA,L] # core_private_messaging
 	route( '/inbox', 						'inbox' )-> //needs to go to /sn/pp2/peoplepods/pods/core_private_messaging/inbox.php	[QSA,L] # core_private_messaging
-	route( '/profiles',						'profiles' )->
-	route( '/people/:username', 			'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/profile.php?username=$1	[QSA,L] # core_profiles
-	route( '/editprofile', 					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/editprofile.php	[QSA,L] # core_profiles
-	route( '/search',						'search' )->
-	route( '/search', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_search/search.php	[QSA,L] # core_search
+	route( '/people/:username', 			'profile' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/profile.php?username=$1	[QSA,L] # core_profiles
+	route( '/editprofile', 					'editProfile' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/editprofile.php	[QSA,L] # core_profiles
+	route( '/search', 						'search' )-> //needs to go to /sn/pp2/peoplepods/pods/core_search/search.php	[QSA,L] # core_search
 	route( '/content',						'user_content' )->
 	route( '/dashboard/:doctor',			'doctor_dashboard' )->
 	route( '/fb',							'fb_connect' )->
 	route( '/gravatars',					'gravatars' )->
 	route( '/landing_page',					'landing_page' )->
-	route( '/openid',						'openid' )->
-	route( '/openid/:mode', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php?mode=$1	[QSA,L] # openid_connect
-	route( '/openid', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php	[QSA,L] # openid_connect
+	route( '/openid/:mode', 				'openId' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php?mode=$1	[QSA,L] # openid_connect
+	route( '/openid', 						'openId' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php	[QSA,L] # openid_connect
 	route( '/placekitten',					'placekitten' )->
 	route( '/twitter',						'twitter' )->
-	route( '/unauthorized',					'unauthorized' )->
-	route( '/friends/:mode', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php?mode=$1	[QSA,L] # core_friends
-	route( '/friends', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php	[QSA,L] # core_friends
+	route( '/friends/:mode', 				'friends' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php?mode=$1	[QSA,L] # core_friends
+	route( '/friends', 						'friends' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php	[QSA,L] # core_friends
 	route( '/admin/:id/',					'admin' )->
-	route( '/api', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
-	route( '/api/2/:method', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version2.php?method=$1	[QSA,L] # core_api_simple
+	route( '/api', 							'api' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
+	route( '/api/:whichOne/:method', 		'api' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version2.php?method=$1	[QSA,L] # core_api_simple
 	route( '/install', 						'install' )-> //todo needs to go to /sn/pp2/peoplepods/install/, but only the first run though...
 	run();
 
 
 $POD = new PeoplePod(array('authSecret'=>@$_COOKIE['pp_auth']));
 if ($POD->success()) {
-	//header("Location: admin");
+	header("Location: dashboard");
 } else {
 	//header("Location: install");//@todo investigate the particular heading/routing that this function uses, but this path and likely the whole directory, should be removed from final
-	//header( "Location: unauthorized_landing_page" );
+	header( "Location: unauthorized" );
 }
 
 //todo Taking a bit of a break, but further work will be to implement all of the paths in the .htaccess, and write the routing handlers.
