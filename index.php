@@ -63,29 +63,57 @@ RewriteRule ^openid/(.*)	/sn/pp2/peoplepods/pods/openid_connect/index.php?mode=$
  * */
 
 Moor::
-	route( '/', 					'dashboard' )->
-	route( '/authentication', 		'authentication' )->
-	route( '/feeds', 				'feeds' )->
-	route( '/files',				'files' )->
-	route( '/friends',				'friends' )->
-	route( '/groups',				'groups' )->
-	route( '/invite',				'invite' )->
-	route( '/pages',				'pages' )->
-	route( '/patients',				'patients' )->
-	route( '/pm',					'private_messaging' )->
-	route( '/profiles',				'profiles' )->
-	route( '/search',				'search' )->
-	route( '/content',				'user_content' )->
-	route( '/dashboard/:doctor',	'doctor_dashboard' )->
-	route( '/fb',					'fb_connect' )->
-	route( '/gravatars',			'gravatars' )->
-	route( '/landing_page',			'landing_page' )->
-	route( '/openid',				'openid' )->
-	route( '/placekitten',			'placekitten' )->
-	route( '/twitter',				'twitter' )->
-	route( '/unauthorized',			'unauthorized' )->
-	route( '/admin/:id/',			'admin' )->
-	route( '/' )->
+	route( '/', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/dashboard/index.php	[QSA,L] # core_dashboard									
+	route( '/authentication', 				'authentication' )-> //needs to go to 
+	route( '/login',  						'login' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/login.php	[QSA,L] # core_authentication_login
+	route( '/logout',						'logout' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
+	route( '/password_reset/:resetCode', 	'passReset' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
+	route( '/password_reset',  				'passReset' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/password.php	[QSA,L] # core_authentication_login
+	route( '/replies',  					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard
+	route( '/join',  						'join' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
+	route( '/verify',  						'verify' )-> //needs to go to /sn/pp2/peoplepods/pods/core_authentication/verify.php	[QSA,L] # core_authentication_creation
+	route( '/edit',  						'edit' )-> //needs to go to /sn/pp2/peoplepods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
+	route( '/show',  						'content' )-> //needs to go to /sn/pp2/peoplepods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
+	route( '/show/:stub', 					'content' )-> //needs to go to /sn/pp2/peoplepods/pods/core_usercontent/view.php?stub=$1	[QSA,L] # contenttype_document_view
+	route( '/feeds/:args', 					'feeds' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
+	route( '/feeds',  						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
+	route( '/files/:id/:size', 				'files' )-> //needs to go to /sn/pp2/peoplepods/pods/core_files/index.php?id=$1&size=$2	[QSA,L] # core_files
+	route( '/files',						'files' )->
+	route( '/friends',						'friends' )->
+	route( '/lists/:args',  				'list' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/list.php?args=$1	[QSA,L] # core_feeds
+	route( '/lists', 						'list' )-> //needs to go to /sn/pp2/peoplepods/pods/core_feeds/list.php	[QSA,L] # core_feeds
+	route( '/groups',						'groups' )->
+	route( '/groups/:stub/:command',		'groups' )-> //needs to go to /sn/pp2/peoplepods/pods/core_groups/group.php?stub=$1&command=$2	[QSA,L] # core_groups
+	route( '/groups/:stub', 				'groups' )-> //needs to go to /sn/pp2/peoplepods/pods/core_groups/group.php?stub=$1	[QSA,L] # core_groups
+	route( '/groups',  						'groups' )-> //needs to go to /sn/pp2/peoplepods/pods/core_groups/index.php	[QSA,L] # core_groups
+	route( '/invite', 						'invite' )-> //needs to go to /sn/pp2/peoplepods/pods/core_invite/index.php	[QSA,L] # core_invite
+	route( '/pages',						'pages' )->
+	route( '/pages/:stub', 					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_pages/view.php?stub=$1	[QSA,L] # core_pages
+	route( '/patients',						'patients' )->
+	route( '/pm',							'private_messaging' )->
+	route( '/inbox/conversationwith/:username', 'conversation' )-> //needs to go to /sn/pp2/peoplepods/pods/core_private_messaging/thread.php?username=$1	[QSA,L] # core_private_messaging
+	route( '/inbox', 						'inbox' )-> //needs to go to /sn/pp2/peoplepods/pods/core_private_messaging/inbox.php	[QSA,L] # core_private_messaging
+	route( '/profiles',						'profiles' )->
+	route( '/people/:username', 			'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/profile.php?username=$1	[QSA,L] # core_profiles
+	route( '/editprofile', 					'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_profiles/editprofile.php	[QSA,L] # core_profiles
+	route( '/search',						'search' )->
+	route( '/search', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_search/search.php	[QSA,L] # core_search
+	route( '/content',						'user_content' )->
+	route( '/dashboard/:doctor',			'doctor_dashboard' )->
+	route( '/fb',							'fb_connect' )->
+	route( '/gravatars',					'gravatars' )->
+	route( '/landing_page',					'landing_page' )->
+	route( '/openid',						'openid' )->
+	route( '/openid/:mode', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php?mode=$1	[QSA,L] # openid_connect
+	route( '/openid', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/openid_connect/index.php	[QSA,L] # openid_connect
+	route( '/placekitten',					'placekitten' )->
+	route( '/twitter',						'twitter' )->
+	route( '/unauthorized',					'unauthorized' )->
+	route( '/friends/:mode', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php?mode=$1	[QSA,L] # core_friends
+	route( '/friends', 						'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_friends/index.php	[QSA,L] # core_friends
+	route( '/admin/:id/',					'admin' )->
+	route( '/api', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
+	route( '/api/2/:method', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version2.php?method=$1	[QSA,L] # core_api_simple
 	run();
 
 
