@@ -114,6 +114,7 @@ Moor::
 	route( '/admin/:id/',					'admin' )->
 	route( '/api', 							'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
 	route( '/api/2/:method', 				'dashboard' )-> //needs to go to /sn/pp2/peoplepods/pods/core_api_simple/index_version2.php?method=$1	[QSA,L] # core_api_simple
+	route( '/install', 						'install' )-> //todo needs to go to /sn/pp2/peoplepods/install/, but only the first run though...
 	run();
 
 
