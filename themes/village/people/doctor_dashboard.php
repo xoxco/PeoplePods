@@ -13,7 +13,7 @@
 * http://peoplepods.net/readme/person-object
 /**********************************************/
 ?>
-<?	
+<?php	
 
 
 	$offset = 0;	
@@ -97,7 +97,7 @@
 					$groups->output('group_navigator',null,null); 
 					?>
 					<li class="group_navigator"><a href="<?php $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
-					<?						
+					<?php						
 				} ?>
 			</ul>					
 			

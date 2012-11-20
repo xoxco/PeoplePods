@@ -44,4 +44,4 @@
 		
 		</div>
 
-	<?	$POD->footer(); ?>
+	<?php	$POD->footer(); ?>

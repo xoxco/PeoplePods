@@ -100,7 +100,7 @@
 	<?php } ?>
 
 	
-<?	
+<?php	
 	
 	$group->output();	
 	

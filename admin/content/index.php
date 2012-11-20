@@ -193,7 +193,7 @@
 		</div>
 	
 	<?php } ?>
-<?	
+<?php	
 	
 	if ($doc->type) { 
 		$doc->output();	

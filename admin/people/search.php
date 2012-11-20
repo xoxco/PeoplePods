@@ -72,7 +72,7 @@
 		
 		if ($users->count() > 0 ) { ?>
 
-		<?	 while ($user = $users->getNext()) { 
+		<?php	 while ($user = $users->getNext()) { 
 			 	$user->output('addMember');
 			 }
 				 

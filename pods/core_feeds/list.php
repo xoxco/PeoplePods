@@ -153,7 +153,7 @@
 		<?php $POD->output('sidebars/recent_visitors'); ?>
 		
 	</div>	
-<?		
+<?php		
 	$POD->footer();
 
 ?>

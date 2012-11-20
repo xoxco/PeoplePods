@@ -49,14 +49,14 @@
 		
 	</div>
 	<div class="column_6">
-		<?	if (isset($_GET['group'])) { 
+		<?php	if (isset($_GET['group'])) { 
 					$group = $POD->getGroup(array('id'=>$_GET['group']));
 					if ($group->success() && $group->isMember($POD->currentUser())) {	?>
 						<div class="info">
 							Your email will include an invitation to join <?php $group->permalink(); ?>.
 						</div>
 						<input type="hidden" name="group" value="<?php $group->write('id'); ?>" />
-					<?	} // if group loaded
+					<?php	} // if group loaded
 				} // if group id passed			
 			?>
 
@@ -67,4 +67,4 @@
 	</div>
 
 	</form>		
-<?	$POD->footer(); ?>
+<?php	$POD->footer(); ?>

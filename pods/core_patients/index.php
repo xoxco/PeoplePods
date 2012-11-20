@@ -75,4 +75,4 @@
 
 		<?php $people->output('short','header','pager',null,'No people found!'); ?>
 	
-<?	$POD->footer(); ?>
+<?php	$POD->footer(); ?>

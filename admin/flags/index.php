@@ -185,7 +185,7 @@
 				<?php } ?>
 			</ul>
 			<?php } ?>
-	<?	
+	<?php	
 		if (isset($results)) { ?>
 			<h1 class="column_padding"><a href="<?php $POD->podRoot(); ?>/admin/flags/">Flags</a>: <a href="index.php?<?php  if(isset($content)) { echo 'contentId='.$content->id; } else if (isset($user)) { echo 'userId=' . $user->id; }?>"><?php if (isset($content)) { echo $content->headline; } else if (isset($user)) { echo $user->nick; } ?></a> &#187; <?php echo $description; ?></h1>
 			<?php foreach ($results as $result) { 

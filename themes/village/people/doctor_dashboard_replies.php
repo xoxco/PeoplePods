@@ -14,7 +14,7 @@
 /**********************************************/
 ?>
 
-<?	
+<?php	
 
 	$offset = 0;	
 	if (isset($_GET['offset'])) {
@@ -58,7 +58,7 @@
 					$groups->output('group_navigator',null,null); 
 					?>
 					<li class="group_navigator"><a href="<?php $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
-					<?						
+					<?php						
 				} ?>
 			</ul>					
 

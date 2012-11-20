@@ -299,7 +299,7 @@
 					<p><input type="submit" value="Create" /></p>
 				</form>		
 	
-			<?	}	
+			<?php	}	
 			
 			} else {
 			

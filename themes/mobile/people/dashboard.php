@@ -13,7 +13,7 @@
 * http://peoplepods.net/readme/person-object
 /**********************************************/
 ?>
-<?	
+<?php	
 
 
 	$offset = 0;	
