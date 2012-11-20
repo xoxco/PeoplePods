@@ -267,11 +267,11 @@
 			<p>PeoplePods needs to make updates to your database.  We suggest you make a backup of your database first!</p>
 			<p><a href="upgrade.php?confirm=destruct+alpha+alpha+destruct">UPGRADE</a></p>
 		
-		<? } else { ?>
+		<?php } else { ?>
 		
 			<p>Your PeoplePods schema is up to date.</p>
 			
-		<? } 	
+		<?php } 	
 	
 	$POD->footer(); 
 	

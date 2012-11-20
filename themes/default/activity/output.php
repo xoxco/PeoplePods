@@ -1,4 +1,4 @@
-<? /*
+<?php /*
  	Always available:
 
 	$activity - object representing the activity stream post
@@ -12,6 +12,6 @@
 
 */ ?>
 <li>
-	<span class="timestamp"><?= $POD->timesince($activity->minutes); ?></span><span class="action"><?= $activity->formatMessage(); ?></span>
+	<span class="timestamp"><?php echo $POD->timesince($activity->minutes); ?></span><span class="action"><?php echo $activity->formatMessage(); ?></span>
 	<div class="clearer"></div>
 </li>

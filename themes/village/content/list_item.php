@@ -12,4 +12,4 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<li><? $doc->permalink(); ?></li>
+<li><?php $doc->permalink(); ?></li>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	error_reporting(1);
 
@@ -33,15 +33,15 @@
 	$POD->header();
 	$current_tab="database";
 ?>
-<? include_once("option_nav.php"); ?>
-<? if ($message) { ?>
+<?php include_once("option_nav.php"); ?>
+<?php if ($message) { ?>
 	<div class="info">
 	
-		<? echo $message ?>
+		<?php echo $message ?>
 		
 	</div>
 
-<? } ?>
+<?php } ?>
 <div class="panel">
 
 	<h1>Database Options</h1>
@@ -49,17 +49,17 @@
 
 	<p>Connect to this database via the command line MySQL tool:</p>
 
-	<p>mysql -u <?= $POD->libOptions('mysql_user'); ?> -p -h <?= $POD->libOptions('mysql_server'); ?> <?= $POD->libOptions('mysql_db'); ?></p>
+	<p>mysql -u <?php echo $POD->libOptions('mysql_user'); ?> -p -h <?php echo $POD->libOptions('mysql_server'); ?> <?php echo $POD->libOptions('mysql_db'); ?></p>
 
 	<form method="post" id="database_options" class="valid">
 	
-	<p class="input"><label for="siteName">MySQL Server:</label><input name="mysql_server" id="mysql_server" class="text required" type="text" value="<? echo htmlspecialchars($POD->libOptions('mysql_server')); ?>" /></p>
+	<p class="input"><label for="siteName">MySQL Server:</label><input name="mysql_server" id="mysql_server" class="text required" type="text" value="<?php echo htmlspecialchars($POD->libOptions('mysql_server')); ?>" /></p>
 	
-	<p class="input"><label for="siteName">MySQL User:</label><input name="mysql_user" id="mysql_user" class="text required" type="text" value="<? echo htmlspecialchars($POD->libOptions('mysql_user')); ?>" /></p>
+	<p class="input"><label for="siteName">MySQL User:</label><input name="mysql_user" id="mysql_user" class="text required" type="text" value="<?php echo htmlspecialchars($POD->libOptions('mysql_user')); ?>" /></p>
 
-	<p class="input"><label for="siteName">MySQL Password:</label><input name="mysql_pass" id="mysql_pass" class="text required" type="text" value="<? echo htmlspecialchars($POD->libOptions('mysql_pass')); ?>" /></p>
+	<p class="input"><label for="siteName">MySQL Password:</label><input name="mysql_pass" id="mysql_pass" class="text required" type="text" value="<?php echo htmlspecialchars($POD->libOptions('mysql_pass')); ?>" /></p>
 
-	<p class="input"><label for="siteName">MySQL Database:</label><input name="mysql_db" id="mysql_db" class="text required" type="text" value="<? echo htmlspecialchars($POD->libOptions('mysql_db')); ?>" /></p>
+	<p class="input"><label for="siteName">MySQL Database:</label><input name="mysql_db" id="mysql_db" class="text required" type="text" value="<?php echo htmlspecialchars($POD->libOptions('mysql_db')); ?>" /></p>
 
 				
 	
@@ -70,4 +70,4 @@
 </div>
 
 
-<? $POD->footer(); ?>
+<?php $POD->footer(); ?>

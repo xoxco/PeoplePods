@@ -36,46 +36,46 @@
 	<div class="column_8">
 
 
-				<form method="get" action="<? $POD->siteRoot(); ?>/search">
+				<form method="get" action="<?php $POD->siteRoot(); ?>/search">
 				<p>
 					<label for="q">Search:</label>
-					<input name="q" id="q" value="<?= htmlspecialchars(@$_GET['q']); ?>" />
+					<input name="q" id="q" value="<?php echo htmlspecialchars(@$_GET['q']); ?>" />
 					<input type="submit" class="button" value="Search" />
 				</p>
 			</form>	
-		<? if (isset($_GET['q'])) { ?>	
-				<? 
+		<?php if (isset($_GET['q'])) { ?>	
+				<?php 
 					if ($docs->success()) {
 						$docs->output('search_results','header','pager','Search Results','No posts found!',"&q=$keyword"); 
 					} else { ?>
 						<div class="info">
-							<? echo $docs->error(); ?>
+							<?php echo $docs->error(); ?>
 						</div>
-					<? }
+					<?php }
 				?>
-		<? } ?>
-		<? if (isset($_GET['p'])) { ?>
-				<? 
+		<?php } ?>
+		<?php if (isset($_GET['p'])) { ?>
+				<?php 
 					if ($people->success()) { 
 						$people->output('search_results','header','pager','People Search','Nobody found!',"&p=$keyword");
 					} else {?>
 						<div class="info">
-							<? echo $people->error(); ?>
+							<?php echo $people->error(); ?>
 						</div>
-					<? }
+					<?php }
 				 ?>		
-		<? } ?>
+		<?php } ?>
 	</div>
 	
 	<div class="column_4 structure_only">
 		
-		<? $POD->output('sidebars/ad_unit'); ?>
+		<?php $POD->output('sidebars/ad_unit'); ?>
 
-		<? $POD->output('sidebars/tag_cloud'); ?>
+		<?php $POD->output('sidebars/tag_cloud'); ?>
 
-		<? $POD->output('sidebars/recent_visitors'); ?>
+		<?php $POD->output('sidebars/recent_visitors'); ?>
 		
 	</div>	
 
-	<? $POD->footer(); ?>
+	<?php $POD->footer(); ?>
 

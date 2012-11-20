@@ -1,4 +1,4 @@
-<? 
+<?php 
 /***********************************************
 * This file is part of PeoplePods
 * (c) xoxco, inc  
@@ -33,7 +33,7 @@
 		
 	$POD->header('Send Invites');	
 	?>
-	<form method="post" action="<? $POD->siteRoot(); ?>/invite" class="valid" id="invite">
+	<form method="post" action="<?php $POD->siteRoot(); ?>/invite" class="valid" id="invite">
 		
 	
 	<div class="column_6">
@@ -53,9 +53,9 @@
 					$group = $POD->getGroup(array('id'=>$_GET['group']));
 					if ($group->success() && $group->isMember($POD->currentUser())) {	?>
 						<div class="info">
-							Your email will include an invitation to join <? $group->permalink(); ?>.
+							Your email will include an invitation to join <?php $group->permalink(); ?>.
 						</div>
-						<input type="hidden" name="group" value="<? $group->write('id'); ?>" />
+						<input type="hidden" name="group" value="<?php $group->write('id'); ?>" />
 					<?	} // if group loaded
 				} // if group id passed			
 			?>

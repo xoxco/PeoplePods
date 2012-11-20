@@ -2,7 +2,7 @@
 			<div class="clearer"></div>
 			<div id="footer">
 
-				<a href="http://peoplepods.net/">PeoplePods version <? echo $POD->VERSION; ?></a> |
+				<a href="http://peoplepods.net/">PeoplePods version <?php echo $POD->VERSION; ?></a> |
 				<a href="http://peoplepods.net/readme">Documentation</a> | 
 				<a href="http://peoplepods.net/news">News</a> | 
 				<a href="http://peoplepods.net/forum">Forum</a> |

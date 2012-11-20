@@ -16,16 +16,16 @@
         <div data-role="footer" data-theme="b" data-id="main_foot" data-position="fixed">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<? $POD->siteRoot(); ?>">Dashboard</a></li>
+                    <li><a href="<?php $POD->siteRoot(); ?>">Dashboard</a></li>
 
-                    <? if($POD->isAuthenticated()){ ?>
-                        <li><a href="<? $POD->currentUser()->write('permalink');?>" >Profile</a></li>
-                    <? } ?>
+                    <?php if($POD->isAuthenticated()){ ?>
+                        <li><a href="<?php $POD->currentUser()->write('permalink');?>" >Profile</a></li>
+                    <?php } ?>
                     
-                    <li><a href="<? $POD->siteRoot(); ?>/search" >Search</a></li>
+                    <li><a href="<?php $POD->siteRoot(); ?>/search" >Search</a></li>
                 </ul>
             </div>
         </div>
         <div class="clearer"></div>
 </section> <!-- end data-role=page from header -->
-<? $POD->output('main_nav'); ?>
+<?php $POD->output('main_nav'); ?>

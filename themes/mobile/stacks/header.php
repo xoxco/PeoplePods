@@ -11,10 +11,10 @@
 * http://peoplepods.net/readme/stack-output
 /**********************************************/
 ?>
-<section class="stack_output <? if ($title) {?>stack_<?  echo $POD->tokenize($title); } ?>">
+<section class="stack_output <?php if ($title) {?>stack_<?php  echo $POD->tokenize($title); } ?>">
 <ul>
-	<? if ($title) { ?>
+	<?php if ($title) { ?>
 		<header>
-			<h1><?= $title; ?></h1>
+			<h1><?php echo $title; ?></h1>
 		</header>
-	<? } ?>
+	<?php } ?>

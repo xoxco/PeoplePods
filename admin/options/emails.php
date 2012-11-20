@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	$POD = new PeoplePod(array('lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
 
@@ -30,16 +30,16 @@
 	$current_tab="emails";
 
 ?>
-<? include_once("option_nav.php"); ?>
+<?php include_once("option_nav.php"); ?>
 
-	<? if (isset($message)) { ?>
+	<?php if (isset($message)) { ?>
 		<div class="info">
 		
-			<? echo $message ?>
+			<?php echo $message ?>
 			
 		</div>
 	
-	<? } ?>		
+	<?php } ?>		
 <div class="panel">
 
 	<h1>Email Options</h1>
@@ -51,9 +51,9 @@
 
 	<form method="post" class="valid">
 		
-		<p class="input"><label for="fromAddress">From Address:</label><input name="fromAddress" id="fromAddress" class="text required" value="<? echo htmlspecialchars($POD->libOptions('fromAddress')); ?>" type="text" /></p>
+		<p class="input"><label for="fromAddress">From Address:</label><input name="fromAddress" id="fromAddress" class="text required" value="<?php echo htmlspecialchars($POD->libOptions('fromAddress')); ?>" type="text" /></p>
 		
 		<p><input type="submit" value="Update Email Options" class="button" /></p>
 	</form>
 </div>
-<? $POD->footer(); ?>
+<?php $POD->footer(); ?>

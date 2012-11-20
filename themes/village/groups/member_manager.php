@@ -18,9 +18,9 @@
 ?>
 
 	<header>
-			<h1><? $group->permalink(); ?> &#187; Members</h1>
+			<h1><?php $group->permalink(); ?> &#187; Members</h1>
 
-			<? echo $group->members()->totalCount(); ?> members | <a href="<? $group->POD->siteRoot(); ?>/invite?group=<? $group->write('id'); ?>">Invite Someone</a>
+			<?php echo $group->members()->totalCount(); ?> members | <a href="<?php $group->POD->siteRoot(); ?>/invite?group=<?php $group->write('id'); ?>">Invite Someone</a>
 	</header>
 	<div class="column_6">
 			<B>Member</B>
@@ -29,32 +29,32 @@
 			<b>Type</b>
 	</div>
 	<div class="clearer"></div>
-	<? 
+	<?php 
 	$group->members()->sortBy('type');
 	while ($person = $group->members()->getNext()) { ?>
 	
-		<div id="person<? $person->write('id'); ?>" class="group_list_member">
-			<? $person->output('avatar'); ?>
+		<div id="person<?php $person->write('id'); ?>" class="group_list_member">
+			<?php $person->output('avatar'); ?>
 			<div class="column_5">
-					<? $person->permalink(); ?>
-					<? if ($person->get('tagline')) { ?><Br />
-					<span class="tagline"><? $person->write('tagline');  }?></span>
+					<?php $person->permalink(); ?>
+					<?php if ($person->get('tagline')) { ?><Br />
+					<span class="tagline"><?php $person->write('tagline');  }?></span>
 			</div>
 			<div class="column_3">
-					<? $member_type = $group->isMember($person); ?>
-					<? if ($membership == "owner" || $membership == "manager") { ?>
-						<a href="#changeMemberType" data-group="<?= $group->id; ?>" data-person="<?= $person->id; ?>">
-							<? echo $member_type; ?>
+					<?php $member_type = $group->isMember($person); ?>
+					<?php if ($membership == "owner" || $membership == "manager") { ?>
+						<a href="#changeMemberType" data-group="<?php echo $group->id; ?>" data-person="<?php echo $person->id; ?>">
+							<?php echo $member_type; ?>
 						</a>
-					<? } else { ?>
-						<? 	echo $member_type; ?>
-					<? } ?>
+					<?php } else { ?>
+						<?php 	echo $member_type; ?>
+					<?php } ?>
 			</div>
 			<div class="column_3 last right_align">
-					<? if ($membership == "owner" || $membership == "manager") { ?>						
-						<a href="#removeMember"  data-group="<?= $group->id; ?>" data-person="<?= $person->id; ?>">Remove</a>
-					<? } ?>
+					<?php if ($membership == "owner" || $membership == "manager") { ?>						
+						<a href="#removeMember"  data-group="<?php echo $group->id; ?>" data-person="<?php echo $person->id; ?>">Remove</a>
+					<?php } ?>
 			</div>
 			<div class="clearer"></div>
 		</div>
-	<? } ?>
+	<?php } ?>

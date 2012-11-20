@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	$POD = new PeoplePod(array('lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
 	
@@ -208,10 +208,10 @@
 	if (isset($message)) { ?>
 	
 		<div class="info">
-			<? echo $message; ?>
+			<?php echo $message; ?>
 		</div>
 	
-	<? } 
+	<?php } 
 	
 	$user->output();
 

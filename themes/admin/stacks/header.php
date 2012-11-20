@@ -11,7 +11,7 @@
 * http://peoplepods.net/readme/stack-output
 /**********************************************/
 ?>
-<div class="stack_output <? if ($title) {?>stack_<?  echo $POD->tokenize($title); } ?>">
-	<? if ($title) { ?>
-		<h2 class="stack_header"><?= $title; ?></h2>
-	<? } ?>
+<div class="stack_output <?php if ($title) {?>stack_<?php  echo $POD->tokenize($title); } ?>">
+	<?php if ($title) { ?>
+		<h2 class="stack_header"><?php echo $title; ?></h2>
+	<?php } ?>

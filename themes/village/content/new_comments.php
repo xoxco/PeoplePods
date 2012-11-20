@@ -14,18 +14,18 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<article class="content_short content_new_comments content_<? $doc->write('type'); ?> <? if ($doc->get('isOddItem')) {?>content_odd<? } ?> <? if ($doc->get('isEvenItem')) {?>content_even<? } ?> <? if ($doc->get('isLastItem')) {?>content_last<? } ?> <? if ($doc->get('isFirstItem')) {?>content_first<? } ?>" id="content<? $doc->write('id'); ?>">	
-	<? $doc->author()->output('avatar'); ?>
+<article class="content_short content_new_comments content_<?php $doc->write('type'); ?> <?php if ($doc->get('isOddItem')) {?>content_odd<?php } ?> <?php if ($doc->get('isEvenItem')) {?>content_even<?php } ?> <?php if ($doc->get('isLastItem')) {?>content_last<?php } ?> <?php if ($doc->get('isFirstItem')) {?>content_first<?php } ?>" id="content<?php $doc->write('id'); ?>">	
+	<?php $doc->author()->output('avatar'); ?>
 		<section class="attributed_content content_body">
 			<header>
 			<span class="content_meta">
-				<span class="content_author"><? $doc->author()->permalink(); ?></span> posted (<span class="content_time"><? echo $doc->write('timesince'); ?></span>)
+				<span class="content_author"><?php $doc->author()->permalink(); ?></span> posted (<span class="content_time"><?php echo $doc->write('timesince'); ?></span>)
 			</span>
-			<h1><a href="<? $doc->write('permalink'); ?>" title="<? $doc->write('headline'); ?>"><? $doc->write('headline'); ?></a></h1>
+			<h1><a href="<?php $doc->write('permalink'); ?>" title="<?php $doc->write('headline'); ?>"><?php $doc->write('headline'); ?></a></h1>
 			</header>
-			<div class="new_comments" id="new_comments_<? $doc->write('id'); ?>">
-				<? $doc->goToFirstUnreadComment(); ?>
-				<? $count = 0;
+			<div class="new_comments" id="new_comments_<?php $doc->write('id'); ?>">
+				<?php $doc->goToFirstUnreadComment(); ?>
+				<?php $count = 0;
 				   while ($comment = $doc->comments()->getNext()) { 
 						$comment->output();	
 						$count++;
@@ -33,16 +33,16 @@
 			</div>			
 			
 			<ul class="content_options">
-				<li class="option_reply"><a href="<? $doc->write('permalink'); ?>#reply">Reply</a></li>
-				<li class="option_mark_as_read" id="option_mark_as_read_<? $doc->write('id'); ?>">
-					<? if ($count < 1) { ?>
+				<li class="option_reply"><a href="<?php $doc->write('permalink'); ?>#reply">Reply</a></li>
+				<li class="option_mark_as_read" id="option_mark_as_read_<?php $doc->write('id'); ?>">
+					<?php if ($count < 1) { ?>
 						<span class="gray">Nothing new. :(</span>
-					<? } else { ?>
-						<a href="#markAsRead" data-content="<?= $doc->id; ?>">Mark as Read</a>
-					<? } ?>
+					<?php } else { ?>
+						<a href="#markAsRead" data-content="<?php echo $doc->id; ?>">Mark as Read</a>
+					<?php } ?>
 				</li>
 				<li class="option_watching">
-					<a href="#toggleFlag" data-flag="watching" data-content="<?= $doc->id; ?>" data-active="Stop Tracking" data-inactive="Start Tracking" title="Track new comments" class="<? if ($doc->hasFlag('watching',$POD->currentUser())){?>active<? } ?>">Stop Tracking</a>
+					<a href="#toggleFlag" data-flag="watching" data-content="<?php echo $doc->id; ?>" data-active="Stop Tracking" data-inactive="Start Tracking" title="Track new comments" class="<?php if ($doc->hasFlag('watching',$POD->currentUser())){?>active<?php } ?>">Stop Tracking</a>
 				</li>
 			</ul>
 		</section>

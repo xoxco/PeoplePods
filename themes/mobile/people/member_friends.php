@@ -12,11 +12,11 @@
 /**********************************************/
 ?>
 <li class="dashboard_navigator sub_option">
-	You are following <a href="<? $POD->siteRoot(); ?>/friends"><? echo $user->friends()->totalCount();  echo " " . $POD->pluralize($user->friends()->totalCount(),'person','people'); ?></a>
+	You are following <a href="<?php $POD->siteRoot(); ?>/friends"><?php echo $user->friends()->totalCount();  echo " " . $POD->pluralize($user->friends()->totalCount(),'person','people'); ?></a>
 </li>
 <li class="dashboard_navigator sub_option">
-	<a href="<? $POD->siteRoot(); ?>/friends/followers"><? echo $user->followers()->totalCount(); echo " " . $POD->pluralize($user->followers()->totalCount(),'person is','people are'); ?></a> following you.
+	<a href="<?php $POD->siteRoot(); ?>/friends/followers"><?php echo $user->followers()->totalCount(); echo " " . $POD->pluralize($user->followers()->totalCount(),'person is','people are'); ?></a> following you.
 </li>
 <li class="dashboard_navigator sub_option">
-	<a href="<? $POD->siteRoot(); ?>/friends/recommended">Meet some new people &#187;</a>
+	<a href="<?php $POD->siteRoot(); ?>/friends/recommended">Meet some new people &#187;</a>
 </li>

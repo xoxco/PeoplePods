@@ -45,16 +45,16 @@
 			if ($user->get('verificationKey')) { ?>
 				<div id="welcome_message">
 					
-					<p><strong>Welcome to <? $POD->siteName(); ?>!</strong>.  We are so glad you joined us.</p>
+					<p><strong>Welcome to <?php $POD->siteName(); ?>!</strong>.  We are so glad you joined us.</p>
 					<p>
-						However, before you're allowed to post anything or leave comments, we need to <a href="<? $POD->siteRoot(); ?>/verify">verify your email address</a>.
+						However, before you're allowed to post anything or leave comments, we need to <a href="<?php $POD->siteRoot(); ?>/verify">verify your email address</a>.
 						This lets us make sure that you aren't a spambot.
 						You should already have the verification email in your inbox!
 					</p>
-					<p><a href="<? $POD->siteRoot(); ?>/verify">Verify My Account</a></p>
+					<p><a href="<?php $POD->siteRoot(); ?>/verify">Verify My Account</a></p>
 				
 				</div>		
-			<? } else {
+			<?php } else {
 			
 				// output a blank edit form
 				if ($POD->libOptions("enable_contenttype_document_add")) { 
@@ -64,16 +64,16 @@
 			}
 		?>	
 		
-		<? $user->getAlerts()->output('output',null,null,null); ?>
+		<?php $user->getAlerts()->output('output',null,null,null); ?>
 				
-		<? if (isset($msg)) { ?>	
+		<?php if (isset($msg)) { ?>	
 			<div class="info">
-				<? echo $msg; ?>
+				<?php echo $msg; ?>
 			</div>
-		<? } ?>
+		<?php } ?>
 		
 		<!-- this is where new posts from friends and groups show up -->
-		<? 
+		<?php 
 				$docs->output('short','header','pager','My New Stuff','There\'s nothing new yet!'); 
 		?>
 
@@ -81,32 +81,32 @@
 		
 	</div>
 	<div class="one_third structure_only">
-		<? 
+		<?php 
 			$user->output('member_info');
 			
 		?>			
 
 
 			<ul id="navigator" class="padded">
-				<li class="dashboard_navigator dashboard_active"><a href="<? $POD->siteRoot(); ?>">New Stuff</a></li>
-				<? if ($POD->libOptions('enable_core_friends')) { 
+				<li class="dashboard_navigator dashboard_active"><a href="<?php $POD->siteRoot(); ?>">New Stuff</a></li>
+				<?php if ($POD->libOptions('enable_core_friends')) { 
 					$user->output('member_friends');
 				} ?>
-				<li class="dashboard_navigator dashboard_navigator_last"><a href="<? $POD->siteRoot(); ?>/replies">Activity</a></li>
-				<? if ($POD->libOptions('enable_core_groups')) { 					
+				<li class="dashboard_navigator dashboard_navigator_last"><a href="<?php $POD->siteRoot(); ?>/replies">Activity</a></li>
+				<?php if ($POD->libOptions('enable_core_groups')) { 					
 					$groups->output('group_navigator',null,null); 
 					?>
-					<li class="group_navigator"><a href="<? $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
+					<li class="group_navigator"><a href="<?php $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
 					<?						
 				} ?>
 			</ul>					
 			
-			<? $POD->output('sidebars/activity_stream'); ?>
+			<?php $POD->output('sidebars/activity_stream'); ?>
 			
-			<? $POD->output('sidebars/ad_unit'); ?>
-			<? $POD->output('sidebars/tag_cloud'); ?>
+			<?php $POD->output('sidebars/ad_unit'); ?>
+			<?php $POD->output('sidebars/tag_cloud'); ?>
 			
-			<? $POD->output('sidebars/recent_visitors'); ?>
+			<?php $POD->output('sidebars/recent_visitors'); ?>
 
 	</div>
 	<div class="clearer"></div>

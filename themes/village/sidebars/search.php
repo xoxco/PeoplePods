@@ -16,10 +16,10 @@
 ?>
 <div class="padded sidebar" id="search_sidebar">
 	<h3>Search</h3>
-	<form method="get" action="<? $POD->siteRoot(); ?>/search">
+	<form method="get" action="<?php $POD->siteRoot(); ?>/search">
 		<input name="q" id="sidebar_search_q"  data-default="search content" class="repairField text" />&nbsp;<input type="submit" value="Search" />
 	</form>
-	<form method="get" action="<? $POD->siteRoot(); ?>/search">	
+	<form method="get" action="<?php $POD->siteRoot(); ?>/search">	
 		<input name="p" id="sidebar_search_p" data-default="search people" class="repairField text" />&nbsp;<input type="submit" value="Search" />
 	</form>
 </div>

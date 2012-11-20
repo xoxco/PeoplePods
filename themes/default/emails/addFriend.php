@@ -15,22 +15,22 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<? 
+<?php 
 
 $subject= $sender->get('nick') ." is following you on " . $sender->POD->siteName(false);
 
 ?>
 
-<? $sender->write('nick'); ?> has added you as a friend on <? $sender->POD->siteName(); ?>.
+<?php $sender->write('nick'); ?> has added you as a friend on <?php $sender->POD->siteName(); ?>.
 
 You can check them out here:
 
-=> <? $sender->write('permalink'); ?>
+=> <?php $sender->write('permalink'); ?>
 
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
 
 You can update your account here:
-<? $sender->POD->siteRoot(); ?>/editprofile
+<?php $sender->POD->siteRoot(); ?>/editprofile

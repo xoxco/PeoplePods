@@ -63,15 +63,15 @@
 	$current_tab="pods";
 
 	?>	
-	<? include_once("option_nav.php"); ?>
-	<? if ($message!='') { ?>
+	<?php include_once("option_nav.php"); ?>
+	<?php if ($message!='') { ?>
 		<div class="info">
 		
-			<? echo $message ?>
+			<?php echo $message ?>
 			
 		</div>
 	
-	<? } ?>
+	<?php } ?>
 	<div class="panel">
 	<h1>Plugin Pods</h1>
 
@@ -81,10 +81,10 @@
 	</p>
 	
 	<p>
-		New Pods should be placed in <i><? echo $POD->libOptions('installDir'); ?>/pods</i>
+		New Pods should be placed in <i><?php echo $POD->libOptions('installDir'); ?>/pods</i>
 	</p>
 	
-	<form method="post" action="<? $POD->podRoot(); ?>/admin/options/pods.php">
+	<form method="post" action="<?php $POD->podRoot(); ?>/admin/options/pods.php">
 	<input name="go" type="hidden" value="foo" />
 	<table cellspacing="0" cellpadding="0" class="stack_output">
 		<tr>
@@ -99,28 +99,28 @@
 				<input type="checkbox" onchange="selectAll(this);" />
 			</th>
 		</tr>
-		<? 
+		<?php 
 			$count = 0;
 			ksort($POD->PODS);
 
 			foreach ($POD->PODS as $name => $podling) { $count++; ?>
-			<tr  class="<? if ($count % 2 ==0) {?>even<? } else { ?>odd<? } ?>">
+			<tr  class="<?php if ($count % 2 ==0) {?>even<?php } else { ?>odd<?php } ?>">
 				<td valign="top" align="left">			
-					<B><? echo $name; ?></B>
+					<B><?php echo $name; ?></B>
 				</td>
 				<td valign="top" align="left">
-					<? echo $podling['description'] ?>
+					<?php echo $podling['description'] ?>
 				</td>
 				<td valign="top">
-					<? if ($POD->isEnabled($name) && $POD->libOptions('settings_'.$name)) { ?>
-						<a href="podsettings.php?pod=<?= $name; ?>">settings</a>
-					<? } ?>
+					<?php if ($POD->isEnabled($name) && $POD->libOptions('settings_'.$name)) { ?>
+						<a href="podsettings.php?pod=<?php echo $name; ?>">settings</a>
+					<?php } ?>
 				</td>
 				<td valign="top" align="right">
-					<input type="checkbox" class="enabler" name="<?= $podling['name']; ?>" <? if ($POD->isEnabled($name)) {?>checked<? } ?> />				
+					<input type="checkbox" class="enabler" name="<?php echo $podling['name']; ?>" <?php if ($POD->isEnabled($name)) {?>checked<?php } ?> />				
 				</td>				
 			</tr>
-		<? } ?>
+		<?php } ?>
 		<tr>
 			<td colspan="4" align="right">
 				<input type="submit" value="Update" />
@@ -129,10 +129,10 @@
 	</table>
 	</form>
 
-	<? if ($newrules) { ?>
-		<p>The following lines should appear in <i><? echo $htaccessPath; ?>/.htaccess</i></p>
-		<textarea rows="15" cols="100"><? echo $newrules ?></textarea>
-	<? } ?>			
+	<?php if ($newrules) { ?>
+		<p>The following lines should appear in <i><?php echo $htaccessPath; ?>/.htaccess</i></p>
+		<textarea rows="15" cols="100"><?php echo $newrules ?></textarea>
+	<?php } ?>			
 	</div>
 	
-	<? $POD->footer();	?>
+	<?php $POD->footer();	?>

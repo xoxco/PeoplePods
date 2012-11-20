@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	
 	$POD = new PeoplePod(array('lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
@@ -33,14 +33,14 @@
 		if (isset($message)) { ?>
 		
 			<div class="info">
-				<? echo $message; ?>
+				<?php echo $message; ?>
 			</div>
 		
-		<? } ?>
+		<?php } ?>
 
 		<div class="list_panel">
 			<h1>Groups</h1>
-			<? $groups->output('short','group_header','table_pager'); ?>
+			<?php $groups->output('short','group_header','table_pager'); ?>
 		
 		</div>
 

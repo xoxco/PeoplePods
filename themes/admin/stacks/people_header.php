@@ -1,4 +1,4 @@
-		<table class="stack_output <? if ($title) {?>stack_<?  echo $POD->tokenize($title); } ?>" cellspacing="0" cellpadding="0" border="0">
+		<table class="stack_output <?php if ($title) {?>stack_<?php  echo $POD->tokenize($title); } ?>" cellspacing="0" cellpadding="0" border="0">
 			<tr>
 				<th>&nbsp;</th>
 				<th align="left">Name</th>

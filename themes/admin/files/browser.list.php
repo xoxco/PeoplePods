@@ -1,18 +1,18 @@
 <li class="fileBrowser_file">
-	<? if ($file->isImage()) { ?>
-		<a href="#" onclick="return fileBrowserDetails(<?= $file->parent()->id ?>,<?= $file->id ?>);"><img src="<?= $file->src('50'); ?>" border="0" /></a>
+	<?php if ($file->isImage()) { ?>
+		<a href="#" onclick="return fileBrowserDetails(<?php echo $file->parent()->id ?>,<?php echo $file->id ?>);"><img src="<?php echo $file->src('50'); ?>" border="0" /></a>
 
-		<a href="#" onclick="return fileBrowserDetails(<?= $file->parent()->id ?>,<?= $file->id ?>);"><strong><?= $file->file_name; ?></strong><br />
-		<?= $file->original_name; ?></a>
+		<a href="#" onclick="return fileBrowserDetails(<?php echo $file->parent()->id ?>,<?php echo $file->id ?>);"><strong><?php echo $file->file_name; ?></strong><br />
+		<?php echo $file->original_name; ?></a>
 		
-	<? } else { ?>
-		<img src="<? $POD->templateDir(); ?>/img/document_icon.png" border="0" />
+	<?php } else { ?>
+		<img src="<?php $POD->templateDir(); ?>/img/document_icon.png" border="0" />
 		
-		<strong><?= $file->file_name; ?></strong><br />
-		<?= $file->original_name; ?>
+		<strong><?php echo $file->file_name; ?></strong><br />
+		<?php echo $file->original_name; ?>
 		
-		<a class="submit" href="#" onclick='return insertMarkup("<a href=\"<?= $file->original_file; ?>\"><?= $file->file_name; ?></a>");'>Insert Link</a>
+		<a class="submit" href="#" onclick='return insertMarkup("<a href=\"<?php echo $file->original_file; ?>\"><?php echo $file->file_name; ?></a>");'>Insert Link</a>
 
-	<? } ?>
+	<?php } ?>
 	<div class="clearer"></div>
 </li>

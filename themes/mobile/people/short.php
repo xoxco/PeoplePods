@@ -14,11 +14,11 @@
 ?>
 <li class="person_short">
 
-	<a href="<? $user->write('permalink'); ?>"><img src="<?= $user->avatar(); ?>" border="0" align="absmiddle" /></a>
+	<a href="<?php $user->write('permalink'); ?>"><img src="<?php echo $user->avatar(); ?>" border="0" align="absmiddle" /></a>
 
-	<? $user->permalink(); ?>
-	<? if ($POD->isAuthenticated()) { ?>
-		<a href="#toggleFlag" data-flag="friends" data-person="<?= $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_short_follow_button <? if ($user->hasFlag('friends',$POD->currentUser())){?>active<? } ?>">Follow</a>
-	<? } ?>
+	<?php $user->permalink(); ?>
+	<?php if ($POD->isAuthenticated()) { ?>
+		<a href="#toggleFlag" data-flag="friends" data-person="<?php echo $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_short_follow_button <?php if ($user->hasFlag('friends',$POD->currentUser())){?>active<?php } ?>">Follow</a>
+	<?php } ?>
 
 </li>

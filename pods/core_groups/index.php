@@ -1,4 +1,4 @@
-<? 
+<?php 
 /***********************************************
 * This file is part of PeoplePods
 * (c) xoxco, inc  
@@ -67,14 +67,14 @@
 	
 	?>
 	<div class="column_8">	
-		<? $groups->output('short','header','pager',$header,'No groups have been created'); ?>
+		<?php $groups->output('short','header','pager',$header,'No groups have been created'); ?>
 	</div>
 
 	<div class="column_4 structure_only">
 	
-		<? $POD->output('sidebars/group_search'); ?>
-		<? $POD->output('sidebars/create_group'); ?>
-		<? $POD->output('sidebars/recent_groups'); ?>
+		<?php $POD->output('sidebars/group_search'); ?>
+		<?php $POD->output('sidebars/create_group'); ?>
+		<?php $POD->output('sidebars/recent_groups'); ?>
 		
 	</div>
 		

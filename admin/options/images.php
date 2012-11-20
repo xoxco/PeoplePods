@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	$POD = new PeoplePod(array('lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
 
@@ -27,16 +27,16 @@
 	$current_tab="images";
 	
 ?>
-	<? include_once("option_nav.php"); ?>
+	<?php include_once("option_nav.php"); ?>
 
-	<? if (isset($message)) { ?>
+	<?php if (isset($message)) { ?>
 		<div class="info">
 		
-			<? echo $message ?>
+			<?php echo $message ?>
 			
 		</div>
 	
-	<? } ?>
+	<?php } ?>
 	
 <div class="panel">
 
@@ -50,33 +50,33 @@
 	<h2>People Images</h2>
 	
 	<form method="post">
-		<p><input type="checkbox" value="peopleImageResize" name="peopleImageResize" <? if ($POD->libOptions('peopleImageResize')) { ?>checked<?}?> /> Resize profile images.
+		<p><input type="checkbox" value="peopleImageResize" name="peopleImageResize" <?php if ($POD->libOptions('peopleImageResize')) { ?>checked<?}?> /> Resize profile images.
 		<div class="more_info">
 			<P>Resize images to a maximum width of:
-			<input type="text" class="text" name="peopleImageMaxWidth" value="<? echo $POD->libOptions('peopleImageMaxWidth'); ?>" />
+			<input type="text" class="text" name="peopleImageMaxWidth" value="<?php echo $POD->libOptions('peopleImageMaxWidth'); ?>" />
 			</p>
 		</div></p>
 		
 		<P>Resize icons to a maximum width of:
-		<input type="text" class="text" name="peopleIconMaxWidth" value="<? echo $POD->libOptions('peopleIconMaxWidth'); ?>" />
+		<input type="text" class="text" name="peopleIconMaxWidth" value="<?php echo $POD->libOptions('peopleIconMaxWidth'); ?>" />
 		<div class="more_info">
-			<input type="checkbox" value="peopleIconSquare" name="peopleIconSquare" <? if ($POD->libOptions('peopleIconSquare')) { ?>checked<?}?> /> Crop to a square
+			<input type="checkbox" value="peopleIconSquare" name="peopleIconSquare" <?php if ($POD->libOptions('peopleIconSquare')) { ?>checked<?}?> /> Crop to a square
 		</div>
 		</p>
 	
 		
 		<h2>Document Images</h2>
-		<p><input type="checkbox" value="documentImageResize" name="documentImageResize" <? if ($POD->libOptions('documentImageResize')) { ?>checked<?}?> /> Resize document images.
+		<p><input type="checkbox" value="documentImageResize" name="documentImageResize" <?php if ($POD->libOptions('documentImageResize')) { ?>checked<?}?> /> Resize document images.
 		<div class="more_info">
 			<P>Resize images to a maximum width of:
-			<input type="text" class="text" name="documentImageMaxWidth" value="<? echo $POD->libOptions('documentImageMaxWidth'); ?>" />
+			<input type="text" class="text" name="documentImageMaxWidth" value="<?php echo $POD->libOptions('documentImageMaxWidth'); ?>" />
 			</p>
 		</div></p>
 		
 		<P>Resize icons to a maximum width of:
-		<input type="text" class="text" name="documentIconMaxWidth" value="<? echo $POD->libOptions('documentIconMaxWidth'); ?>" />
+		<input type="text" class="text" name="documentIconMaxWidth" value="<?php echo $POD->libOptions('documentIconMaxWidth'); ?>" />
 		<div class="more_info">
-			<input type="checkbox" value="documentIconSquare" name="documentIconSquare" <? if ($POD->libOptions('documentIconSquare')) { ?>checked<?}?> /> Crop to a square
+			<input type="checkbox" value="documentIconSquare" name="documentIconSquare" <?php if ($POD->libOptions('documentIconSquare')) { ?>checked<?}?> /> Crop to a square
 		</div>
 		</p>
 		
@@ -84,4 +84,4 @@
 	</form>
 
 </div>
-<? $POD->footer(); ?>
+<?php $POD->footer(); ?>

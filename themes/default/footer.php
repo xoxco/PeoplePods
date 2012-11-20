@@ -27,14 +27,14 @@
 		</div>
 		<div class="column_4">
 			<div class="lightblue">
-				<a href="<? $POD->siteRoot(); ?>">Home</a>
-				<? if ($POD->libOptions('enable_contenttype_document_list')) { ?> | <a href="<? $POD->siteRoot(); ?>/show">What's New?</a><? } ?>
-				<? if ($POD->libOptions('enable_core_groups')) { ?> | <a href="<? $POD->siteRoot(); ?>/groups">Groups</a><? } ?>
-				<? if ($POD->isAuthenticated()) { ?>
-					<? if ($POD->currentUser()->get('adminUser')) { ?>
-						| <a href="<? $POD->podRoot(); ?>/admin">Admin Tools</a>
-					<? } ?>
-				<? } ?>	
+				<a href="<?php $POD->siteRoot(); ?>">Home</a>
+				<?php if ($POD->libOptions('enable_contenttype_document_list')) { ?> | <a href="<?php $POD->siteRoot(); ?>/show">What's New?</a><?php } ?>
+				<?php if ($POD->libOptions('enable_core_groups')) { ?> | <a href="<?php $POD->siteRoot(); ?>/groups">Groups</a><?php } ?>
+				<?php if ($POD->isAuthenticated()) { ?>
+					<?php if ($POD->currentUser()->get('adminUser')) { ?>
+						| <a href="<?php $POD->podRoot(); ?>/admin">Admin Tools</a>
+					<?php } ?>
+				<?php } ?>	
 			</div>
 		</div>
 		<div class="clearer"></div>

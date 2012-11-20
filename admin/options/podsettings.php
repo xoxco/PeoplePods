@@ -54,32 +54,32 @@
 	$current_tab="pods";
 
 	?>	
-	<? include_once("option_nav.php"); ?>
-	<? if ($msg) { ?>
+	<?php include_once("option_nav.php"); ?>
+	<?php if ($msg) { ?>
 		<div class="info">
 		
-			<? echo $msg ?>
+			<?php echo $msg ?>
 			
 		</div>
 	
-	<? } ?>
+	<?php } ?>
 	<div class="panel">
 	
-		<h1>Settings for <?= $pod; ?></h1>
+		<h1>Settings for <?php echo $pod; ?></h1>
 	
 		<form method="post">
-			<input type="hidden" name="pod" value="<?= $pod; ?>" />
-		<? foreach ($fields as $field=>$label) { ?>
+			<input type="hidden" name="pod" value="<?php echo $pod; ?>" />
+		<?php foreach ($fields as $field=>$label) { ?>
 		
 			<p class="input">
-				<label for="<?= $field; ?>"><?= $label; ?></label>
-				<input name="libOption_<?= $field; ?>" id="<?= $field; ?>" class="text" value="<?= $POD->libOptions($field); ?>" />
+				<label for="<?php echo $field; ?>"><?php echo $label; ?></label>
+				<input name="libOption_<?php echo $field; ?>" id="<?php echo $field; ?>" class="text" value="<?php echo $POD->libOptions($field); ?>" />
 			</p>
 		
-		<? } ?>
+		<?php } ?>
 		<p class="input">
 			<input type="submit" value="Save Settings" />
 		</p>
 	
 	</div>	
-	<? $POD->footer();	?>
+	<?php $POD->footer();	?>

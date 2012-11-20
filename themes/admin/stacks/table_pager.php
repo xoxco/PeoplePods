@@ -11,21 +11,21 @@
 * http://peoplepods.net/readme/stack-output
 /**********************************************/
 ?>	
-<? if ($this->count() == 0) { ?>
+<?php if ($this->count() == 0) { ?>
 		<tr colspan="5">
 			<td class="empty_list">
-			<? if ($empty_message) {
+			<?php if ($empty_message) {
 				echo $empty_message; 
 			} else { ?>
 			Nothing to show!
-			<? } ?>
+			<?php } ?>
 			</td>
 		</tr>
-	<? } ?>
+	<?php } ?>
 	<tr >
 		<td colspan="5" class="stack_footer">
-		<? if ($this->hasPreviousPage()) { echo '<a href="?offset=' . $this->previousPage() . $additional_parameters . '" class="stack_previous_link">Previous</a>'; } ?>
-		<? if ($this->hasNextPage()) { echo '<a href="?offset=' . $this->nextPage() . $additional_parameters . '" class="stack_next_link">Next</a>'; }	?>
+		<?php if ($this->hasPreviousPage()) { echo '<a href="?offset=' . $this->previousPage() . $additional_parameters . '" class="stack_previous_link">Previous</a>'; } ?>
+		<?php if ($this->hasNextPage()) { echo '<a href="?offset=' . $this->nextPage() . $additional_parameters . '" class="stack_next_link">Next</a>'; }	?>
 		</td>
 	</tr>
 </table>

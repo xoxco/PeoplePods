@@ -11,4 +11,4 @@
 * http://peoplepods.net/readme/person-object
 /**********************************************/
 ?>
-<li><? $user->permalink(); ?></li>
+<li><?php $user->permalink(); ?></li>

@@ -14,14 +14,14 @@
 ?>
 <li class="group">
 	<header class="group_name">
-		<h1><? $group->permalink(); ?></h1>
+		<h1><?php $group->permalink(); ?></h1>
 	</header>
 	<article class="group_description">
-			<? $group->writeFormatted('description'); ?>	
+			<?php $group->writeFormatted('description'); ?>	
 	</article>
 	<aside class="group_member_count">
-		<?= $POD->pluralize($group->members()->totalCount(),'@number member','@number members'); ?>	| 
-		<a href="<?= $group->permalink; ?>/join">Join</a>
+		<?php echo $POD->pluralize($group->members()->totalCount(),'@number member','@number members'); ?>	| 
+		<a href="<?php echo $group->permalink; ?>/join">Join</a>
 	</aside>
 	<div class="clearer"></div>
 </li>

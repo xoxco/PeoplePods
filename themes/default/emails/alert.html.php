@@ -14,7 +14,7 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<? 
+<?php 
 
 $subject= 'There has been activity on your account at ' . $POD->siteName(false);
 ?>
@@ -24,7 +24,7 @@ $subject= 'There has been activity on your account at ' . $POD->siteName(false);
 </head>
 <body>
 
-<?= $message; ?>
+<?php echo $message; ?>
 
 </body>
 </html>

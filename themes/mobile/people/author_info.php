@@ -12,16 +12,16 @@
 /**********************************************/
 ?>
 <section id="author_info" class="padded">
-	<? $user->output('avatar'); ?>
+	<?php $user->output('avatar'); ?>
 	<section class="attributed_content">
-		<b>By <? $user->permalink(); ?></b>
-		<? if ($user->get('location')) {
+		<b>By <?php $user->permalink(); ?></b>
+		<?php if ($user->get('location')) {
 			$user->write('location');
 			echo "<br />";
 		} ?>
-		<? if ($user->POD->isAuthenticated() && $user->POD->currentUser()->get('id') != $user->get('id')) { ?>
-			<a href="#toggleFlag" data-flag="friends" data-person="<?= $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_output_follow_button <? if ($user->hasFlag('friends',$POD->currentUser())){?>active<? } ?>">Follow</a>
-		<? } ?>
+		<?php if ($user->POD->isAuthenticated() && $user->POD->currentUser()->get('id') != $user->get('id')) { ?>
+			<a href="#toggleFlag" data-flag="friends" data-person="<?php echo $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_output_follow_button <?php if ($user->hasFlag('friends',$POD->currentUser())){?>active<?php } ?>">Follow</a>
+		<?php } ?>
 	</section>
 	<div class="clearer"></div>
 </section>

@@ -20,18 +20,18 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title><? if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?></title>
+	<title><?php if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="user-scalable=no, width=device-width" />
         <meta name="apple-mobile-web-app-capable" content="yes">
         
-	<link rel="icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon" rel="external">
-	<link rel="shortcut icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon" rel="external">
+	<link rel="icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon" rel="external">
+	<link rel="shortcut icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon" rel="external">
 
-        <link rel="stylesheet" type="text/css" href="<? $POD->templateDir(); ?>/styles.css" media="screen" charset="utf-8" />
-        <link rel="stylesheet" href="<? $POD->templateDir(); ?>/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/styles.css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="<?php $POD->templateDir(); ?>/jquery.mobile.css" />
         
-	<script type="text/javascript" src="<? $POD->templateDir(); ?>/js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="<?php $POD->templateDir(); ?>/js/jquery-1.5.2.min.js"></script>
 
         <script type="text/javascript">
                $(document).bind("mobileinit", function(){
@@ -41,26 +41,26 @@
                     });
                 }); 
         </script>
-        <script type="text/javascript" src="<? $POD->templateDir(); ?>/javascript.js"></script>
-	<script type="text/javascript" src="<? $POD->templateDir(); ?>/js/jquery.mobile.js"></script>
+        <script type="text/javascript" src="<?php $POD->templateDir(); ?>/javascript.js"></script>
+	<script type="text/javascript" src="<?php $POD->templateDir(); ?>/js/jquery.mobile.js"></script>
     
-	<script src="<? $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
-	<script src="<? $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
 
-	<? $POD->extraJS(); ?>
+	<?php $POD->extraJS(); ?>
 
-	<? $POD->extraCSS(); ?>
+	<?php $POD->extraCSS(); ?>
 	
-	<? if ($feedurl) { ?>
-		<link rel="alternate" type="application/rss+xml" title="RSS: <? if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?>" href="<? echo $feedurl; ?>" />
-	<? } else if ($POD->libOptions('enable_core_feeds')) { ?>	
-		<link rel="alternate" type="application/rss+xml" title="RSS: <? $POD->siteName();  ?>" href="<? $POD->siteRoot(); ?>/feeds" />
-	<? } ?>		
+	<?php if ($feedurl) { ?>
+		<link rel="alternate" type="application/rss+xml" title="RSS: <?php if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?>" href="<?php echo $feedurl; ?>" />
+	<?php } else if ($POD->libOptions('enable_core_feeds')) { ?>	
+		<link rel="alternate" type="application/rss+xml" title="RSS: <?php $POD->siteName();  ?>" href="<?php $POD->siteRoot(); ?>/feeds" />
+	<?php } ?>		
 
 	<script type="text/javascript">
-		var siteRoot = "<? $POD->siteRoot(); ?>";
-		var podRoot = "<? $POD->podRoot(); ?>";
-		var themeRoot = "<? $POD->templateDir(); ?>";
+		var siteRoot = "<?php $POD->siteRoot(); ?>";
+		var podRoot = "<?php $POD->podRoot(); ?>";
+		var themeRoot = "<?php $POD->templateDir(); ?>";
 		var API = siteRoot + "/api/2";		
 	</script>
 
@@ -78,12 +78,12 @@
 
 </head>
 <body id="body">
-	<? if ($fb_api = $POD->libOptions('fb_connect_api')) { ?>
+	<?php if ($fb_api = $POD->libOptions('fb_connect_api')) { ?>
 		<!-- Facebook API -->
 		<script type="text/javascript" src="http://connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"></script> 
-		<script type="text/javascript">FB.init('<?= $fb_api; ?>','/xd_receiver.htm');</script>	
+		<script type="text/javascript">FB.init('<?php echo $fb_api; ?>','/xd_receiver.htm');</script>	
 		<!-- End Facebook API -->
-	<? } ?>
+	<?php } ?>
 	<!-- begin header -->
 	<header>
       

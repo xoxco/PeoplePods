@@ -15,25 +15,25 @@
      <section id="" class="content" data-role="page">
             <div data-role="header" data-theme="b" data-position="fixed">
                 <a href="#main_nav" data-role="button" data-icon="grid">Menu</a>
-                <h1><a class="mainpagelink" href="<? $POD->siteRoot(); ?>" rel="external" ><? $POD->siteName(); ?></a></h1>
+                <h1><a class="mainpagelink" href="<?php $POD->siteRoot(); ?>" rel="external" ><?php $POD->siteName(); ?></a></h1>
             </div>
             <div data-role="fieldcontain">
-                <form method="get" action="<? $POD->siteRoot(); ?>/search">
+                <form method="get" action="<?php $POD->siteRoot(); ?>/search">
                     <input type="search" name="q" id="search" value="" placeholder="Search"/>
                 </form>
              </div>
             <div class="clearer"></div>
           
            <div data-role="content">
-            	<? if (sizeof($POD->messages()) > 0) { ?>
+            	<?php if (sizeof($POD->messages()) > 0) { ?>
 				<section id="system_messages" style="display:none;">
                                     <div data-inline="true">
 					<a href="#hideMessages" data-ajax="false" data-role="button" class="dismiss">OK</a>
                                     </div>
 					<ul>
-					<? foreach ($POD->messages() as $message) { ?>
-						<li><?= $message; ?></li>
-					<? } ?>
+					<?php foreach ($POD->messages() as $message) { ?>
+						<li><?php echo $message; ?></li>
+					<?php } ?>
 					</ul>
 				</section>
-			<? } ?>
+			<?php } ?>

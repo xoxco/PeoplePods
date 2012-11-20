@@ -11,4 +11,4 @@
 * http://peoplepods.net/readme/person-object
 /**********************************************/
 ?>
-<? $user->output('short'); ?>
+<?php $user->output('short'); ?>

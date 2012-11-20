@@ -1,1 +1,1 @@
-<p class="crumbs"><a href="<? $POD->siteRoot(); ?>/peoplepods/admin/files/index.php?contentId=<?= $doc->id; ?>">New File</p>
+<p class="crumbs"><a href="<?php $POD->siteRoot(); ?>/peoplepods/admin/files/index.php?contentId=<?php echo $doc->id; ?>">New File</p>

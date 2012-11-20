@@ -1,1 +1,1 @@
-<ul class="stack_output <? if ($title) {?>stack_<?  echo $POD->tokenize($title); } ?>">
+<ul class="stack_output <?php if ($title) {?>stack_<?php  echo $POD->tokenize($title); } ?>">

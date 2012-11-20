@@ -14,5 +14,5 @@
 /**********************************************/
 ?>
 <aside class="person_avatar">
-	<a href="<? $user->write('permalink'); ?>" title="View <?= $user->htmlspecialwrite('nick'); ?>'s profile"><img src="<?= $user->avatar(); ?>" alt="<? $user->htmlspecialwrite('nick'); ?>" /></a>
+	<a href="<?php $user->write('permalink'); ?>" title="View <?php echo $user->htmlspecialwrite('nick'); ?>'s profile"><img src="<?php echo $user->avatar(); ?>" alt="<?php $user->htmlspecialwrite('nick'); ?>" /></a>
 </aside>

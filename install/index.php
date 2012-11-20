@@ -1,4 +1,4 @@
-<? 
+<?php 
 
 	// include core library
 	include("../PeoplePods.php");
@@ -57,7 +57,7 @@
 
 <?php
 
-	// this is the install script, it should set shit up for you.
+	// this is the install script, it should set up for you.
 
 			
 		if ($POD->success() && $POD->hasAdminUser() &&  $POD->isAuthenticated() && $POD->currentUser()->get('adminUser')) { 
@@ -65,9 +65,9 @@
 			
 			<P><b>PeoplePods is ready to go!</b></p>
 			
-			<p><a href="<? $POD->podRoot(); ?>/admin/options/pods.php">Login to the Control Center to turn on site features.</a></b></P>
+			<p><a href="<?php $POD->podRoot(); ?>/admin/options/pods.php">Login to the Control Center to turn on site features.</a></b></P>
 		
-		<? } else {
+		<?php } else {
 			
 			$ok = @$_GET['ok'];
 						
@@ -87,7 +87,7 @@
 				
 				<p>All set? <a href="index.php?ok=1">Continue &#187;</a></p>
 				
-			<? } else if ($POD->errorCode()==100) {
+			<?php } else if ($POD->errorCode()==100) {
 			// the library doesn't know where it is!Let's see if we can figure it out.
 			
 				echo "<p><b>Step 1: Find PeoplePods</b></p>";
@@ -109,12 +109,12 @@
 					<p class="error">Uhoh! Could not find PeoplePods.php in $installDir.</p>
 					<form method="post">
 						
-						<p><label for="installDir">Where is PeoplePods installed?</label><input name="installDir" class="text" id="installDir" value="<? echo htmlspecialchars($installDir); ?>" /></p>
+						<p><label for="installDir">Where is PeoplePods installed?</label><input name="installDir" class="text" id="installDir" value="<?php echo htmlspecialchars($installDir); ?>" /></p>
 						<p><input type="submit" value="Continue &#187;" /></p>	
 									
 					</form>
 					
-					<?
+					<?php
 					
 				} else {
 	
@@ -275,22 +275,22 @@
 				if ($POD->isAuthenticated()) { ?>
 				
 					<script type="text/javascript">
-						setCookie('<? $NEWUSER->write('authSecret'); ?>');
+						setCookie('<?php $NEWUSER->write('authSecret'); ?>');
 					</script>
 					<p><b>You have been upgraded to SUPER USER!</b></p>
 					<p><a href="index.php">Continue &#187;</a></p>
 	
-				<? } else { ?>
+				<?php } else { ?>
 	
 				<p><B>Step 3: Create the first Super User</b></p>
 				<p>Soon, you will become the all-powerful, all-seeing super user of this site! Remember: with great power comes great responsibility!</p>
 				<hr />
 			
-				<? if (isset($error_msg)) { ?>
+				<?php if (isset($error_msg)) { ?>
 					<div class="info">
-						<? echo $error_msg; ?>
+						<?php echo $error_msg; ?>
 					</div>
-				<? } ?>
+				<?php } ?>
 					
 				<form method="post">
 					<p>Name: <input name="nick"class="text" value="admin" /></p>

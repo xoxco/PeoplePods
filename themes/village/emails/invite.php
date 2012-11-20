@@ -31,54 +31,54 @@ if (isset($code)) {  // this version will be sent to non-members ?>
 
 Hello!
 
-<? if (isset($group)) { ?>
-<? $sender->write('nick'); ?> invited you to join a group on <? $sender->POD->siteName(); ?>.  The group is called <? $group->write('groupname'); ?>.
-<? } else { ?>
-<? $sender->write('nick'); ?> invited you to join <? $sender->POD->siteName(); ?>.
-<? } ?>
+<?php if (isset($group)) { ?>
+<?php $sender->write('nick'); ?> invited you to join a group on <?php $sender->POD->siteName(); ?>.  The group is called <?php $group->write('groupname'); ?>.
+<?php } else { ?>
+<?php $sender->write('nick'); ?> invited you to join <?php $sender->POD->siteName(); ?>.
+<?php } ?>
 
-<? $sender->write('nick'); ?> sent you this message:
+<?php $sender->write('nick'); ?> sent you this message:
 ------------------------------------------------------------
 
-<? echo $message; ?> 
+<?php echo $message; ?> 
 
 ------------------------------------------------------------
 
 Click below to accept the invitation:
-<? $sender->POD->siteRoot(); ?>/join?code=<? echo $code; ?>
+<?php $sender->POD->siteRoot(); ?>/join?code=<?php echo $code; ?>
 
-<? if (isset($group)) { ?>
+<?php if (isset($group)) { ?>
 Learn more about this group here:
-<? $group->write('permalink'); ?>
+<?php $group->write('permalink'); ?>
 
 
-<? } ?>
+<?php } ?>
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
-<? } else { // this version will be sent to members ?>
+<?php } else { // this version will be sent to members ?>
 Hello!
 
-<? $sender->write('nick'); ?> invited you to join a group on <? $sender->POD->siteName(); ?>.  The group is called <? $group->write('groupname'); ?>.
+<?php $sender->write('nick'); ?> invited you to join a group on <?php $sender->POD->siteName(); ?>.  The group is called <?php $group->write('groupname'); ?>.
 
-<? $sender->write('nick'); ?> sent you this message:
+<?php $sender->write('nick'); ?> sent you this message:
 ------------------------------------------------------------
 
-<? echo $message; ?> 
+<?php echo $message; ?> 
 
 ------------------------------------------------------------
 
 Learn more about this group here and accept your invitation here:
-<? $group->write('permalink'); ?>
+<?php $group->write('permalink'); ?>
 
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
 
 You can update your account here:
-<? $sender->POD->siteRoot(); ?>/editprofile
-<? } ?>
+<?php $sender->POD->siteRoot(); ?>/editprofile
+<?php } ?>
 
 

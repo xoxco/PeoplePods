@@ -11,18 +11,18 @@
 * http://peoplepods.net/readme/stack-output
 /**********************************************/
 ?>	
-<? if ($this->count() == 0) { ?>
+<?php if ($this->count() == 0) { ?>
 		<li class="empty_list">
-			<? if ($empty_message) {
+			<?php if ($empty_message) {
 				echo $empty_message; 
 			} else { ?>
 			Nothing to show!
-			<? } ?>
+			<?php } ?>
 		</li>
-	<? } ?>
+	<?php } ?>
 	<li class="stack_footer pager">
-		<? if ($this->hasPreviousPage()) { echo '<a href="?offset=' . $this->previousPage() . $additional_parameters . '" class="previous" data-role="button" data-icon="arrow-l" rel="external">Previous</a>'; } ?>
-		<? if ($this->hasNextPage()) { echo '<a href="?offset=' . $this->nextPage() . $additional_parameters . '" data-role="button" data-icon="arrow-r" class="next" rel="external">Next</a>'; }	?>
+		<?php if ($this->hasPreviousPage()) { echo '<a href="?offset=' . $this->previousPage() . $additional_parameters . '" class="previous" data-role="button" data-icon="arrow-l" rel="external">Previous</a>'; } ?>
+		<?php if ($this->hasNextPage()) { echo '<a href="?offset=' . $this->nextPage() . $additional_parameters . '" data-role="button" data-icon="arrow-r" class="next" rel="external">Next</a>'; }	?>
 	</li>
 </ul>
 </section>

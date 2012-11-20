@@ -16,7 +16,7 @@
 ?>
 	<div class="sidebar padded" id="sidebar_login_form">
 		
-		<form method="post" id="login" action="<? $POD->siteRoot(); ?>/login" class="valid">
+		<form method="post" id="login" action="<?php $POD->siteRoot(); ?>/login" class="valid">
 			<p>
 				<label for="email">Email:</label>
 				<input class="required email text" name="email" id="email" />
@@ -33,7 +33,7 @@
 				<input type="submit"  value="Login" name="login" />
 			</p>
 			
-			<p>Need an account? <a href="<? $POD->siteRoot(); ?>/join">Join this site!</a></p>
+			<p>Need an account? <a href="<?php $POD->siteRoot(); ?>/join">Join this site!</a></p>
 
 		</form>
 	</div>

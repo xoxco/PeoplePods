@@ -11,13 +11,13 @@
 * http://peoplepods.net/readme/stack-output
 /**********************************************/
 ?>
-	<? if ($this->count() == 0) { ?>
+	<?php if ($this->count() == 0) { ?>
 		<div class="empty_list">
-			<? if ($empty_message) {
+			<?php if ($empty_message) {
 				echo $empty_message; 
 			} else { ?>
 			Nothing to show!
-			<? } ?>
+			<?php } ?>
 		</div>
-	<? } ?>
+	<?php } ?>
 </div>

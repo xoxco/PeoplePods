@@ -15,59 +15,59 @@
 	<div class="">
 	
 		<div id="profile_info">		
-			<h1><? $user->write('nick'); ?></h1>
-			<? if ($img = $user->files()->contains('file_name','img')) { ?>
-				<img src="<? $img->write('resized'); ?>" border="0" />
-			<? } ?>
+			<h1><?php $user->write('nick'); ?></h1>
+			<?php if ($img = $user->files()->contains('file_name','img')) { ?>
+				<img src="<?php $img->write('resized'); ?>" border="0" />
+			<?php } ?>
 		</div>
             
 		<div id="profile_actions">
-				<? if ($user->POD->isAuthenticated()) { 
+				<?php if ($user->POD->isAuthenticated()) { 
 					if ($user->POD->currentUser()->get('id') != $user->get('id')) {  ?>
 
-						<a data-role="button"data-ajax=false href="#toggleFlag" data-flag="friends" data-person="<?= $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_output_follow_button <? if ($user->hasFlag('friends',$POD->currentUser())){?>active<? } ?>">Follow</a>
+						<a data-role="button"data-ajax=false href="#toggleFlag" data-flag="friends" data-person="<?php echo $user->id; ?>" data-active="Stop Following" data-inactive="Follow" class="person_output_follow_button <?php if ($user->hasFlag('friends',$POD->currentUser())){?>active<?php } ?>">Follow</a>
 
-						<? if ($user->POD->libOptions('enable_core_private_messaging')) { ?>
-							<a href="<? $user->POD->siteRoot(); ?><? echo $user->POD->libOptions('messagePath') ?>/<? $user->write('stub'); ?>" data-role="button" rel="external" class="person_output_send_message_button">Send Message</a>
-						<? } ?>
+						<?php if ($user->POD->libOptions('enable_core_private_messaging')) { ?>
+							<a href="<?php $user->POD->siteRoot(); ?><?php echo $user->POD->libOptions('messagePath') ?>/<?php $user->write('stub'); ?>" data-role="button" rel="external" class="person_output_send_message_button">Send Message</a>
+						<?php } ?>
 
-					<? }  ?>
-				<? } else { ?>
-					<div id="addFriend<? $user->write('id'); ?>"><a href="<? $user->POD->siteRoot(); ?>/join" data-role="button" rel="external"class="person_output_follow_button person_output_follow_button_start">Join up to follow <? $user->write('nick'); ?></a></div>
-				<? } ?>
+					<?php }  ?>
+				<?php } else { ?>
+					<div id="addFriend<?php $user->write('id'); ?>"><a href="<?php $user->POD->siteRoot(); ?>/join" data-role="button" rel="external"class="person_output_follow_button person_output_follow_button_start">Join up to follow <?php $user->write('nick'); ?></a></div>
+				<?php } ?>
 		</div>
 		
 		<div id="profile_about">	
-			<? if ($user->get('aboutme')) { ?>
-				<? echo $user->formatText('aboutme'); ?>
-			<? } ?>
-			<? if ($user->get('homepage')) { ?>
-				<p><b><? $user->write('nick'); ?>'s "Real" Website:</b> <a href="<? $user->write('homepage'); ?>" rel="external"><? $user->write('homepage'); ?></a></p>
-			<? } ?>
+			<?php if ($user->get('aboutme')) { ?>
+				<?php echo $user->formatText('aboutme'); ?>
+			<?php } ?>
+			<?php if ($user->get('homepage')) { ?>
+				<p><b><?php $user->write('nick'); ?>'s "Real" Website:</b> <a href="<?php $user->write('homepage'); ?>" rel="external"><?php $user->write('homepage'); ?></a></p>
+			<?php } ?>
 
-			<? if ($user->get('age')) { ?>
-				<p><b>Age:</b> <? $user->write('age'); ?></p>
-			<? } ?>
-			<? if ($user->get('sex')) { ?>
-				<p><b>Sex:</b> <? $user->write('sex'); ?></p>
-			<? } ?>
-			<? if ($user->get('location')) { ?>
-				<p><b>Location:</b> <? $user->write('location'); ?></p>
-			<? } ?>
-			<? if ($user->favorites()->totalCount() > 0) { ?>
-				<p><a href="<? $user->POD->siteRoot(); ?>/lists/favorites/<? $user->write('stub'); ?>"><? $user->write('nick'); ?>'s Favorites</a></p>
-			<? } ?>
+			<?php if ($user->get('age')) { ?>
+				<p><b>Age:</b> <?php $user->write('age'); ?></p>
+			<?php } ?>
+			<?php if ($user->get('sex')) { ?>
+				<p><b>Sex:</b> <?php $user->write('sex'); ?></p>
+			<?php } ?>
+			<?php if ($user->get('location')) { ?>
+				<p><b>Location:</b> <?php $user->write('location'); ?></p>
+			<?php } ?>
+			<?php if ($user->favorites()->totalCount() > 0) { ?>
+				<p><a href="<?php $user->POD->siteRoot(); ?>/lists/favorites/<?php $user->write('stub'); ?>"><?php $user->write('nick'); ?>'s Favorites</a></p>
+			<?php } ?>
 		</div>
 			
 		<div id="profile_friends">
-			<h3>Following <? echo $user->friends()->totalCount(); echo $POD->pluralize($user->friends()->totalCount(),' Person',' People'); ?></h3>
-			<? $user->friends()->output('short'); ?>
+			<h3>Following <?php echo $user->friends()->totalCount(); echo $POD->pluralize($user->friends()->totalCount(),' Person',' People'); ?></h3>
+			<?php $user->friends()->output('short'); ?>
 		</div>
 	</div>
 	
 
 	<div class="last" id="profile_content">
-		<? 	
+		<?php 	
 			$offset = 0;
 			if (isset($_GET['offset'])) {
 				$offset = $_GET['offset'];

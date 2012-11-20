@@ -14,14 +14,14 @@
 ?>
 <li class="group">
 	<header class="group_name">
-		<h1><? $group->permalink(); ?></h1>
+		<h1><?php $group->permalink(); ?></h1>
 	</header>
 	<article class="group_description">
-			<? $group->writeFormatted('description'); ?>	
+			<?php $group->writeFormatted('description'); ?>	
 	</article>
 	<aside class="group_member_count">
-		<?= $POD->pluralize($group->members()->totalCount(),'@number member','@number members'); ?>
-			<a href="<?= $group->permalink; ?>/join" class="joinGroup <?= $group->isMember($POD->currentUser()); ?>" data-default="Join" data-group="<?= $group->id; ?>" <? if ($POD->isAuthenticated()) { ?>data-person="<?= $POD->currentUser()->id; ?>"<? } ?> data-invitee="You're invited. Join now." data-applicant="You've applied for membership."  data-member="Quit Group" data-owner="You started this group!" data-manager="You're a group manager.">Join</a>
+		<?php echo $POD->pluralize($group->members()->totalCount(),'@number member','@number members'); ?>
+			<a href="<?php echo $group->permalink; ?>/join" class="joinGroup <?php echo $group->isMember($POD->currentUser()); ?>" data-default="Join" data-group="<?php echo $group->id; ?>" <?php if ($POD->isAuthenticated()) { ?>data-person="<?php echo $POD->currentUser()->id; ?>"<?php } ?> data-invitee="You're invited. Join now." data-applicant="You've applied for membership."  data-member="Quit Group" data-owner="You started this group!" data-manager="You're a group manager.">Join</a>
 	</aside>
 	<div class="clearer"></div>
 </li>

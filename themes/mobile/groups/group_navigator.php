@@ -13,4 +13,4 @@
 * http://peoplepods.net/readme/group-object
 /**********************************************/
 ?>
-<li class="group_navigator <?if ($group->get('active')) {?>active<? } ?>"><? $group->permalink(); ?></li>
+<li class="group_navigator <?if ($group->get('active')) {?>active<?php } ?>"><?php $group->permalink(); ?></li>

@@ -28,14 +28,14 @@
 	
 	
 	<div class="column_8">
-		<? if (isset($msg)) { ?>	
+		<?php if (isset($msg)) { ?>	
 			<div class="info">
-				<? echo $msg; ?>
+				<?php echo $msg; ?>
 			</div>
-		<? } ?>
+		<?php } ?>
 		<!-- this is where posts with new comments show up -->
 		<div id="replies">
-			<? 
+			<?php 
 				$watched = $user->watched()->getOtherPage($offset);
 				// since the watched list results might be cached, 
 				// we should resort the list by the commentDate, 

@@ -1,4 +1,4 @@
-<? 
+<?php 
 
 	include_once("../../PeoplePods.php");	
 	
@@ -49,9 +49,9 @@
 			$comment->output('comment.edit');		
 		} else { ?>
 			<div class="info">
-				<?= $comment->error(); ?>
+				<?php echo $comment->error(); ?>
 			</div>
- 		<? }
+ 		<?php }
 		
 	} else if ($_POST) { 
 	
@@ -104,9 +104,9 @@
 	
 		if (isset($msg)) { ?>
 			<div class="info">
-				<?= $msg; ?>
+				<?php echo $msg; ?>
 			</div>
- 		<? }
+ 		<?php }
 		
 		$comment->output('comment.edit');
 	
@@ -130,19 +130,19 @@
 
 		if (isset($msg)) { ?>
 			<div class="info">
-				<?= $msg; ?>
+				<?php echo $msg; ?>
 			</div>
- 		<? } ?>
+ 		<?php } ?>
  		
 		<div class="list_panel">
 			<ul id="content_type">
 			<li>Comment Type:</li>
-			<li <? if (!isset($_GET['type'])) { ?>class="active"<? } ?>><A href="index.php">All</a></li>
-			<? foreach ($types as $type) { ?>
-				<li <? if (isset($_GET['type']) && $_GET['type']==$type) {?>class="active"<? } ?>><a href="?type=<?= $type; ?>"><?= $type; ?></a></li>
-			<? } ?> 		
+			<li <?php if (!isset($_GET['type'])) { ?>class="active"<?php } ?>><A href="index.php">All</a></li>
+			<?php foreach ($types as $type) { ?>
+				<li <?php if (isset($_GET['type']) && $_GET['type']==$type) {?>class="active"<?php } ?>><a href="?type=<?php echo $type; ?>"><?php echo $type; ?></a></li>
+			<?php } ?> 		
 			</ul>
-			<? $comments->output('comment.list','comment_header','table_pager',null,'No comments','&type='.$type); ?>
+			<?php $comments->output('comment.list','comment_header','table_pager',null,'No comments','&type='.$type); ?>
 		</div>
-	<? }
+	<?php }
 	$POD->footer();

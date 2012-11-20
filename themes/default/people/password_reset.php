@@ -13,13 +13,13 @@
 ?>		
 	<div id="login_join_form">
 		
-	<? if ($user->get('resetCode')) { ?>	
+	<?php if ($user->get('resetCode')) { ?>	
 		
 		<!-- reset password form -->
 		<h1>Reset Password</h1>
 		
-		<form method="post" action="<? $POD->siteRoot(); ?>/password_reset" id="password_reset" class="valid">
-			<input type="hidden" name="resetCode" value="<? echo $_GET['resetCode']; ?>" />
+		<form method="post" action="<?php $POD->siteRoot(); ?>/password_reset" id="password_reset" class="valid">
+			<input type="hidden" name="resetCode" value="<?php echo $_GET['resetCode']; ?>" />
 			<p><label for="password">New Password:</label>
 			<input id="password" name="password" class="required"></p>
 			
@@ -27,19 +27,19 @@
 		</form>
 		
 
-	<? } else { ?>
+	<?php } else { ?>
 
 		<!-- reset request form -->
 		
 		<h1>I forgot my password!</h1>
 		
-		<? if ($user->get('msg')) { ?>
+		<?php if ($user->get('msg')) { ?>
 			<div class="info">
-				<? $user->write('msg'); ?>
+				<?php $user->write('msg'); ?>
 			</div>
-		<? } ?>
+		<?php } ?>
 	
-		<form method="post" action="<? $POD->siteRoot(); ?>/password_reset" id="password_reset" class="valid">
+		<form method="post" action="<?php $POD->siteRoot(); ?>/password_reset" id="password_reset" class="valid">
 	
 			<p>Which email address did you use when you signed up?</p>
 			<p>
@@ -51,6 +51,6 @@
 		
 		</form>
 		
-	<? } ?>
+	<?php } ?>
 
 	</div>

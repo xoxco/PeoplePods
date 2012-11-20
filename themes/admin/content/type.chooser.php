@@ -20,11 +20,11 @@
 
 <p>What type of content would you like to create?</p>
 
-<? foreach ($types as $type) { ?>
+<?php foreach ($types as $type) { ?>
 
-	<p><a href="?type=<?= urlencode($type); ?>"><?= ucfirst($type); ?></a></p>
+	<p><a href="?type=<?php echo urlencode($type); ?>"><?php echo ucfirst($type); ?></a></p>
 
-<? } ?>
+<?php } ?>
 
 	<form method="get">
 		<input name="type" class="repairField" default="new content type" />

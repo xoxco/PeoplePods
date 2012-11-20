@@ -45,16 +45,16 @@
 			if ($user->get('verificationKey')) { ?>
 				<div id="welcome_message">
 					
-					<p><strong>Welcome to <? $POD->siteName(); ?>!</strong>.  We are so glad you joined us.</p>
+					<p><strong>Welcome to <?php $POD->siteName(); ?>!</strong>.  We are so glad you joined us.</p>
 					<p>
-						However, before you're allowed to post anything or leave comments, we need to <a href="<? $POD->siteRoot(); ?>/verify">verify your email address</a>.
+						However, before you're allowed to post anything or leave comments, we need to <a href="<?php $POD->siteRoot(); ?>/verify">verify your email address</a>.
 						This lets us make sure that you aren't a spambot.
 						You should already have the verification email in your inbox!
 					</p>
-					<p><a rel="external" href="<? $POD->siteRoot(); ?>/verify">Verify My Account</a></p>
+					<p><a rel="external" href="<?php $POD->siteRoot(); ?>/verify">Verify My Account</a></p>
 				
 				</div>		
-			<? } else {
+			<?php } else {
 			
 				// output a blank edit form
 				if ($POD->libOptions("enable_contenttype_document_add")) { 
@@ -64,16 +64,16 @@
 			}
 		?>	
 		
-		<? $user->getAlerts()->output('output',null,null,null); ?>
+		<?php $user->getAlerts()->output('output',null,null,null); ?>
 				
-		<? if (isset($msg)) { ?>	
+		<?php if (isset($msg)) { ?>	
 			<div class="info">
-				<? echo $msg; ?>
+				<?php echo $msg; ?>
 			</div>
-		<? } ?>
+		<?php } ?>
 		
 		<!-- this is where new posts from friends and groups show up -->
-		<? 
+		<?php 
 				$docs->output('short','header','pager','My New Stuff','There\'s nothing new yet!'); 
 		?>
 

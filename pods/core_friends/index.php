@@ -1,4 +1,4 @@
-<? 
+<?php 
 /***********************************************
 * This file is part of PeoplePods
 * (c) xoxco, inc  
@@ -55,17 +55,17 @@
 	
 	?>
 		<div id="friends_actions">
-			<h1><? echo $header; ?></h1>
+			<h1><?php echo $header; ?></h1>
 			
 			<ul>
-				<li <? if ($mode=="friends") { ?>class="active"<? } ?>><a href="<? $POD->siteRoot(); ?>/friends">Friends</a></li>
-				<li <? if ($mode=="followers") { ?>class="active"<? } ?>><a href="<? $POD->siteRoot(); ?>/friends/followers">Followers</a></li>
-				<li <? if ($mode=="recommended") { ?>class="active"<? } ?>><a href="<? $POD->siteRoot(); ?>/friends/recommended">Recommended</a></li>
-				<? if ($POD->libOptions('enable_core_invite')) { ?>
-					<li><a href="<? $POD->siteRoot(); ?>/invite">Invite</a></li>
-				<? } ?>
+				<li <?php if ($mode=="friends") { ?>class="active"<?php } ?>><a href="<?php $POD->siteRoot(); ?>/friends">Friends</a></li>
+				<li <?php if ($mode=="followers") { ?>class="active"<?php } ?>><a href="<?php $POD->siteRoot(); ?>/friends/followers">Followers</a></li>
+				<li <?php if ($mode=="recommended") { ?>class="active"<?php } ?>><a href="<?php $POD->siteRoot(); ?>/friends/recommended">Recommended</a></li>
+				<?php if ($POD->libOptions('enable_core_invite')) { ?>
+					<li><a href="<?php $POD->siteRoot(); ?>/invite">Invite</a></li>
+				<?php } ?>
 				<li id="people_search">
-					<form action="<? $POD->siteRoot(); ?>/search" >
+					<form action="<?php $POD->siteRoot(); ?>/search" >
 						<input id="people_search_p" name="p" class="repairField" data-default="search people" />
 						<input type="submit" value="search" />
 					</form>
@@ -73,6 +73,6 @@
 			</ul>
 		</div>		
 
-		<? $people->output('short','header','pager',null,'No people found!'); ?>
+		<?php $people->output('short','header','pager',null,'No people found!'); ?>
 	
 <?	$POD->footer(); ?>

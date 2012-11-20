@@ -1,3 +1,3 @@
 <li>
-	<a href="<? $POD->podRoot(); ?>/admin/people/?id=<?= $user->id; ?>"><?= $user->nick; ?></a>
+	<a href="<?php $POD->podRoot(); ?>/admin/people/?id=<?php echo $user->id; ?>"><?php echo $user->nick; ?></a>
 </li>

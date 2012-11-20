@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include_once("../../PeoplePods.php");	
 	$POD = new PeoplePod(array('lockdown'=>'adminUser','authSecret'=>@$_COOKIE['pp_auth']));
 
@@ -40,16 +40,16 @@
 	$current_tab="notifications";
 
 ?>
-<? include_once("option_nav.php"); ?>
+<?php include_once("option_nav.php"); ?>
 
-	<? if (isset($message)) { ?>
+	<?php if (isset($message)) { ?>
 		<div class="info">
 		
-			<? echo $message ?>
+			<?php echo $message ?>
 			
 		</div>
 	
-	<? } ?>		
+	<?php } ?>		
 <div class="panel">
 
 	<h1>Automatic Notifications</h1>
@@ -97,7 +97,7 @@
 				Send Email
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="friendEmail" value="friendEmail" <? if ($POD->libOptions('friendEmail')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="friendEmail" value="friendEmail" <?php if ($POD->libOptions('friendEmail')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 		<tr>
@@ -111,7 +111,7 @@
 				Send Alert
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="friendAlert" value="friendAlert" <? if ($POD->libOptions('friendAlert')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="friendAlert" value="friendAlert" <?php if ($POD->libOptions('friendAlert')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 		<tr>
@@ -125,7 +125,7 @@
 				Publish Activity
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="friendActivity" value="friendActivity" <? if ($POD->libOptions('friendActivity')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="friendActivity" value="friendActivity" <?php if ($POD->libOptions('friendActivity')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 
@@ -152,7 +152,7 @@
 				Send Alert
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="contentCommentAlert" value="contentCommentAlert" <? if ($POD->libOptions('contentCommentAlert')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="contentCommentAlert" value="contentCommentAlert" <?php if ($POD->libOptions('contentCommentAlert')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 		<tr>
@@ -166,7 +166,7 @@
 				Publish Activity
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="contentCommentActivity" value="contentCommentActivity" <? if ($POD->libOptions('contentCommentActivity')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="contentCommentActivity" value="contentCommentActivity" <?php if ($POD->libOptions('contentCommentActivity')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 
@@ -193,7 +193,7 @@
 				Send Alert
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="profileCommentAlert" value="profileCommentAlert" <? if ($POD->libOptions('profileCommentAlert')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="profileCommentAlert" value="profileCommentAlert" <?php if ($POD->libOptions('profileCommentAlert')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 		<tr>
@@ -207,7 +207,7 @@
 				Publish Activity
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="profileCommentActivity" value="profileCommentActivity" <? if ($POD->libOptions('profileCommentActivity')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="profileCommentActivity" value="profileCommentActivity" <?php if ($POD->libOptions('profileCommentActivity')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 
@@ -235,7 +235,7 @@
 				Send Email
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="alertEmail" value="alertEmail" <? if ($POD->libOptions('alertEmail')) { ?>checked<? } ?> />
+				<input type="checkbox" class="enabler"  name="alertEmail" value="alertEmail" <?php if ($POD->libOptions('alertEmail')) { ?>checked<?php } ?> />
 			</td>
 		</tr>
 		
@@ -262,10 +262,10 @@
 				Send Email
 			</td>
 			<td valign="top" align="right">
-				<input type="checkbox" class="enabler"  name="contactEmail" value="contactEmail" <? if ($POD->libOptions('contactEmail')) { ?>checked<? } ?> />			</td>
+				<input type="checkbox" class="enabler"  name="contactEmail" value="contactEmail" <?php if ($POD->libOptions('contactEmail')) { ?>checked<?php } ?> />			</td>
 		</tr>
 		</table>
 		<p><input type="submit" value="Update Options" class="button" /></p>
 	</form>
 </div>
-<? $POD->footer(); ?>
+<?php $POD->footer(); ?>

@@ -3,7 +3,7 @@
 
 ?>
 <div id="addpod">
-    <form class="valid" action="<? $POD->siteRoot(false)."/submit_pod"; ?>" method="post" id="post_something"  enctype="multipart/form-data">
+    <form class="valid" action="<?php $POD->siteRoot(false)."/submit_pod"; ?>" method="post" id="post_something"  enctype="multipart/form-data">
 
         <input type="radio" name="f_type" value="pod" checked="checked"/>&nbsp; Pod or,<br />
         <input type="radio" name="f_type" value="theme"/>&nbsp; Theme<br /><br />

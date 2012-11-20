@@ -21,20 +21,20 @@ $subject= 'New message from ' . $sender->get('nick') . ' on ' . $sender->POD->si
 
 ?>
 
-<? $sender->write('nick'); ?> sent you this message:
+<?php $sender->write('nick'); ?> sent you this message:
 ------------------------------------------------------------
 
-<? echo $message; ?> 
+<?php echo $message; ?> 
 
 ------------------------------------------------------------
 
 You can reply by clicking below:
-<? $sender->POD->siteRoot(); ?>/inbox/conversationwith/<? $sender->write('safe_nick'); ?>
+<?php $sender->POD->siteRoot(); ?>/inbox/conversationwith/<?php $sender->write('safe_nick'); ?>
 
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
 
 You can update your account here:
-<? $sender->POD->siteRoot(); ?>/editprofile
+<?php $sender->POD->siteRoot(); ?>/editprofile

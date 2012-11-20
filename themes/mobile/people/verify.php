@@ -14,26 +14,26 @@
 <div id="login_join_form">
 	<h1>Verify Your Account</h1>
 	
-	<? if ($user->get('verify_status')=='key_resent') { ?>
+	<?php if ($user->get('verify_status')=='key_resent') { ?>
 	
 		<div class="info">
 			Your verification key has been resent!  If you don't see it within a minute or so, check your spam folder!
 		</div>
 	
-	<? } // if resent ?>
+	<?php } // if resent ?>
 	
-	<? if ($POD->currentUser()->get('verificationKey')=='') { ?>
+	<?php if ($POD->currentUser()->get('verificationKey')=='') { ?>
 	
 		<div class="info">
 			<h3>Your account has been verified!</h3>
-			<p><a href="<? $POD->siteRoot(); ?>">Continue &#187;</a></p>
+			<p><a href="<?php $POD->siteRoot(); ?>">Continue &#187;</a></p>
 		</div>
 	
-	<? } else  { ?>
+	<?php } else  { ?>
 	
-		<form method="get" id="verify" action="<? $POD->siteRoot(); ?>/verify" class="valid">
+		<form method="get" id="verify" action="<?php $POD->siteRoot(); ?>/verify" class="valid">
 		
-			<p>Enter the code that we sent to <? $POD->currentUser()->write('email') ?></p>
+			<p>Enter the code that we sent to <?php $POD->currentUser()->write('email') ?></p>
 			
 			<p>
 				<label>Code:</label>
@@ -46,8 +46,8 @@
 			</p>
 
 		</form>		
-		<p>If you can't find your key, <a href="<? $POD->siteRoot(); ?>/verify?resend=1">click here to have it resent.</a></p>
+		<p>If you can't find your key, <a href="<?php $POD->siteRoot(); ?>/verify?resend=1">click here to have it resent.</a></p>
 	
-	<? } ?>
+	<?php } ?>
 </div>
 </div>

@@ -20,37 +20,37 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title><? if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?></title>
+	<title><?php if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<link rel="icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
-	<link rel="shortcut icon" href="<? $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
+	<link rel="icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
 
-	<script src="<? $POD->templateDir(); ?>/js/jquery-1.8.3.js"></script>
-	<script src="<? $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
-	<script src="<? $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
-	<script src="<? $POD->templateDir(); ?>/js//underscore.js"></script>
-    <script src="<? $POD->templateDir(); ?>/js/sjcl.js"></script>
-    <script src="<? $POD->templateDir(); ?>/js/moment.min.js"></script>
-    <script src="<? $POD->templateDir(); ?>/js/unauthorized.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery-1.8.3.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js//underscore.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/sjcl.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/moment.min.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/unauthorized.js"></script>
 
-	<? $POD->extraJS(); ?>
+	<?php $POD->extraJS(); ?>
 	
-	<link rel="stylesheet" type="text/css" href="<? $POD->templateDir(); ?>/styles.css" media="screen" />
-	<link rel="stylesheet" type="ttext/css" href="<? $POD->templateDir(); ?>/custom.css" media="screen"" />
+	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/styles.css" media="screen" />
+	<link rel="stylesheet" type="ttext/css" href="<?php $POD->templateDir(); ?>/custom.css" media="screen"" />
 	
-	<? $POD->extraCSS(); ?>
+	<?php $POD->extraCSS(); ?>
 	
-	<? if ($feedurl) { ?>
-		<link rel="alternate" type="application/rss+xml" title="RSS: <? if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?>" href="<? echo $feedurl; ?>" />
-	<? } else if ($POD->libOptions('enable_core_feeds')) { ?>	
-		<link rel="alternate" type="application/rss+xml" title="RSS: <? $POD->siteName();  ?>" href="<? $POD->siteRoot(); ?>/feeds" />
-	<? } ?>		
+	<?php if ($feedurl) { ?>
+		<link rel="alternate" type="application/rss+xml" title="RSS: <?php if ($pagetitle) { echo $pagetitle . " - " . $POD->siteName(false); } else { echo $POD->siteName(false); } ?>" href="<?php echo $feedurl; ?>" />
+	<?php } else if ($POD->libOptions('enable_core_feeds')) { ?>	
+		<link rel="alternate" type="application/rss+xml" title="RSS: <?php $POD->siteName();  ?>" href="<?php $POD->siteRoot(); ?>/feeds" />
+	<?php } ?>		
 
 	<script type="text/javascript">
-		var siteRoot = "<? $POD->siteRoot(); ?>";
-		var podRoot = "<? $POD->podRoot(); ?>";
-		var themeRoot = "<? $POD->templateDir(); ?>";
+		var siteRoot = "<?php $POD->siteRoot(); ?>";
+		var podRoot = "<?php $POD->podRoot(); ?>";
+		var themeRoot = "<?php $POD->templateDir(); ?>";
 		var API = siteRoot + "/api/2";		
 	</script>
 
@@ -66,33 +66,33 @@
 	</script>
 	<![endif]-->	
 
-	<script type="text/javascript" src="<? $POD->templateDir(); ?>/javascript.js"></script>
+	<script type="text/javascript" src="<?php $POD->templateDir(); ?>/javascript.js"></script>
 
 </head>
 <body id="body">
-	<? if ($fb_api = $POD->libOptions('fb_connect_api')) { ?>
+	<?php if ($fb_api = $POD->libOptions('fb_connect_api')) { ?>
 		<!-- Facebook API -->
 		<script type="text/javascript" src="http://connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"></script> 
-		<script type="text/javascript">FB.init('<?= $fb_api; ?>','/xd_receiver.htm');</script>	
+		<script type="text/javascript">FB.init('<?php echo $fb_api; ?>','/xd_receiver.htm');</script>	
 		<!-- End Facebook API -->
-	<? } ?>
+	<?php } ?>
 	<!-- begin header -->
 	<header>
 			<!-- begin login status -->
 			<section class="grid">
 				<div class="two_thirds" id="siteName">
-					<h1><? $POD->siteName(); ?></h1>
+					<h1><?php $POD->siteName(); ?></h1>
 				</div>
 				<div class="one_third" id="login_status">
-					<? if ($POD->isAuthenticated()) { ?>
-						Welcome, <a href="<? $POD->currentUser()->write('permalink'); ?>" title="View My Profile"><? $POD->currentUser()->write('nick'); ?></a> |
-						<? if ($POD->libOptions('enable_core_private_messaging')) { ?>
-							<a href="<? $POD->siteRoot(); ?>/inbox"><? $i = $POD->getInbox(); if ($i->unreadCount() > 0) { echo $i->unreadCount(); ?> Unread <? } else { ?>Inbox<? } ?></a> |
-						<? } ?>
-						<a href="<? $POD->siteRoot(); ?>/logout" title="Logout">Logout</a>
-					<? } else { ?>
-						Returning? <a href="<? $POD->siteRoot(); ?>/login">Login</a>
-					<? } ?>
+					<?php if ($POD->isAuthenticated()) { ?>
+						Welcome, <a href="<?php $POD->currentUser()->write('permalink'); ?>" title="View My Profile"><?php $POD->currentUser()->write('nick'); ?></a> |
+						<?php if ($POD->libOptions('enable_core_private_messaging')) { ?>
+							<a href="<?php $POD->siteRoot(); ?>/inbox"><?php $i = $POD->getInbox(); if ($i->unreadCount() > 0) { echo $i->unreadCount(); ?> Unread <?php } else { ?>Inbox<?php } ?></a> |
+						<?php } ?>
+						<a href="<?php $POD->siteRoot(); ?>/logout" title="Logout">Logout</a>
+					<?php } else { ?>
+						Returning? <a href="<?php $POD->siteRoot(); ?>/login">Login</a>
+					<?php } ?>
 				</div>
 			</section>
 			<!-- end login status -->
@@ -100,37 +100,37 @@
 			<!-- begin main navigation -->		
 			
 			<nav class="grid">
-				<? if ($POD->isEnabled('core_search')) { ?>
-					<form method="get" action="<? $POD->siteRoot(); ?>/search">
+				<?php if ($POD->isEnabled('core_search')) { ?>
+					<form method="get" action="<?php $POD->siteRoot(); ?>/search">
 						<label for="nav_search_q">Search</label> <input name="q" id="nav_search_q" size="12" class="repairField" data-default="this site" />
 					</form>
-				<? } ?>
+				<?php } ?>
 				
-				<ul><li><a href="<? $POD->siteRoot(); ?>">Home</a></li>
-					<? if ($POD->libOptions('enable_contenttype_document_list')) { ?><li><a href="<? $POD->siteRoot(); ?>/show">What's New?</a></li><? } ?>
-					<? if ($POD->libOptions('enable_core_groups')) { ?><li><a href="<? $POD->siteRoot(); ?>/groups">Groups</a></li><? } ?>
-					<? if ($POD->isAuthenticated()) { ?>
-						<? if ($POD->currentUser()->get('adminUser')) { ?>
-							<li><a href="<? $POD->podRoot(); ?>/admin">Command Center</a></li>
-						<? } ?>
-					<? } else { ?>
-						<? if ($POD->libOptions('enable_core_authentication_creation')) {?><li><a href="<? $POD->siteRoot(); ?>/join">Join</a></li><? } ?>
-					<? } ?>						
+				<ul><li><a href="<?php $POD->siteRoot(); ?>">Home</a></li>
+					<?php if ($POD->libOptions('enable_contenttype_document_list')) { ?><li><a href="<?php $POD->siteRoot(); ?>/show">What's New?</a></li><?php } ?>
+					<?php if ($POD->libOptions('enable_core_groups')) { ?><li><a href="<?php $POD->siteRoot(); ?>/groups">Groups</a></li><?php } ?>
+					<?php if ($POD->isAuthenticated()) { ?>
+						<?php if ($POD->currentUser()->get('adminUser')) { ?>
+							<li><a href="<?php $POD->podRoot(); ?>/admin">Command Center</a></li>
+						<?php } ?>
+					<?php } else { ?>
+						<?php if ($POD->libOptions('enable_core_authentication_creation')) {?><li><a href="<?php $POD->siteRoot(); ?>/join">Join</a></li><?php } ?>
+					<?php } ?>						
 					<li class="clearer"></li>
 				</ul>
 				<div class="clearer"></div>
 			</nav>
 			<!-- end main navigation -->
-			<? if (sizeof($POD->messages()) > 0) { ?>
+			<?php if (sizeof($POD->messages()) > 0) { ?>
 				<section id="system_messages" class="grid" style="display:none;">
 					<a href="#hideMessages" class="dismiss">OK</a>
 					<ul>
-					<? foreach ($POD->messages() as $message) { ?>
-						<li><?= $message; ?></li>
-					<? } ?>
+					<?php foreach ($POD->messages() as $message) { ?>
+						<li><?php echo $message; ?></li>
+					<?php } ?>
 					</ul>
 				</section>
-			<? } ?>
+			<?php } ?>
 		<!-- end header -->
 	</header>
 	<section id="main" class="content grid">

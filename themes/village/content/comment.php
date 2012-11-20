@@ -12,18 +12,18 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<a name="<? $comment->write('id'); ?>"></a>
-<div class="comment <? if ($comment->get('isOddItem')) {?>comment_odd<? } ?> <? if ($comment->get('isEvenItem')) {?>comment_even<? } ?> <? if ($comment->get('isLastItem')) {?>comment_last<? } ?> <? if ($comment->get('isFirstItem')) {?>comment_first<? } ?>" id="comment<? $comment->write('id'); ?>">
-	<? $comment->author()->output('avatar'); ?>
+<a name="<?php $comment->write('id'); ?>"></a>
+<div class="comment <?php if ($comment->get('isOddItem')) {?>comment_odd<?php } ?> <?php if ($comment->get('isEvenItem')) {?>comment_even<?php } ?> <?php if ($comment->get('isLastItem')) {?>comment_last<?php } ?> <?php if ($comment->get('isFirstItem')) {?>comment_first<?php } ?>" id="comment<?php $comment->write('id'); ?>">
+	<?php $comment->author()->output('avatar'); ?>
 	<div class="attributed_content comment_body">
 		<span class="byline">
-			<? if ($comment->POD->isAuthenticated() && ($comment->parent('userId') == $comment->POD->currentUser()->get('id') || $comment->get('userId') == $comment->POD->currentUser()->get('id'))) { ?>
-				<span class="gray remove_comment"><a href="#deleteComment" data-comment="<? $comment->write('id'); ?>">Remove Comment</a></span>
-			<? } ?>
-			<span class="author"><? $comment->author()->write('nick'); ?></span> said, (<span class="post_time"><a href="#<? $comment->write('id'); ?> "><? echo $this->POD->timesince($comment->get('minutes')); ?></a></span>)
-			<a href="#reply" data-comment="<?= $comment->id; ?>" data-author="<?= htmlspecialchars($comment->author()->nick); ?>">Reply</a>
+			<?php if ($comment->POD->isAuthenticated() && ($comment->parent('userId') == $comment->POD->currentUser()->get('id') || $comment->get('userId') == $comment->POD->currentUser()->get('id'))) { ?>
+				<span class="gray remove_comment"><a href="#deleteComment" data-comment="<?php $comment->write('id'); ?>">Remove Comment</a></span>
+			<?php } ?>
+			<span class="author"><?php $comment->author()->write('nick'); ?></span> said, (<span class="post_time"><a href="#<?php $comment->write('id'); ?> "><?php echo $this->POD->timesince($comment->get('minutes')); ?></a></span>)
+			<a href="#reply" data-comment="<?php echo $comment->id; ?>" data-author="<?php echo htmlspecialchars($comment->author()->nick); ?>">Reply</a>
 		</span>
-		<? $comment->writeFormatted('comment') ?>
+		<?php $comment->writeFormatted('comment') ?>
 	</div>
 	<div class="clearer"></div>
 </div>

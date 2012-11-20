@@ -16,7 +16,7 @@
 <?
 	$membership = $group->isMember($group->POD->currentUser());
 ?>
-<? if ($membership == "owner" || $membership == "manager") { ?>
+<?php if ($membership == "owner" || $membership == "manager") { ?>
 	<script type="text/javascript">
 	
 		function setGroupToPrivate() {
@@ -32,30 +32,30 @@
 		}
 	</script>
 	<div class="column_8">
-		<h1><? $group->permalink(); ?> &#187; Edit</h1>
-		<form method="post" action="<? $group->write('permalink'); ?>/edit" id="edit_group" class="valid">
-			<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
-			<input type="hidden" name="type" id="group_type" value="<? $group->write('type'); ?>" />			
-			<p class="input"><label for="groupname">Group Name:</label><input name="groupname" class="text required" id="groupname" value="<? echo htmlspecialchars($group->get('groupname')); ?>" /></p>
-			<p class="input"><label for="description">Description:</label><textarea name="description" class="text required" id="description"><? echo htmlspecialchars($group->get('description')); ?></textarea></p>
+		<h1><?php $group->permalink(); ?> &#187; Edit</h1>
+		<form method="post" action="<?php $group->write('permalink'); ?>/edit" id="edit_group" class="valid">
+			<input type="hidden" name="id" value="<?php $group->write('id'); ?>" />
+			<input type="hidden" name="type" id="group_type" value="<?php $group->write('type'); ?>" />			
+			<p class="input"><label for="groupname">Group Name:</label><input name="groupname" class="text required" id="groupname" value="<?php echo htmlspecialchars($group->get('groupname')); ?>" /></p>
+			<p class="input"><label for="description">Description:</label><textarea name="description" class="text required" id="description"><?php echo htmlspecialchars($group->get('description')); ?></textarea></p>
 
 			<p class="form_text"><input type="submit" value="Update &#187;" /></p>
 
-			<? if ($group->get('type')=="public") { ?>
+			<?php if ($group->get('type')=="public") { ?>
 				<p class="form_text">This group is public.  Anyone can see posts, and anyone can join.</p>
 				
 				<p class="form_text">This group can be changed to a private group, however this change cannot be undone.  <input type="submit" onclick="return setGroupToPrivate();" value="Change this group to a private group."></p>
-			<? } else { ?>
+			<?php } else { ?>
 				<p class="form_text">This group is private.  Only members can see posts, and new members must be invited.</p>
-			<? } ?>
+			<?php } ?>
 		</form>		
-		<form method="post" action="<? $group->write('permalink'); ?>/delete" id="delete_group" onsubmit="return deleteGroupConfirm();">
+		<form method="post" action="<?php $group->write('permalink'); ?>/delete" id="delete_group" onsubmit="return deleteGroupConfirm();">
 		
-				<p class="form_text">You can delete this group. <? if ($group->get('type')=="private") { ?>Posts from this group
-				will be visible only to their author.<? } ?><input type="submit" value="Delete group" /></p>
-				<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
-				<input type="hidden" name="confirm" value="<? echo htmlspecialchars(md5($group->POD->currentUser()->get('memberSince'))); ?>" />
+				<p class="form_text">You can delete this group. <?php if ($group->get('type')=="private") { ?>Posts from this group
+				will be visible only to their author.<?php } ?><input type="submit" value="Delete group" /></p>
+				<input type="hidden" name="id" value="<?php $group->write('id'); ?>" />
+				<input type="hidden" name="confirm" value="<?php echo htmlspecialchars(md5($group->POD->currentUser()->get('memberSince'))); ?>" />
 		</form>		
 	</div>
-<? } // if is member ?>
+<?php } // if is member ?>
 	

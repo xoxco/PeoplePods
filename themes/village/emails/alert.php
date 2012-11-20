@@ -14,22 +14,22 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<? 
+<?php 
 
 $subject= 'There has been activity on your account at ' . $POD->siteName(false);
 ?>
 
-<?= strip_tags($message); ?>
+<?php echo strip_tags($message); ?>
 
 
 Check it out here:
 
-=> <?= $POD->siteRoot(); ?>
+=> <?php echo $POD->siteRoot(); ?>
 
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
 
 You can update your account here:
-<? $sender->POD->siteRoot(); ?>/editprofile
+<?php $sender->POD->siteRoot(); ?>/editprofile

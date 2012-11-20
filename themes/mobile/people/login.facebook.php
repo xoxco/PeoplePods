@@ -4,7 +4,7 @@
 			
 			<h1>Connect to Facebook</h1>
 		
-			<? if ($user->get('facebook_token')) { ?>
+			<?php if ($user->get('facebook_token')) { ?>
 				<div class="connect_details">
 				
 					<p>
@@ -13,18 +13,18 @@
 						&nbsp;&nbsp;<a href="/facebook?rfb=1"  class="littleButton">Remove</a>
 					</p>
 				</div>
-			<? } else { ?>
+			<?php } else { ?>
 			
 				<p>When you connect, you'll be able to login with your Facebook account, and automatically post your activity to your Facebook wall.</p>
 			
 				<p><a href="/facebook/verify" class="bigButton">Login to Facebook</a></p>
 
-			<? } ?>
-			<? if ($POD->isAuthenticated()) { ?>
+			<?php } ?>
+			<?php if ($POD->isAuthenticated()) { ?>
 				<p class="right_align"><a href="/" class="littleButton">Continue &#187;</a></p>
-			<? } else { ?>
+			<?php } else { ?>
 				<p><a href="/join" class="littleButton">&larr; Return to Login</a></p>
-			<? } ?>
+			<?php } ?>
 				
 
 				

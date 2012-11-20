@@ -15,17 +15,17 @@
 <div class="column_8 structure_only" id="post_output">
 	<article>
 		<header>
-			<h1><? $doc->write('headline'); ?></h1>
+			<h1><?php $doc->write('headline'); ?></h1>
 		</header>
 
-		<? $doc->write('body'); ?>
+		<?php $doc->write('body'); ?>
 											
-		<? if ($doc->tags()->count() > 0){ ?>
+		<?php if ($doc->tags()->count() > 0){ ?>
 			<p>
-				<img src="<? $POD->templateDir(); ?>/img/tag_pink.png" alt="Tags" align="absmiddle" />
-				<? $doc->tags()->output('tag',null,null); ?>
+				<img src="<?php $POD->templateDir(); ?>/img/tag_pink.png" alt="Tags" align="absmiddle" />
+				<?php $doc->tags()->output('tag',null,null); ?>
 			</p>
-		<? } ?>	
+		<?php } ?>	
 	</article>	
 	<div class="clearer"></div>
 </div>

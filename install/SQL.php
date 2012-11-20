@@ -1,4 +1,4 @@
-<?
+<?php
 
 // this file contains all the SQL needed to create the PeoplePods database.
 

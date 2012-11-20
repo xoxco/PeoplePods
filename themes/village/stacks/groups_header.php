@@ -12,12 +12,12 @@
 /**********************************************/
 ?>	
 
-<section class="stack_output <? if ($title) {?>stack_<?  echo $POD->tokenize($title); } ?>">
+<section class="stack_output <?php if ($title) {?>stack_<?php  echo $POD->tokenize($title); } ?>">
 <ul id="group_list">
-	<? if ($this->count() > 0) { ?>	
+	<?php if ($this->count() > 0) { ?>	
 		<header>
 			<label class="group_name">Group</label>
 			<label class="group_description">Description</label>
 			<label class="group_list">Members</label>
 		</header>
-	<? } ?>
+	<?php } ?>

@@ -28,14 +28,14 @@
 	
 	
 	<div class="column_8">
-		<? if (isset($msg)) { ?>	
+		<?php if (isset($msg)) { ?>	
 			<div class="info">
-				<? echo $msg; ?>
+				<?php echo $msg; ?>
 			</div>
-		<? } ?>
+		<?php } ?>
 		<!-- this is where posts with new comments show up -->
 		<div id="replies">
-			<? 
+			<?php 
 				$watched = $user->watched()->getOtherPage($offset);
 				// since the watched list results might be cached, 
 				// we should resort the list by the commentDate, 
@@ -46,23 +46,23 @@
 		</div>	
 	</div>
 	<div class="column_4 last">
-		<? 
+		<?php 
 			$user->output('member_info');
 			
 		?>	
 
 			<ul id="navigator">
-				<li class="dashboard_navigator"><a href="<? $POD->siteRoot(); ?>">New Stuff</a></li>
-				<li class="dashboard_navigator dashboard_navigator_last dashboard_active"><a href="<? $POD->siteRoot(); ?>/replies">Activity</a></li>
-				<? if ($POD->libOptions('enable_core_groups')) { 
+				<li class="dashboard_navigator"><a href="<?php $POD->siteRoot(); ?>">New Stuff</a></li>
+				<li class="dashboard_navigator dashboard_navigator_last dashboard_active"><a href="<?php $POD->siteRoot(); ?>/replies">Activity</a></li>
+				<?php if ($POD->libOptions('enable_core_groups')) { 
 					$groups->output('group_navigator',null,null); 
 					?>
-					<li class="group_navigator"><a href="<? $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
+					<li class="group_navigator"><a href="<?php $POD->siteRoot(); ?>/groups">More Groups...</a></li>					
 					<?						
 				} ?>
 			</ul>					
 
-			<? $POD->output('sidebars/activity_stream'); ?>
+			<?php $POD->output('sidebars/activity_stream'); ?>
 
 
 	</div>

@@ -11,4 +11,4 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<? $doc->output('short'); ?>
+<?php $doc->output('short'); ?>

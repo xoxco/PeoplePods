@@ -24,24 +24,24 @@ $subject='Welcome to ' . $sender->POD->siteName(false);
 
 ?>
 
-Howdy <? $sender->write('nick'); ?>,
+Howdy <?php $sender->write('nick'); ?>,
 
-<? if ($sender->get('verificationKey')) { ?>
+<?php if ($sender->get('verificationKey')) { ?>
 
 Before you can post things and leave comments, you must verify your email address.  To do so, click the link below.
 
-<? $sender->POD->siteRoot(); ?>/verify?key=<? $sender->write('verificationKey'); ?>
+<?php $sender->POD->siteRoot(); ?>/verify?key=<?php $sender->write('verificationKey'); ?>
 
-Your confirmation code is: <? $sender->write('verificationKey'); ?>
-<? } ?>
+Your confirmation code is: <?php $sender->write('verificationKey'); ?>
+<?php } ?>
 
-Welcome to <? $sender->POD->siteName(); ?>.  The first thing you should do is update your profile and add a profile image!
+Welcome to <?php $sender->POD->siteName(); ?>.  The first thing you should do is update your profile and add a profile image!
 
-<? $sender->POD->siteRoot(); ?>/editprofile
+<?php $sender->POD->siteRoot(); ?>/editprofile
 
 Love,
-<? $sender->POD->siteName(); ?>
+<?php $sender->POD->siteName(); ?>
 
 
 You can update your account here:
-<? $sender->POD->siteRoot(); ?>/editprofile
+<?php $sender->POD->siteRoot(); ?>/editprofile

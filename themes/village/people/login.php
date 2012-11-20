@@ -13,20 +13,20 @@
 ?>
 	<div id="login_join_form">
 
-		<h1>Sign in to <? $POD->siteName(); ?></h1>
+		<h1>Sign in to <?php $POD->siteName(); ?></h1>
 		
-		<? if ($POD->isEnabled('twitter_connect')) { ?>
-			<a href="<? $POD->siteRoot(); ?>/twitter/verify" id="twitter_signin" class="federated_login_link">Sign in with Twitter</a>
-		<? } ?>
-		<? if ($POD->isEnabled('fb_connect')) { ?>
-			<a href="<? $POD->siteRoot(); ?>/facebook/verify" id="facebook_signin" class="federated_login_link">Sign in with Facebook</a>
-		<? } ?>
-		<? if ($POD->isEnabled('openid_connect')) { ?>
-			<a href="<? $POD->siteRoot(); ?>/openid" id="openid_signin" class="federated_login_link">Sign in with OpenID</a>
-		<? } ?>
+		<?php if ($POD->isEnabled('twitter_connect')) { ?>
+			<a href="<?php $POD->siteRoot(); ?>/twitter/verify" id="twitter_signin" class="federated_login_link">Sign in with Twitter</a>
+		<?php } ?>
+		<?php if ($POD->isEnabled('fb_connect')) { ?>
+			<a href="<?php $POD->siteRoot(); ?>/facebook/verify" id="facebook_signin" class="federated_login_link">Sign in with Facebook</a>
+		<?php } ?>
+		<?php if ($POD->isEnabled('openid_connect')) { ?>
+			<a href="<?php $POD->siteRoot(); ?>/openid" id="openid_signin" class="federated_login_link">Sign in with OpenID</a>
+		<?php } ?>
 		
-		<form method="post" id="login" action="<? $POD->siteRoot(); ?>/login" class="valid">
-			<input type="hidden" name="redirect" value="<? echo htmlspecialchars($user->get('redirect')); ?>" />
+		<form method="post" id="login" action="<?php $POD->siteRoot(); ?>/login" class="valid">
+			<input type="hidden" name="redirect" value="<?php echo htmlspecialchars($user->get('redirect')); ?>" />
 			<p>
 				<label for="email">Email:</label>
 				<input class="required email text" name="email" id="email" />
@@ -46,10 +46,10 @@
 				<label for="loginbutton">&nbsp;</label>
 				<input type="submit"  id="loginbutton" value="Login" name="login" />
 			</p>
-			<? if ($POD->libOptions('enable_core_authentication_creation')) { ?>
-			<p class="right_align gray">Need an account? <a href="<? $POD->siteRoot(); ?>/join">Join this site!</a></p>
-			<? } ?>
-			<p class="right_align gray"><a href="<? $POD->siteRoot(); ?>/password_reset">Forgot your password?</a></p>
+			<?php if ($POD->libOptions('enable_core_authentication_creation')) { ?>
+			<p class="right_align gray">Need an account? <a href="<?php $POD->siteRoot(); ?>/join">Join this site!</a></p>
+			<?php } ?>
+			<p class="right_align gray"><a href="<?php $POD->siteRoot(); ?>/password_reset">Forgot your password?</a></p>
 			
 
 		</form>

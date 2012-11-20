@@ -1,29 +1,29 @@
-<tr  class="<? if ($this->isEvenItem) {?>even<? } else { ?>odd<? } ?>">
+<tr  class="<?php if ($this->isEvenItem) {?>even<?php } else { ?>odd<?php } ?>">
 	<td valign="top" align="left">
-		<a href="<? $POD->podRoot(); ?>/admin/files/?id=<? $file->write('id'); ?>">
-		<? if ($file->isImage()) { ?>
-			<img src="<?= $file->src(50,true); ?>" width="50" height="50" border="0" />
-		<? } else { ?>				
-			<img src="<? $POD->templateDir(); ?>/img/document_icon.png" width="50" height="50" border="0" />
-		<? } ?></a>	
+		<a href="<?php $POD->podRoot(); ?>/admin/files/?id=<?php $file->write('id'); ?>">
+		<?php if ($file->isImage()) { ?>
+			<img src="<?php echo $file->src(50,true); ?>" width="50" height="50" border="0" />
+		<?php } else { ?>				
+			<img src="<?php $POD->templateDir(); ?>/img/document_icon.png" width="50" height="50" border="0" />
+		<?php } ?></a>	
 	</td>
 	<td valign="top" align="left">	
-		<a href="<? $POD->podRoot(); ?>/admin/files/?id=<? $file->write('id'); ?>"><? $file->write('file_name'); ?></a>
+		<a href="<?php $POD->podRoot(); ?>/admin/files/?id=<?php $file->write('id'); ?>"><?php $file->write('file_name'); ?></a>
 		<br />
-		<? $file->write('original_name'); ?>
+		<?php $file->write('original_name'); ?>
 	</td>
 	<td valign="top" align="left">
-		<a href="<? $POD->podRoot(); ?>/admin/people/?id=<? $file->author()->write('id'); ?>"><? $file->author()->write('nick'); ?></a>	
+		<a href="<?php $POD->podRoot(); ?>/admin/people/?id=<?php $file->author()->write('id'); ?>"><?php $file->author()->write('nick'); ?></a>	
 	</td>
 	<td valign="top" align="left">
-		<? if ($file->parent()) { ?>
-			<a href="<? $POD->podRoot(); ?>/admin/content/?id=<? $file->parent()->write('id'); ?>"><? $file->parent()->write('headline'); ?></a>		
-		<? } ?>	
-		<? if ($file->group()) { ?>
-			<a href="<? $POD->podRoot(); ?>/admin/groups/?id=<? $file->group()->write('id'); ?>"><? $file->group()->write('groupname'); ?></a>		
-		<? } ?>	
+		<?php if ($file->parent()) { ?>
+			<a href="<?php $POD->podRoot(); ?>/admin/content/?id=<?php $file->parent()->write('id'); ?>"><?php $file->parent()->write('headline'); ?></a>		
+		<?php } ?>	
+		<?php if ($file->group()) { ?>
+			<a href="<?php $POD->podRoot(); ?>/admin/groups/?id=<?php $file->group()->write('id'); ?>"><?php $file->group()->write('groupname'); ?></a>		
+		<?php } ?>	
 	</td>
 	<td valign="top" align="left">	
-		<?= date('Y-m-d H:i',strtotime($file->get('date'))); ?>
+		<?php echo date('Y-m-d H:i',strtotime($file->get('date'))); ?>
 	</td>
 </tr>

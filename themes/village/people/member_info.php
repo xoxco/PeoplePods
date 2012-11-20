@@ -12,19 +12,19 @@
 /**********************************************/
 ?>
 <section id="member_info" class="padded">
-	<? $user->output('avatar'); ?>
+	<?php $user->output('avatar'); ?>
 	<section class="attributed_content">
-		<b><? $user->permalink(); ?></b>
-		<? if ($user->get('location')) {
+		<b><?php $user->permalink(); ?></b>
+		<?php if ($user->get('location')) {
 			$user->write('location');
 			echo "<br />";
 		} ?>
-		<? if ($user->POD->isAuthenticated() && $user->POD->currentUser()->get('id') == $user->get('id')) { ?>
-			<? if ($user->get('verificationKey')) { ?>
-				<a href="<? $user->POD->siteRoot(); ?>/verify" class="highlight">Verify Your Account!</a>
-			<? } ?>
-			<a href="<? $user->POD->siteRoot(); ?>/editprofile">Edit Profile</a>
-		<? } ?>
+		<?php if ($user->POD->isAuthenticated() && $user->POD->currentUser()->get('id') == $user->get('id')) { ?>
+			<?php if ($user->get('verificationKey')) { ?>
+				<a href="<?php $user->POD->siteRoot(); ?>/verify" class="highlight">Verify Your Account!</a>
+			<?php } ?>
+			<a href="<?php $user->POD->siteRoot(); ?>/editprofile">Edit Profile</a>
+		<?php } ?>
 	</section>
 	<div class="clearer"></div>
 </section>
