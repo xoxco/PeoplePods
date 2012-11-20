@@ -14,7 +14,7 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<?
+<?php
 $subject='Reset Your Password on ' . $sender->POD->siteName(false);;
 ?>
 Hey <?php $sender->write('nick') ?>,

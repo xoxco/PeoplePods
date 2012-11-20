@@ -17,7 +17,7 @@
 /**********************************************/
 ?>
 
-<?
+<?php
 
 
 $subject='Welcome to ' . $sender->POD->siteName(false);

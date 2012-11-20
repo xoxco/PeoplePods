@@ -13,7 +13,7 @@
 /**********************************************/
 ?>
 
-<?
+<?php
 	$membership = $group->isMember($group->POD->currentUser());
 ?>
 <?php if ($membership == "owner" || $membership == "manager") { ?>

@@ -41,7 +41,7 @@
 	}
 ?>
 	<div class="two_thirds">
-		<?
+		<?php
 			if ($user->get('verificationKey')) { ?>
 				<div id="welcome_message">
 					

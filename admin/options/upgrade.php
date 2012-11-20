@@ -261,7 +261,7 @@
 	?>
 	<div class="column_padding">
 		<h1>Upgrade</h1>
-	<?
+	<?php
 		if ($last_version < $this_database_update) { ?>
 		
 			<p>PeoplePods needs to make updates to your database.  We suggest you make a backup of your database first!</p>

@@ -1,6 +1,6 @@
 <div id="options">
 	<div class="option_set">
-		<?
+		<?php
 			$file->output('upload');
 		
 		?>

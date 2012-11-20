@@ -12,7 +12,7 @@
 * http://peoplepods.net/readme/group-object
 /**********************************************/
 ?>
-<?
+<?php
 	// get current user's membership
 	$membership = $group->isMember($POD->currentUser());
 ?>

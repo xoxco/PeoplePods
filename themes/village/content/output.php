@@ -91,7 +91,7 @@
 			(<?php $doc->write('timesince'); ?>)
 		</p>	
 		</header>
-		<?
+		<?php
 			$previous = $POD->getContents(array('userId'=>$doc->author('id'),'id:lt'=>$doc->get('id')),'d.id DESC',1);
 			if ($previous->success() && $previous->count() > 0) { 
 				$previous = $previous->getNext();
@@ -125,14 +125,14 @@
 						<a href="<?php $doc->group()->write('permalink'); ?>/remove?docId=<?php $doc->write('id'); ?>">Remove this post from the group</a></p>
 				<?php } ?>
 			</header>
-			<?
+			<?php
 				$previous = $POD->getContents(array('groupId'=>$doc->group('id'),'id:lt'=>$doc->get('id')),'d.id DESC',1);
 				if ($previous->success() && $previous->count() > 0) { 
 					$previous = $previous->getNext();
 					?>
 					<a href="<?php $previous->write('permalink');?>"  class="post_previous"><strong>&#171;&nbsp;Previous</strong> <?php echo $POD->shorten($previous->get('headline'),100); ?></a>
 			<?php } ?>
-			<?
+			<?php
 				$next = $POD->getContents(array('groupId'=>$doc->group('id'),'id:gt'=>$doc->get('id')),'d.id ASC',1);	
 				if ($next->success() && $next->count() > 0) {
 					$next = $next->getNext(); 

@@ -15,7 +15,7 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<?
+<?php
 
 $subject= 'New message from ' . $sender->get('nick') . ' on ' . $sender->POD->siteName(false);
 

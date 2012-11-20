@@ -19,7 +19,7 @@
 * http://peoplepods.net/readme/themes
 /**********************************************/
 ?>
-<?
+<?php
 
 if (isset($group)) { 
 	$subject = $sender->get('nick') . ' wants you to join ' . $group->get('groupname') . ' on ' . $sender->POD->siteName(false);

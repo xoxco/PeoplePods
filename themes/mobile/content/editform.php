@@ -80,7 +80,7 @@
 		<p>
 			<input type="submit" id="editform_save" value="Save" />
 
-			<?
+			<?php
 				// if this is a new post, we need to give the option to set it friend only or group only
 				if (!$doc->get('id')) { 
 					if ($doc->group()) {

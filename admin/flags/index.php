@@ -265,7 +265,7 @@
 					
 						<h1>Flags:</h1>			
 						<ul class="flag_list">		
-						<?
+						<?php
 						
 							$flags = $POD->getFlagList();
 							foreach ($flags as $flag) { ?>
@@ -280,6 +280,6 @@
 		
 		<?php } ?>
 		</div>
-	<?
+	<?php
 		$POD->footer(); 	
 	?>

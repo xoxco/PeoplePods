@@ -22,7 +22,7 @@
                 <div class="one_third" id="login_status">
                      <ul data-role="listview">
                         <li><a href="<?php $POD->siteRoot(); ?>">Home</a></li>
-                        <?if ($POD->libOptions('enable_core_dashboard') && $POD->isAuthenticated()){ ?>
+                        <?php if ($POD->libOptions('enable_core_dashboard') && $POD->isAuthenticated()){ ?>
                             <li><a href="<?php $POD->siteRoot();?>/replies">Replies</a></li>
                         <?php } ?>
                         <?php if ($POD->libOptions('enable_contenttype_document_list')) { ?><li><a href="<?php $POD->siteRoot(); ?>/show">What's New?</a></li><?php } ?>

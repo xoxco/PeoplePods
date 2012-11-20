@@ -56,7 +56,7 @@
 				
 		</div>			
 	
-		<?
+		<?php
 
 		$POD->footer();
 	

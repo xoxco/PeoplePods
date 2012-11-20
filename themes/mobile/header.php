@@ -88,7 +88,7 @@
 	<header>
       
 	</header>
-        <?
+        <?php
         //begin mobile output
             $POD->output('m.head');
         ?>
