@@ -7,9 +7,6 @@
  * /index.php
  * This file just redirects to the admin or install tools
  /**********************************************/
-require_once ("PeoplePods.php");
-
-
 //todo trying out the excellent moor library to help out (simplify and flexify) the routing issues of this project
 //also has the benefit of being able to slowly tailor it to the current PeoplePods implementation
 //the approach is to hardwire requests to this directory through http, while allowing the previous implementation
@@ -23,18 +20,22 @@ Moor::setNotFoundCallback('default404');
 
 //go ahead and declare it, this is a fairly long file. No need to get lost
 function default404(){
-	include( "/pods/page_unknown/view.php" );
+	header( "Location: /pods/page_unknown/view.php" );
 }
+ 
+ require_once ("PeoplePods.php");
 
 //immediately create a $POD object to test against
-$POD = new PeoplePod( array("authSecret" => @$_COOKIE["pp_auth"], "debug" => 2 ));
+$POD = new PeoplePod( array("authSecret" => @$_COOKIE["pp_auth"] ));
 //test
 if ($POD -> success()) {
 	//send to dashboard using .htaccess route
 	header( "Location: dashboard");
+	exit;
 } else {
 	//header( "install");//todo it might just be worth removing the install directory after first installation
 	header( "Location: unauthorized");
+	exit;
 }
 
 
@@ -139,82 +140,100 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 run();
 
 function dashboard() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }# core_dashboard //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard
 
 function replies() { //slightly modified alius of dashboard. more work to be done here
-	include( "/pods/dashboard/index.php?replies=1");
+	header( "Location: /pods/dashboard/index.php?replies=1");
+	exit;
 }//dashboard" )-> //needs to go to /PeoplePods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard
 
 function unauthorized() {
-	include( "/pods/unauthorizes_landing_page/index.php");
+	header( "Location: /pods/unauthorizes_landing_page/index.php");
+	exit;
 }//needs to go to /PeoplePods/pods/unauthorizes_landing_page/index.php
 
 
 function authentication() {
-	include( "/pods/core_authentication/login.php");
+	header( "Location: /pods/core_authentication/login.php");
+	exit;
 }//authentication" )-> //needs to go to Location: /PeoplePods/pods/core_authentication/login.php //just an alternate route
 
 
 function login() {
-	include( "/pods/core_authentication/login.php");
+	header( "Location: /pods/core_authentication/login.php");
+	exit;
 }//login" )-> //needs to go to /PeoplePods/pods/core_authentication/login.php	[QSA,L] # core_authentication_login
 
 function logout() {
-	include( "/pods/core_authentication/logout.php");
+	header( "Location: /pods/core_authentication/logout.php");
+	exit;
 }//logout" )-> //needs to go to /PeoplePods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
 
 function passReset( $resetCode ) {
 	if( isset( $resetCode ) ){
-		include( "/pods/core_authentication/password.php?resetCode=$resetCode");
+		header( "Location: /pods/core_authentication/password.php?resetCode=$resetCode");
+		exit;
 	}else{
-		include( "/pods/core_authentication/password.php");	
+		header( "Location: /pods/core_authentication/password.php");
+		exit;	
 	}
 }//passReset" )-> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
 
 function joinUs() {
-	include( "/pods/core_authentication/join.php");
+	header( "Location: /pods/core_authentication/join.php");
+	exit;
 }//join" )-> //needs to go to /PeoplePods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
 
 function verify() {
-	include( "/pods/core_authentication/verify.php");
+	header( "Location: /pods/core_authentication/verify.php");
+	exit;
 }//verify" )-> //needs to go to /PeoplePods/pods/core_authentication/verify.php	[QSA,L] # core_authentication_creation
 
 function edit() {
-	include( "/pods/core_usercontent/edit.php");
+	header( "Location: /pods/core_usercontent/edit.php");
+	exit;
 }//edit" )-> //needs to go to /PeoplePods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
 
 function content( $stub ) {
 	if( isset( $stub ) ){
-		include( "/pods/core_usercontent/view.php?stub=$stub");
+		header( "Location: /pods/core_usercontent/view.php?stub=$stub");
+		exit;
  	}else{
-		include( "/pods/core_usercontent/list.php");
+		header( "Location: /pods/core_usercontent/list.php");
+		exit;
 	}
 }//content" )-> //needs to go to /PeoplePods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
 
 function feeds( $args ) {
 	if( isset( $args ) ){
-		include( "/pods/core_feeds/feed.php?args=$args");
+		header( "Location: /pods/core_feeds/feed.php?args=$args");
+		exit;
 	}else{
-		include( "/pods/core_feeds/feed.php");
-		
+		header( "Location: /pods/core_feeds/feed.php");
+		exit;
 	}
 }//feeds" )-> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$args	[QSA,L] # core_feeds
 
 //original path in .htaccess
 function listFeeds( $args ) {
 	if( isset( $args ) ){
-		include( "/pods/core_feeds/list.php?args=$args");
+		header( "Location: /pods/core_feeds/list.php?args=$args");
+		exit;
 	}else{
-		include( "/pods/core_feeds/list.php");
+		header( "Location: /pods/core_feeds/list.php");
+		exit;
 	}
 }//list" )-> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
 
 function files( $id, $size ) {
 	if( isset( $id ) && isset( $size ) ){
-		include( "/pods/core_files/index.php?id=$id&size=$size"); //todo recheck this path from the original .htaccess rule, specifically, see if both $id and $size are required.
+		header( "Location: /pods/core_files/index.php?id=$id&size=$size"); //todo recheck this path from the original .htaccess rule, specifically, see if both $id and $size are required.
+		exit;
 	}else{
-		include( "/pods/core_files/index.php");
+		header( "Location: /pods/core_files/index.php");
+		exit;
 	}
 }//files" )-> //needs to go to /PeoplePods/pods/core_files/index.php?id=$id&size=$size	[QSA,L] # core_files
 
@@ -222,114 +241,146 @@ function files( $id, $size ) {
 
 function groups( $stub = null, $command = null ) {
 	if( isset( $stub ) && isset( $command ) ){
-		include( "/pods/core_groups/group.php?stub=$stub&command=$command");
+		header( "Location: /pods/core_groups/group.php?stub=$stub&command=$command");
+		exit;
 	}else if( $stub ) {
-		include( "/pods/core_groups/group.php?stub=$stub");
+		header( "Location: /pods/core_groups/group.php?stub=$stub");
+		exit;
 	}else{
-		include( "/pods/core_groups/index.php");
+		header( "Location: /pods/core_groups/index.php");
+		exit;
 	}
 }//groups" )-> //needs to go to /PeoplePods/pods/core_groups/group.php?stub=$stub&command=$command	[QSA,L] # core_groups # optional params
 
 function invite() {
-	include( "/pods/core_invite/index.php");
+	header( "Location: /pods/core_invite/index.php");
+	exit;
 }//invite" )-> //needs to go to /PeoplePods/pods/core_invite/index.php	[QSA,L] # core_invite
 
 function pages() {
-	include( "/pods/core_pages/view.php?stub=$stub");
+	header( "Location: /pods/core_pages/view.php?stub=$stub");
+	exit;
 }//pages" )->
 
 function view() {
-	include( "/pods/core_pages/view.php?stub=$stub");
+	header( "Location: /pods/core_pages/view.php?stub=$stub");
+	exit;
 }//view" )-> //needs to go to /PeoplePods/pods/core_pages/view.php?stub=$stub	[QSA,L] # core_pages
 
 function patients() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//patients" )->
 
 function conversation( $username ) {
-	include( "/pods/core_private_messaging/thread.php?username=$username");
+	header( "Location: /pods/core_private_messaging/thread.php?username=$username");
+	exit;
 }//conversation" )-> //needs to go to /PeoplePods/pods/core_private_messaging/thread.php?username=$username	[QSA,L] # core_private_messaging
 
 function inbox() {
-	include( "/pods/core_private_messaging/inbox.php");
+	header( "Location: /pods/core_private_messaging/inbox.php");
+	exit;
 }//inbox" )-> //needs to go to /PeoplePods/pods/core_private_messaging/inbox.php	[QSA,L] # core_private_messaging
 
 function profile( $username ) {
-	include( "/pods/core_profiles/profile.php?username=$username");
+	header( "Location: /pods/core_profiles/profile.php?username=$username");
+	exit;
 }//profile" )-> //needs to go to /PeoplePods/pods/core_profiles/profile.php?username=$username	[QSA,L] # core_profiles
 
 function editProfile() {
-	include( "/pods/core_profiles/editprofile.php");
+	header( "Location: /pods/core_profiles/editprofile.php");
+	exit;
 }//editProfile" )-> //needs to go to /PeoplePods/pods/core_profiles/editprofile.php	[QSA,L] # core_profiles
 
 function search() {
-	include( "/pods/core_search/search.php");
+	header( "Location: /pods/core_search/search.php");
+	exit;
 }//search" )-> //needs to go to /PeoplePods/pods/core_search/search.php	[QSA,L] # core_search
 
 function user_content() {
-	include( "/pods/core_usercontent/view.php");
+	header( "Location: /pods/core_usercontent/view.php");
+	exit;
 }//user_content" )->
 
 function healer_dashboard() {
 	include("/pods/healer_dashboard");
+	exit;
 }//doctor_dashboard" )->
 
 function fb_connect() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//fb_connect" )->
 
 function gravatars() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//gravatars" )->
 
 function landing_page() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//landing_page" )->
 
 function openId( $mode ) {
 	if( isset( $mode ) ){
-		include( "/pods/openid_connect/index.php?mode=$mode");
+		header( "Location: /pods/openid_connect/index.php?mode=$mode");
+		exit;
 	}else{
-		include( "/pods/openid_connect/index.php");
+		header( "Location: /pods/openid_connect/index.php");
+		exit;
 	}
 }//openId" )-> //needs to go to /PeoplePods/pods/openid_connect/index.php	[QSA,L] # openid_connect
 
 function placekitten() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//placekitten" )->
 
 function twitter() {
-	include( "/pods/dashboard/index.php");
+	header( "Location: /pods/dashboard/index.php");
+	exit;
 }//twitter" )->
 
 function friends( $mode ) {
 	if( isset( $mode ) ){
-		include( "/pods/core_friends/index.php?mode=$mode");
+		header( "Location: /pods/core_friends/index.php?mode=$mode");
+		exit;
 	}else{
-		include( "/pods/core_friends/index.php" );
+		header( "Location: /pods/core_friends/index.php" );
+		exit;
 	}
 }//friends" )-> //needs to go to /PeoplePods/pods/core_friends/index.php?mode=$mode	[QSA,L] # core_friends
 
 function admin() {
-	include( "/admin/index.php");
+	header( "Location: /admin/index.php");
+	exit;
 }//admin" )->
 
 function api1() {//security needed here
-	include( "/pods/core_api_simple/index_version1.php");
+	header( "Location: /pods/core_api_simple/index_version1.php");
+	exit;
 }//api" )-> //needs to go to /PeoplePods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
 
 function api2( $method ) {//security needed here
-	include( "/pods/core_api_simple/index_version2.php?method=$method");
+	header( "Location: /pods/core_api_simple/index_version2.php?method=$method");
+	exit;
 }//api" )-> //needs to go to /PeoplePods/pods/core_api_simple/index_version2.php?method=$method	[QSA,L] # core_api_simple
 
 
 function terms_of_service(){
-	include( "/pods/terms/view.php" );
+	header( "Location: /pods/terms/view.php" );
+	exit;
 }
 
 function install() {//todo check if database is present before routing to install
-	if( !$POD->success() ){ include( "/PeoplePods/install/index.php"); }
-	else header( "Location: unauthorized" );
+	if( !$POD->success() ){
+		header( "Location: /PeoplePods/install/index.php");
+		exit; 
+	}else{
+		header( "Location: unauthorized" );
+		exit;
+	}
 	
 }//install" )-> //todo needs to go to /PeoplePods/install/, but only the first run though...
 

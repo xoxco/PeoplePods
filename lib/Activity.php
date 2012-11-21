@@ -11,7 +11,6 @@
 * Documentation for this object can be found here:
 * http://peoplepods.net/readme/activity
 /**********************************************/	
-
 	
 	class Activity extends Msg { 
 	

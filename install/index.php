@@ -165,8 +165,8 @@
 								$POD->enablePOD($name);
 							}
 						}
-						
-						$message = $POD->writeHTACCESS($installDir."/..");
+						/*//going to go ahead and test my routing solution locally
+						//$message = $POD->writeHTACCESS($installDir."/..");
 						if (!$POD->success()) { 
 							$error = true;
 							unlink($POD->libOptions('etcPath') . "/options.php");
@@ -176,7 +176,7 @@
 
 							echo "<p>$message</p>";
 						}
-					
+					 */
 					} else {
 						echo '<p class="error">Could not write to config file! ' . $POD->error() . "</p>";
 						$error = true;
