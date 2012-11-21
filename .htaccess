@@ -1,0 +1,3 @@
+# route non-existant requests to single script
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
+RewriteRule ^.*$ index.php [QSA,NS]
