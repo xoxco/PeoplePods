@@ -1403,6 +1403,7 @@ class PeoplePod {
 	// a VERY simple test to see if we are dealing with formatted "Body" text.
 	// if it starts with a <p> tag, then TRUE.
 	// else, false.
+	//todo this could very well change to a simple flag upon formatting during a user creation or editing phase, I'll think about it later
 	function isFormattedText($string) { 
 	
 		return preg_match("/^\<p/i",$string);

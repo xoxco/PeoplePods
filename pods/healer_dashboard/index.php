@@ -34,11 +34,11 @@
 	}
 
 	$POD->header();	
-	if ($POD->isAuthenticated()) { //@todo needs to verify authorization as a doctor or other licensed caregiver
+	if ($POD->isAuthenticated()) { //@todo needs to verify authorization as a doctor or other licensed caregiver fixme these are central files get to it!
 		if (!isset($_GET['replies'])) { 
-			$POD->currentUser()->output('doctor_dashboard');
+			$POD->currentUser()->output('healer_dashboard'); //themes/people/healer_dashboard.php
 		} else {
-			$POD->currentUser()->output('doctor_dashboard_replies');
+			$POD->currentUser()->output('healer_dashboard_replies'); //themes/people/healer_dashboard_replies.php
 		}
 	} else {
 		$POD->getPerson()->output('welcome');
