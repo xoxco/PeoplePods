@@ -102,12 +102,10 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/files/:id/:size", "files") -> //needs to go to /PeoplePods/pods/core_files/index.php?id=$1&size=$2	[QSA,L] # core_files
 	route("/files", "files") -> 
 	route("/friends", "friends") ->
-	//the following few routes are handled by the same function, there is no differece between them, the paths are effectively alius of each other
-	route("/feeds/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
-	route("/feeds", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
+	route("/feeds/:args", "feeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
+	route("/feeds", "feeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 	route("/lists/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/list.php?args=$1	[QSA,L] # core_feeds
 	route("/lists", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
-	
 	route("/groups", "groups") -> 
 	route("/groups/:stub/:command", "groups") -> //needs to go to /PeoplePods/pods/core_groups/group.php?stub=$1&command=$2	[QSA,L] # core_groups
 	route("/groups/:stub", "groups") -> //needs to go to /PeoplePods/pods/core_groups/group.php?stub=$1	[QSA,L] # core_groups
@@ -194,13 +192,14 @@ function content( $stub ) {
 	}
 }//content" )-> //needs to go to /PeoplePods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
 
-function feeds() {
-	include( "/pods/core_feeds/feed.php?args=$args");
+function feeds( $args ) {
+	if( isset( $args ) ){
+		include( "/pods/core_feeds/feed.php?args=$args");
+	}else{
+		include( "/pods/core_feeds/feed.php");
+		
+	}
 }//feeds" )-> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$args	[QSA,L] # core_feeds
-
-function feeds() {
-	include( "/pods/core_feeds/feed.php");
-}//feeds" )-> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 
 //original path in .htaccess
 function listFeeds( $args ) {
