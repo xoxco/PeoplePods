@@ -37,7 +37,7 @@
 	<?php $POD->extraJS(); ?>
 	
 	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/styles.css" media="screen" />
-	<link rel="stylesheet" type="ttext/css" href="<?php $POD->templateDir(); ?>/custom.css" media="screen"" />
+	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/custom.css" media="screen"" />
 	
 	<?php $POD->extraCSS(); ?>
 	
@@ -70,12 +70,6 @@
 
 </head>
 <body id="body">
-	<?php if ($fb_api = $POD->libOptions('fb_connect_api')) { ?>
-		<!-- Facebook API -->
-		<script type="text/javascript" src="http://connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"></script> 
-		<script type="text/javascript">FB.init('<?php echo $fb_api; ?>','/xd_receiver.htm');</script>	
-		<!-- End Facebook API -->
-	<?php } ?>
 	<!-- begin header -->
 	<header>
 			<!-- begin login status -->
