@@ -85,14 +85,15 @@ if ($POD -> success()) {
  * */
 
 Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard
-	route("/dashboard", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard
+	route("/dashboard", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard //alius of dashboard
+	//the following is a slight modification of dashboard path, but the url is used quite a bit //todo rectify and simplify this following path
+	route("/replies", "replies") -> //needs to go to /PeoplePods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard 
 	route("/unauthorized", "unauthorized") -> //needs to go to /PeoplePods/pods/unauthorized_landing_page/index.php
 	route("/authentication", "authentication") -> //needs to go to
 	route("/login", "login") -> //needs to go to /PeoplePods/pods/core_authentication/login.php	[QSA,L] # core_authentication_login
 	route("/logout", "logout") -> //needs to go to /PeoplePods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
 	route("/password_reset/:resetCode", "passReset") -> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
 	route("/password_reset", "passReset") -> //needs to go to /PeoplePods/pods/core_authentication/password.php	[QSA,L] # core_authentication_login
-	route("/replies", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard
 	route("/join", "join") -> //needs to go to /PeoplePods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
 	route("/verify", "verify") -> //needs to go to /PeoplePods/pods/core_authentication/verify.php	[QSA,L] # core_authentication_creation
 	route("/edit", "edit") -> //needs to go to /PeoplePods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
@@ -101,7 +102,7 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/files/:id/:size", "files") -> //needs to go to /PeoplePods/pods/core_files/index.php?id=$1&size=$2	[QSA,L] # core_files
 	route("/files", "files") -> 
 	route("/friends", "friends") ->
-	//the following few routes are handled by the same function, there is no differece between them. 
+	//the following few routes are handled by the same function, there is no differece between them, the paths are effectively alius of each other
 	route("/feeds/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
 	route("/feeds", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 	route("/lists/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/list.php?args=$1	[QSA,L] # core_feeds
@@ -122,7 +123,7 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/editprofile", "editProfile") -> //needs to go to /PeoplePods/pods/core_profiles/editprofile.php	[QSA,L] # core_profiles
 	route("/search", "search") -> //needs to go to /PeoplePods/pods/core_search/search.php	[QSA,L] # core_search
 	route("/content", "user_content") -> 
-	route("/dashboard/:healer", "healer_dashboard") -> 
+	route("/dashboard/:healer", "healer_dashboard") -> //fixme work out this path and its handling
 	route("/fb", "fb_connect") -> 
 	route("/gravatars", "gravatars") -> 
 	route("/landing_page", "landing_page") -> 
@@ -142,6 +143,10 @@ run();
 function dashboard() {
 	include( "/pods/dashboard/index.php");
 }# core_dashboard //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard
+
+function replies() { //slightly modified alius of dashboard. more work to be done here
+	include( "/pods/dashboard/index.php?replies=1");
+}//dashboard" )-> //needs to go to /PeoplePods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard
 
 function unauthorized() {
 	include( "/pods/unauthorizes_landing_page/index.php");
@@ -168,10 +173,6 @@ function passReset( $resetCode ) {
 		include( "/pods/core_authentication/password.php");	
 	}
 }//passReset" )-> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
-
-function dashboard() {
-	include( "/pods/dashboard/index.php?replies=1");
-}//dashboard" )-> //needs to go to /PeoplePods/pods/dashboard/index.php?replies=1	[QSA,L] # core_dashboard
 
 function join() {
 	include( "/pods/core_authentication/join.php");
