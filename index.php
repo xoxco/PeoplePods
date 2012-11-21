@@ -94,7 +94,7 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/logout", "logout") -> //needs to go to /PeoplePods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
 	route("/password_reset/:resetCode", "passReset") -> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
 	route("/password_reset", "passReset") -> //needs to go to /PeoplePods/pods/core_authentication/password.php	[QSA,L] # core_authentication_login
-	route("/join", "join") -> //needs to go to /PeoplePods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
+	route("/join", "joinUs") -> //needs to go to /PeoplePods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
 	route("/verify", "verify") -> //needs to go to /PeoplePods/pods/core_authentication/verify.php	[QSA,L] # core_authentication_creation
 	route("/edit", "edit") -> //needs to go to /PeoplePods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
 	route("/show", "content") -> //needs to go to /PeoplePods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
@@ -174,7 +174,7 @@ function passReset( $resetCode ) {
 	}
 }//passReset" )-> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
 
-function join() {
+function joinUs() {
 	include( "/pods/core_authentication/join.php");
 }//join" )-> //needs to go to /PeoplePods/pods/core_authentication/join.php	[QSA,L] # core_authentication_creation
 
