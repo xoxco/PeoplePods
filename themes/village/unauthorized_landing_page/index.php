@@ -19,6 +19,7 @@ if ($detect->isMobile()) {
 <script src="../js/moment.min.js"></script>
 <script src="js/unauthorized.js"></script>
 </head>
+
 <body>
 <div id="main_container">
   <noscript id="javascriptAnnouncment">

@@ -1,0 +1,350 @@
+
+/* ADDING REPLACEMENT STYLING, THIS IS GOING TO BE PAINFUL.../*
+basic color scheme
+lightBlue - #6cf
+lightOrange - #f93 or rgba( 255, 153, 51, 0.5 );
+brightOrange - #f77727
+black - #000
+*/
+
+@import url( '../fonts/geosans-light/geosans-light.css' );
+h1, h2, h3, .demoButton {
+	font-family: 'geosanslightregular';
+}
+h1 em, h2 em, h3 em, .demoButton em {
+	font-family: 'geosanslightmedium_italic';
+}
+body {
+	margin:0px;
+	padding:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background-color: #000;
+	color: #CC0;
+	background-image: url(../images/background-shorter.png);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 100%;
+	background-origin: content-box;
+	width: 100%;
+}
+h1 {
+	font-size:30px;
+	font-weight:normal;
+	color: #CCCC00;
+	padding:20px 0 20px 0px;
+	margin:0px;
+}
+h2 {
+	font-size:30px;
+	font-weight:normal;
+	color:#F77727;
+	padding:10px 0 10px 0px;
+	margin:0px;
+}
+h3 {
+	font-size:24px;
+	font-weight:normal;
+	padding:0px 0 10px 0px;
+	margin:0px;
+	color: #CC0;
+}
+a, .gitHub {
+	border-bottom:1px dotted #F77727;
+	text-decoration:none;
+	padding:2px;
+	color:#F77727;
+}
+a:visited {
+	color:#F77727;
+}
+p {
+	padding:5px 0 5px 0;
+	margin:0px;
+	line-height:20px;
+	text-align:justify;
+}
+.clear {
+	clear:both;
+}
+#main_container {
+	width:960px;
+	height:auto;
+	margin: auto;
+}
+.header {
+	width:960px;
+	height:100px;
+}
+.logo {
+	padding:30px 0 0 0px;
+}
+.logo a {
+	font-size:40px;
+	text-indent:-1px;
+	color:#CCCC66;
+	text-decoration:none;
+	border:none;
+	height:49px;
+	display:block;
+	padding:0px;
+}
+#javascriptAnnouncment div {
+	width:525px;
+	margin-top: 0.86em;
+	background-color: transparent;
+	background-color: rgba( 255, 15, 15, 0.1 );
+	padding:30px;
+	border-radius: 5px;
+}
+/*-----------------home_center----------------------*/
+.home_center {
+	width:960px;
+	height:490px;
+	margin:auto;
+}
+.pack_pic {
+	float:right;
+}
+form, .pack_descr {
+	float:left;
+	width:525px;
+	margin-top: 0.86em;
+	background-color: transparent;
+	background-color: rgba( 15, 15, 15, 0.1 );
+	padding:30px;
+	border-radius: 5px;
+}
+form {
+	font-family: 'geosanslightregular';
+	width: auto;
+	overflow: visible;
+	float: right;
+	padding: 1em;
+	background-color: rgba( 15, 15, 15, 0.3 );
+}
+form div {
+	width: auto;
+	padding: 5px;
+	margin: 0.5em auto;
+}
+form input {
+	width: 160px;
+	text-align: left;
+}
+form input[type='button' ] {
+	width: auto;
+	float: right;
+	clear: both;
+}
+form label {
+	background-color: transparent;
+	color: #fff;
+}
+.pack_descr h1 {
+	padding: 0.86em;
+	text-align: justify;
+	font-size: 26px;
+	overflow: visible;
+}
+p.home_intro {
+	font-family: 'geosanslightregular';
+	font-size: 16px;
+	height: auto;
+	color: #CC0;
+	margin-bottom: 30px;
+}
+.buttons a {
+	border:none;
+	margin:0 30px 0 0;
+}
+.demoButton {
+	font-size: 24px;
+	height: 30px;
+	padding: 10px;
+	margin: 5px;
+	background-color: #000;
+	background-color: rgba( 255, 153, 51, 0.4 );
+	border-radius: 5px;
+}
+.demoButton:hover, .demoButton:hover a {
+	color: #000;
+	background-color: #f93;
+	cursor: pointer;
+}
+/*----------*/
+.center_content {
+	padding:0px 0 40px 0;
+}
+.left_content {
+	width:640px;
+	float:left;
+	padding:0px;
+}
+.right_content {
+	width:310px;
+	float:right;
+	padding:0px;
+}
+.feat_box {
+	width:300px;
+	float:left;
+	padding:20px 20px 10px 0px;
+}
+img.feat_thumb {
+	width:65px;
+	height:65px;
+	float:left;
+}
+.feat_details {
+	width:215px;
+	float:left;
+	padding:0 0 0 14px;
+}
+p.feat_text {
+	font-size:11px;
+	padding:3px 30px 3px 0;
+	line-height:18px;
+}
+#latest_news {
+	display: none;
+}
+.latest_news {
+	float:left;
+	clear:both;
+	padding:40px 0 0 0;
+}
+.news_box {
+	width:640px;
+	float:left;
+	padding:20px 0 0px 0px;
+}
+.news_details {
+	width:510px;
+	float:left;
+	padding:0 0 0 14px;
+}
+.news_box h2 {
+	padding-top:0px;
+}
+.testimonial_box {
+	width:285px;
+	margin:25px 0 0px 0px;
+	padding:0px 0 15px 25px;
+	background:url(../images/quotes_top.png) no-repeat top left;
+}
+.testimonial_box p {
+	padding:0px 5px 12px 0px;
+	background:url(../images/quotes_bottom.png) no-repeat bottom right;
+	font-style:italic;
+}
+.testimonial_details {
+	width:285px;
+	padding:5px 0 0 0;
+}
+.testimonial_details p {
+	color:#ff6c00;
+	font-size:11px;
+	font-style:normal;
+	padding:0px 0 0 0px;
+	background:none;
+}
+/*---------------contact_form------------------*/
+.form_content {
+	width:310px;
+	float:left;
+	padding:10px 0px 10px 0px;
+}
+.form_row {
+	width:310px;
+	clear:both;
+	float:left;
+	padding:5px 0 5px 0;
+}
+.form_row label {
+	width:80px;
+	float:left;
+	font-size:12px;
+	text-align:right;
+	padding:0px 20px 0 0;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+}
+input.form_input {
+	width:205px;
+	height:30px;
+	background-color:#f0eee5;
+	color:#4f4f4d;
+	border:none;
+	float:left;
+	padding:0px 0 0 5px;
+}
+textarea.form_textarea {
+	clear: both;
+	width: 100%;
+	height:90px;
+	font-family:Arial, Helvetica, sans-serif;
+	background-color:#f0eee5;
+	color:#4f4f4d;
+	border:none;
+	float:left;
+	padding:10px 0 0 5px;
+	font-size:12px;
+}
+input.form_submit {
+	width:auto;
+	height:auto;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:pointer;
+	float:right;
+	margin:0px;
+	padding:3px 10px 3px 10px;
+	background-color:#F77727;
+	border:none;
+}
+/* login box */
+#login {
+	min-width: 375px;
+	height: auto;
+	position: absolute;
+	top: 12px;
+	right: 30px;
+}
+input, textarea {
+	padding: 0px 5px;
+	color: #111;
+	border-radius: 3px;
+	background-color: #f93;
+	background-color: rgba( 255, 153, 51, 0.8 );
+	box-shadow: 0px 0px 30px #6cf;
+}
+#userName, #submitLogin, #pit {
+	font-family: 'geosanslightregular';
+}
+#submitLogin {
+	width: auto;
+	height: auto;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	margin: 0px;
+	padding: 3px 10px;
+	background-color: #F77727;
+	border: none;
+	cursor: pointer;
+}
+/*-----------------------footer-------------------------*/
+#footer {
+	width:100%;
+	height:175px;
+	clear:both;
+	text-align:center;
+	line-height:25px;
+	padding:10px 0 0 0;
+	margin:1.86em auto 0px auto;
+	background-color: rgba( 255, 255, 255, 0.2 );
+}

@@ -13,7 +13,7 @@
 /**********************************************/
 
 
-	include_once("../unauthorized_landing_page/content_type.php"); // this defines some variables for use within this pod
+	include_once("content_type.php"); // this defines some variables for use within this pod
 	include_once("../../PeoplePods.php");
 	if ($_POST) {
 		$lockdown = 'verified';

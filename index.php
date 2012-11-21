@@ -98,13 +98,15 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/edit", "edit") -> //needs to go to /PeoplePods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
 	route("/show", "content") -> //needs to go to /PeoplePods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
 	route("/show/:stub", "content") -> //needs to go to /PeoplePods/pods/core_usercontent/view.php?stub=$1	[QSA,L] # contenttype_document_view
-	route("/feeds/:args", "feeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
-	route("/feeds", "feeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 	route("/files/:id/:size", "files") -> //needs to go to /PeoplePods/pods/core_files/index.php?id=$1&size=$2	[QSA,L] # core_files
 	route("/files", "files") -> 
-	route("/friends", "friends") -> 
-	route("/lists/:args", "list") -> //needs to go to /PeoplePods/pods/core_feeds/list.php?args=$1	[QSA,L] # core_feeds
-	route("/lists", "list") -> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
+	route("/friends", "friends") ->
+	//the following few routes are handled by the same function, there is no differece between them. 
+	route("/feeds/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php?args=$1	[QSA,L] # core_feeds
+	route("/feeds", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
+	route("/lists/:args", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/list.php?args=$1	[QSA,L] # core_feeds
+	route("/lists", "listFeeds") -> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
+	
 	route("/groups", "groups") -> 
 	route("/groups/:stub/:command", "groups") -> //needs to go to /PeoplePods/pods/core_groups/group.php?stub=$1&command=$2	[QSA,L] # core_groups
 	route("/groups/:stub", "groups") -> //needs to go to /PeoplePods/pods/core_groups/group.php?stub=$1	[QSA,L] # core_groups
@@ -159,13 +161,13 @@ function logout() {
 	include( "/pods/core_authentication/logout.php");
 }//logout" )-> //needs to go to /PeoplePods/pods/core_authentication/logout.php	[QSA,L] # core_authentication_login
 
-function passReset() {
-	include( "/pods/core_authentication/password.php?resetCode=$resetCode");
+function passReset( $resetCode ) {
+	if( isset( $resetCode ) ){
+		include( "/pods/core_authentication/password.php?resetCode=$resetCode");
+	}else{
+		include( "/pods/core_authentication/password.php");	
+	}
 }//passReset" )-> //needs to go to /PeoplePods/pods/core_authentication/password.php?resetCode=$1	[QSA,L] # core_authentication_login
-
-function passReset() {
-	include( "/pods/core_authentication/password.php");
-}//passReset" )-> //needs to go to /PeoplePods/pods/core_authentication/password.php	[QSA,L] # core_authentication_login
 
 function dashboard() {
 	include( "/pods/dashboard/index.php?replies=1");
@@ -199,22 +201,23 @@ function feeds() {
 	include( "/pods/core_feeds/feed.php");
 }//feeds" )-> //needs to go to /PeoplePods/pods/core_feeds/feed.php	[QSA,L] # core_feeds
 
-function files() {
-	include( "/pods/core_files/index.php?id=$id&size=$size");
+//original path in .htaccess
+function listFeeds( $args ) {
+	if( isset( $args ) ){
+		include( "/pods/core_feeds/list.php?args=$args");
+	}else{
+		include( "/pods/core_feeds/list.php");
+	}
+}//list" )-> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
+
+function files( $id, $size ) {
+	if( isset( $id ) && isset( $size ) ){
+		include( "/pods/core_files/index.php?id=$id&size=$size"); //todo recheck this path from the original .htaccess rule, specifically, see if both $id and $size are required.
+	}else{
+		include( "/pods/core_files/index.php");
+	}
 }//files" )-> //needs to go to /PeoplePods/pods/core_files/index.php?id=$id&size=$size	[QSA,L] # core_files
 
-function files() {
-	include( "/pods/core_files/index.php");//todo resolve this conflict
-}//files" )->
-
-
-function listFeeds() {
-	include( "/pods/core_feeds/list.php?args=$args");
-}//list" )-> //needs to go to /PeoplePods/pods/core_feeds/list.php?args=$args	[QSA,L] # core_feeds
-
-function listFeeds() {
-	include( "/pods/core_feeds/list.php");
-}//list" )-> //needs to go to /PeoplePods/pods/core_feeds/list.php	[QSA,L] # core_feeds
 
 
 function groups( $stub = null, $command = null ) {
@@ -284,11 +287,11 @@ function landing_page() {
 }//landing_page" )->
 
 function openId( $mode ) {
-	include( "/pods/openid_connect/index.php?mode=$mode");
-}//openId" )-> //needs to go to /PeoplePods/pods/openid_connect/index.php?mode=$mode	[QSA,L] # openid_connect
-
-function openId() {
-	include( "/pods/openid_connect/index.php");
+	if( isset( $mode ) ){
+		include( "/pods/openid_connect/index.php?mode=$mode");
+	}else{
+		include( "/pods/openid_connect/index.php");
+	}
 }//openId" )-> //needs to go to /PeoplePods/pods/openid_connect/index.php	[QSA,L] # openid_connect
 
 function placekitten() {
@@ -300,12 +303,12 @@ function twitter() {
 }//twitter" )->
 
 function friends( $mode ) {
-	include( "/pods/core_friends/index.php?mode=$mode");
+	if( isset( $mode ) ){}
+		include( "/pods/core_friends/index.php?mode=$mode");
+	}else{
+		include( "/pods/core_friends/index.php" );
+	}
 }//friends" )-> //needs to go to /PeoplePods/pods/core_friends/index.php?mode=$mode	[QSA,L] # core_friends
-
-function friends() {
-	include( "/pods/dashboard/index.php");
-}//friends" )-> //needs to go to /PeoplePods/pods/core_friends/index.php	[QSA,L] # core_friends
 
 function admin() {
 	include( "/admin/index.php");

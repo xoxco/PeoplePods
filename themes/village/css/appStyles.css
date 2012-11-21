@@ -1,5 +1,5 @@
 body {
-	background:url(appImages/bg.jpg) no-repeat center top #310b28;
+	background:url(../appImages/bg.jpg) no-repeat center top #310b28;
 	font-family:Arial, Helvetica, sans-serif;
 	padding:0;
 	font-size:12px;
@@ -33,7 +33,7 @@ a.forgot_pass {
 	float:right;
 	color:#256c89;
 	text-decoration:none;
-	background:url(appImages/help.png) no-repeat left;
+	background:url(../appImages/help.png) no-repeat left;
 	padding:0 0 0 18px;
 	display:block;
 	margin:15px 20px 0 0;
@@ -79,11 +79,11 @@ header {
 	color:#FFFFFF;
 }
 .right_header a.messages {
-	background:url(appImages/comment.png) no-repeat right;
+	background:url(../appImages/comment.png) no-repeat right;
 	padding-right:20px;
 }
 .right_header a.logout {
-	background:url(appImages/user_logout.png) no-repeat right;
+	background:url(../appImages/user_logout.png) no-repeat right;
 	padding-right:20px;
 }
 .main_content {
@@ -91,12 +91,12 @@ header {
 	width:900px;
 	height:auto;
 	padding:0px 0 50px 0;
-	background:url(appImages/menu_bg.jpg) no-repeat center top #fff;
+	background:url(../appImages/menu_bg.jpg) no-repeat center top #fff;
 }
 .footer {
 	width:900px;
 	height:87px;
-	background:url(appImages/footer_bg.jpg) no-repeat center top;
+	background:url(../appImages/footer_bg.jpg) no-repeat center top;
 }
 .footer_login {
 	width:600px;
@@ -173,7 +173,7 @@ header {
 	padding:0 21px 0 17px;
 }
 .menu a.current {
-	background:url(appImages/menu_bg.gif) repeat-x center;
+	background:url(../appImages/menu_bg.gif) repeat-x center;
 }
 /* style the sub level links */
 .menu ul ul a, .menu ul ul a:visited {
@@ -220,41 +220,41 @@ header {
 }
 /* style the sub level 1 background */
 .menu ul :hover a.sub1 {
-	background:url(appImages/arrow.gif) no-repeat right #309dc7;
+	background:url(../appImages/arrow.gif) no-repeat right #309dc7;
 }
 /* style the sub level 2 background */
 .menu ul ul :hover a.sub2 {
-	background:url(appImages/arrow.gif) no-repeat right #088bb4;
+	background:url(../appImages/arrow.gif) no-repeat right #088bb4;
 }
 /* style the level hovers */
 /* first */
 .menu a:hover {
 	color:#fff;
-	background:url(appImages/menu_bg.gif) repeat-x center;
+	background:url(../appImages/menu_bg.gif) repeat-x center;
 }
 .menu :hover > a {
 	color:#fff;
-	background:url(appImages/menu_bg.gif) repeat-x center;
+	background:url(../appImages/menu_bg.gif) repeat-x center;
 }
 /* second */
 .menu ul ul a:hover {
 	color:#fff;
-	background:url(appImages/menu_bg_a.gif) repeat-x center;
+	background:url(../appImages/menu_bg_a.gif) repeat-x center;
 }
 .menu ul ul :hover > a {
 	color:#fff;
-	background:url(appImages/menu_bg_a.gif) repeat-x center;
+	background:url(../appImages/menu_bg_a.gif) repeat-x center;
 }
 /* third */
 .menu ul ul ul a:hover {
-	background:url(appImages/menu_bg_a.gif) repeat-x center;
+	background:url(../appImages/menu_bg_a.gif) repeat-x center;
 }
 .menu ul ul ul :hover > a {
-	background:url(appImages/menu_bg_a.gif) repeat-x center;
+	background:url(../appImages/menu_bg_a.gif) repeat-x center;
 }
 /* fourth */
 .menu ul ul ul ul a:hover {
-	background:url(appImages/menu_bg_a.gif) repeat-x center;
+	background:url(../appImages/menu_bg_a.gif) repeat-x center;
 }
 /* hide the sub levels and give them a positon absolute so that they take up no room */
 .menu ul ul {
@@ -281,7 +281,7 @@ header {
 	visibility:visible;
 	height:auto;
 	padding-bottom:3em;
-	background:transparent url(appImages/trans.gif);
+	background:transparent url(../appImages/trans.gif);
 }
 /* keep the third level hidden when you hover on first level list OR link */
 .menu ul :hover ul ul {
@@ -318,7 +318,7 @@ header {
 	width:195px;
 }
 .sidebarmenu a.menuitem {
-	background:url(appImages/sidebar_menu_top.gif) no-repeat center top;
+	background:url(../appImages/sidebar_menu_top.gif) no-repeat center top;
 	color: #fff;
 	display: block;
 	position: relative;
@@ -330,7 +330,7 @@ header {
 	text-decoration: none;
 }
 .sidebarmenu a.menuitem_green {
-	background:url(appImages/green_bt.gif) no-repeat center top;
+	background:url(../appImages/green_bt.gif) no-repeat center top;
 	color: #fff;
 	display: block;
 	position: relative;
@@ -342,7 +342,7 @@ header {
 	text-decoration: none;
 }
 .sidebarmenu a.menuitem_red {
-	background:url(appImages/red_bt.gif) no-repeat center top;
+	background:url(../appImages/red_bt.gif) no-repeat center top;
 	color: #fff;
 	display: block;
 	position: relative;
@@ -354,13 +354,13 @@ header {
 	text-decoration: none;
 }
 .sidebarmenu a.menuitem:hover {
-	background:url(appImages/sidebar_menu_top_a.gif) no-repeat center top;
+	background:url(../appImages/sidebar_menu_top_a.gif) no-repeat center top;
 }
 .sidebarmenu a.menuitem_green:hover {
-	background:url(appImages/green_bt_a.gif) no-repeat center top;
+	background:url(../appImages/green_bt_a.gif) no-repeat center top;
 }
 .sidebarmenu a.menuitem_red:hover {
-	background:url(appImages/red_bt_a.gif) no-repeat center top;
+	background:url(../appImages/red_bt_a.gif) no-repeat center top;
 }
 .sidebarmenu a.menuitem:visited, .sidebarmenu .menuitem:active {
 	color: white;
@@ -394,7 +394,7 @@ header {
 	color: #0e4354;
 }
 .sidebar_search {
-	background:url(appImages/sidebar_menu_top.gif) no-repeat center;
+	background:url(../appImages/sidebar_menu_top.gif) no-repeat center;
 	width:195px;
 	height:31px;
 	margin:0 0 5px 0;
@@ -424,10 +424,10 @@ input.search_submit {
 }
 #rounded-corner thead th.rounded-company {
 	width:26px;
-	background: #60c8f2 url('appImages/left.jpg') left top no-repeat;
+	background: #60c8f2 url('../appImages/left.jpg') left top no-repeat;
 }
 #rounded-corner thead th.rounded-q4 {
-	background: #60c8f2 url('appImages/right.jpg') right top no-repeat;
+	background: #60c8f2 url('../appImages/right.jpg') right top no-repeat;
 }
 #rounded-corner th {
 	padding: 8px;
@@ -443,10 +443,10 @@ input.search_submit {
 	color: #669;
 }
 #rounded-corner tfoot td.rounded-foot-left {
-	background: #ecf8fd url('appImages/botleft.jpg') left bottom no-repeat;
+	background: #ecf8fd url('../appImages/botleft.jpg') left bottom no-repeat;
 }
 #rounded-corner tfoot td.rounded-foot-right {
-	background: #ecf8fd url('appImages/botright.jpg') right bottom no-repeat;
+	background: #ecf8fd url('../appImages/botright.jpg') right bottom no-repeat;
 }
 #rounded-corner tbody tr:hover td {
 	background: #d2e7f0;
@@ -459,7 +459,7 @@ input.search_submit {
 	height: 78px;
 	font-size: 13px;
 	line-height: 1.5em;
-	background: url('appImages/bubble.png') left top no-repeat;
+	background: url('../appImages/bubble.png') left top no-repeat;
 	padding: 10px 0 0 0;
 	text-shadow: 0px 1px 0px #fff;
 	margin-left: -7em;
@@ -475,7 +475,7 @@ input.search_submit {
 	height: 21px;
 	color: #434d17;
 	text-shadow: 0px 1px 0px #fff;
-	background: url('appImages/buttony.png') left top no-repeat;
+	background: url('../appImages/buttony.png') left top no-repeat;
 }
 .cancel {
 	margin-top: .5em;
@@ -486,7 +486,7 @@ input.search_submit {
 	height: 21px;
 	color: #fff;
 	text-shadow: 0px 1px 0px #000;
-	background: url('appImages/buttonn.png') left top no-repeat;
+	background: url('../appImages/buttonn.png') left top no-repeat;
 }
 a.bt_green {
 	display:block;
@@ -503,21 +503,21 @@ a.bt_green strong {
 	padding:0 10px 0 10px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_green_center.gif) repeat-x center;
+	background:url(../appImages/bt_green_center.gif) repeat-x center;
 }
 a.bt_green span.bt_green_lft {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_green_left.gif) no-repeat center right;
+	background:url(../appImages/bt_green_left.gif) no-repeat center right;
 }
 a.bt_green span.bt_green_r {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_green_r.gif) no-repeat center right;
+	background:url(../appImages/bt_green_r.gif) no-repeat center right;
 }
 a:hover.bt_green {
 	text-decoration:underline;
@@ -537,21 +537,21 @@ a.bt_blue strong {
 	padding:0 10px 0 10px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_blue_center.gif) repeat-x center;
+	background:url(../appImages/bt_blue_center.gif) repeat-x center;
 }
 a.bt_blue span.bt_blue_lft {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_blue_left.gif) no-repeat center right;
+	background:url(../appImages/bt_blue_left.gif) no-repeat center right;
 }
 a.bt_blue span.bt_blue_r {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_blue_r.gif) no-repeat center right;
+	background:url(../appImages/bt_blue_r.gif) no-repeat center right;
 }
 a:hover.bt_blue {
 	text-decoration:underline;
@@ -571,21 +571,21 @@ a.bt_red strong {
 	padding:0 10px 0 10px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_red_center.gif) repeat-x center;
+	background:url(../appImages/bt_red_center.gif) repeat-x center;
 }
 a.bt_red span.bt_red_lft {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_red_left.gif) no-repeat center right;
+	background:url(../appImages/bt_red_left.gif) no-repeat center right;
 }
 a.bt_red span.bt_red_r {
 	width:10px;
 	height:31px;
 	display:block;
 	float:left;
-	background:url(appImages/bt_red_r.gif) no-repeat center right;
+	background:url(../appImages/bt_red_r.gif) no-repeat center right;
 }
 a:hover.bt_red {
 	text-decoration:underline;
@@ -597,12 +597,12 @@ a:hover.bt_red {
 .sidebar_box_top {
 	width:195px;
 	height:8px;
-	background:url(appImages/sidebar_box_top.gif) no-repeat center bottom;
+	background:url(../appImages/sidebar_box_top.gif) no-repeat center bottom;
 }
 .sidebar_box_bottom {
 	width:195px;
 	height:8px;
-	background:url(appImages/sidebar_box_bottom.gif) no-repeat center bottom;
+	background:url(../appImages/sidebar_box_bottom.gif) no-repeat center bottom;
 }
 .sidebar_box_content, .sidebar {
 	border-radius: 10px;
@@ -655,13 +655,13 @@ img.sidebar_icon_right {
 }
 .sidebar_box_content ul li {
 	padding:5px 0 5px 10px;
-	background:url(appImages/list_bullet.gif) no-repeat left top;
+	background:url(../appImages/list_bullet.gif) no-repeat left top;
 	background-position:0px 10px;
 }
 .warning_box {
 	width:540px;
 	clear:both;
-	background:url(appImages/warning.png) no-repeat left #fcfae9;
+	background:url(../appImages/warning.png) no-repeat left #fcfae9;
 	border:1px #e9e6c7 solid;
 	background-position:15px 10px;
 	padding:20px 20px 15px 60px;
@@ -670,7 +670,7 @@ img.sidebar_icon_right {
 .valid_box {
 	width:540px;
 	clear:both;
-	background:url(appImages/valid.png) no-repeat left #edfce9;
+	background:url(../appImages/valid.png) no-repeat left #edfce9;
 	border:1px #cceac4 solid;
 	background-position:15px 10px;
 	padding:20px 20px 15px 60px;
@@ -679,7 +679,7 @@ img.sidebar_icon_right {
 .error_box {
 	width:540px;
 	clear:both;
-	background:url(appImages/error.png) no-repeat left #fce9e9;
+	background:url(../appImages/error.png) no-repeat left #fce9e9;
 	border:1px #eac7c7 solid;
 	background-position:15px 10px;
 	padding:20px 20px 15px 60px;
