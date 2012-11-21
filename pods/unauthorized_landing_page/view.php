@@ -61,7 +61,7 @@
 	
 	}
 
-	$POD->header( $doc->get('headline')  );
+	//$POD->header( $doc->get('headline')  );
 	$doc->output( $output_template );
-	$POD->footer();
+	//$POD->footer();
 ?>
