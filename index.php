@@ -133,6 +133,7 @@ Moor::route("/", "dashboard") -> //needs to go to /PeoplePods/pods/dashboard/ind
 	route("/admin/:id/", "admin") -> 
 	route("/api", "api") -> //needs to go to /PeoplePods/pods/core_api_simple/index_version1.php	[QSA,L] # core_api_simple
 	route("/api/:whichOne/:method", "api") -> //needs to go to /PeoplePods/pods/core_api_simple/index_version2.php?method=$1	[QSA,L] # core_api_simple
+	route( "/tos", "terms_of_service" )-> //cursory terms of service link
 	route("/install", "install") -> //todo needs to go to /PeoplePods/install/, but only the first run though...
 run();
 
@@ -317,6 +318,11 @@ function api1() {//security needed here
 function api2( $method ) {//security needed here
 	include( "/pods/core_api_simple/index_version2.php?method=$method");
 }//api" )-> //needs to go to /PeoplePods/pods/core_api_simple/index_version2.php?method=$method	[QSA,L] # core_api_simple
+
+
+function terms_of_service(){
+	include( "/pods/terms/view.php" );
+}
 
 function install() {//todo check if database is present before routing to install
 	if( !$POD->success() ){ include( "/PeoplePods/install/index.php"); }
