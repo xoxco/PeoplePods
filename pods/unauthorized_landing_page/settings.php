@@ -1,7 +1,7 @@
 <?php
 
 	// this pod creates static pages
-	include_once("../unauthorized_landing_page/content_type.php"); // this defines some variables for use within this pod
+	include_once("content_type.php"); // this defines some variables for use within this pod
 
 	$POD->registerPOD(
 		"unauthorized_landing_page", // name
