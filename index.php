@@ -186,13 +186,13 @@ function edit() {
 	include( "/pods/core_usercontent/edit.php");
 }//edit" )-> //needs to go to /PeoplePods/pods/core_usercontent/edit.php	[QSA,L] # contenttype_document_add
 
-function content() {
-	include( "/pods/core_usercontent/list.php");
+function content( $stub ) {
+	if( isset( $stub ) ){
+		include( "/pods/core_usercontent/view.php?stub=$stub");
+ 	}else{
+		include( "/pods/core_usercontent/list.php");
+	}
 }//content" )-> //needs to go to /PeoplePods/pods/core_usercontent/list.php	[QSA,L] # contenttype_document_list
-
-function content() {
-	include( "/pods/core_usercontent/view.php?stub=$stub");
-}//content" )-> //needs to go to /PeoplePods/pods/core_usercontent/view.php?stub=$stub	[QSA,L] # contenttype_document_view
 
 function feeds() {
 	include( "/pods/core_feeds/feed.php?args=$args");
