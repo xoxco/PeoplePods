@@ -304,7 +304,7 @@ function twitter() {
 }//twitter" )->
 
 function friends( $mode ) {
-	if( isset( $mode ) ){}
+	if( isset( $mode ) ){
 		include( "/pods/core_friends/index.php?mode=$mode");
 	}else{
 		include( "/pods/core_friends/index.php" );
