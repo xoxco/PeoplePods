@@ -1,4 +1,4 @@
-<?
+<?php
 
 Class Msg extends Obj {
 

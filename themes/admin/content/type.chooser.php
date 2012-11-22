@@ -1,4 +1,4 @@
-<?
+<?php
 
 	// we're gonna do some raw sql stuff here to pull all the different values for type
 	$sql = "SELECT distinct type FROM content;";

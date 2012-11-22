@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$POD->registerPOD(
 		'sample_pod',									// this is the name of the pod. it should match the folder name.

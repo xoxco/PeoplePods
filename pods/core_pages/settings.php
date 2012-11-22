@@ -1,4 +1,4 @@
-<?
+<?php
 
 	// this pod creates static pages
 	include_once("content_type.php"); // this defines some variables for use within this pod

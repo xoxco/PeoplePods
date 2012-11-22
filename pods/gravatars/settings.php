@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$POD->registerPOD(
 		'gravatars',
@@ -7,3 +7,4 @@
 		array(),
 		dirname(__FILE__).'/methods.php'	
 	);
+?>

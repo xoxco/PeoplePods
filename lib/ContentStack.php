@@ -1,4 +1,4 @@
-<?
+<?php
 /* AS OF VERSION 0.668 THIS FILE IS DEPRECATED!!! */
 
 	

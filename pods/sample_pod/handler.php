@@ -1,4 +1,4 @@
-<?
+<?php
 
 	// include the peoplepods library and instantiate a pod object
 	require_once("../../PeoplePods.php");

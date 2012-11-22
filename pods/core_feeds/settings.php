@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$rewrite_rules = array(
 			'^feeds/(.*)'=>'core_feeds/feed.php?args=$1', // set up /feeds as the base url for all rss feeds

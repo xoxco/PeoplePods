@@ -1,5 +1,7 @@
 <?php 
 
+	//error_reporting( E_ALL );
+
 	// include core library
 	include("../PeoplePods.php");
 
@@ -60,8 +62,7 @@
 	// this is the install script, it should set up for you.
 
 			
-		if ($POD->success() && $POD->hasAdminUser() &&  $POD->isAuthenticated() && $POD->currentUser()->get('adminUser')) { 
-			// all is good, redirect to login??>
+		if ($POD->success() && $POD->hasAdminUser() &&  $POD->isAuthenticated() && $POD->currentUser()->get('adminUser')) { ?>
 			
 			<P><b>PeoplePods is ready to go!</b></p>
 			
@@ -172,11 +173,16 @@
 							unlink($POD->libOptions('etcPath') . "/options.php");
 							echo '<p class="error">Could not write to .htaccess file! ' . $POD->error() . "</p>";
 						} else {
+						 
 							$POD->saveLibOptions(true);
 
 							echo "<p>$message</p>";
 						}
 					 */
+					 
+						//go ahead and try to mimick the rest of the libOptions during install
+						$POD->saveLibOptions(true);
+						
 					} else {
 						echo '<p class="error">Could not write to config file! ' . $POD->error() . "</p>";
 						$error = true;
@@ -251,7 +257,9 @@
 			
 			} else if (!$POD->hasAdminUser()) { 
 			// create first user
-	
+				echo "<div>";
+				var_dump( $_POST );
+				echo "</div>";
 	
 				if ($_POST['nick'] && $_POST['email'] && $_POST['password']) {
 					$NEWUSER = $POD->getPerson(array('nick'=>$_POST['nick'],'email'=>$_POST['email'],'password'=>$_POST['password']));

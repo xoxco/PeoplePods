@@ -1,4 +1,4 @@
-<?
+<?php
 
 	function gravatar($user,$width=null) { 
 		if ($width==null) {

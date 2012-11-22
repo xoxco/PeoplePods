@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include_once("../../PeoplePods.php");
 	$POD = new PeoplePod(array('debug'=>0,'authSecret'=>@$_COOKIE['pp_auth']));

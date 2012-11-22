@@ -1,4 +1,4 @@
-<?
+<?php
 
 	// this pod actually contains 3 separate pods that relate to basic content creation and management
 	// these modules are meant to be customized to create custom content types

@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$POD->registerPOD(
 		'placekitten',
