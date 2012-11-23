@@ -1243,9 +1243,21 @@ class PeoplePod {
 		if ($echo) {
 			echo $this -> libOptions('server');
 			echo $this -> libOptions('siteRoot');
+			echo '/PeoplePods';
 		} else {
 
-			return $this -> libOptions('server') . $this -> libOptions('siteRoot');
+			return $this -> libOptions('server') . $this -> libOptions('siteRoot') . '/PeoplePods'; //xxx edited siteRoot() declaration. Test
+		}
+	}
+	
+	function siteInstallRoot($echo = true) {
+		if ($echo) {
+			echo $this -> libOptions('server');
+			echo $this -> libOptions('siteRoot');
+			echo '/PeoplePods';
+		} else {
+
+			return $this -> libOptions('server') . $this -> libOptions('siteRoot') . '/PeoplePods'; //xxx created siteInstallRoot() declaration. Test
 		}
 	}
 

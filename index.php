@@ -19,6 +19,10 @@ require_once ("PeoplePods.php");
 //immediately create a $POD object to test against
 $POD = new PeoplePod( array("authSecret" => @$_COOKIE["pp_auth"] ));
 
+//immediately set a handler for pages not routed by either .htaccess or in Moor
+Moor::setNotFoundCallback('default404');
+//Moor::enableDebug(  );
+
 //test
 /*if ($POD -> success(  )) {
 	//send to dashboard using .htaccess route
@@ -77,26 +81,8 @@ $POD = new PeoplePod( array("authSecret" => @$_COOKIE["pp_auth"] ));
  # END PeoplePods RULES
  * */
 
- $siteBase = $POD->libOptions( 'siteRoot' );
- if( !$siteBase ){
- 	echo "It's good to be a gangster. By the way liboptions isn't working.";
-	exit;
- } 
- 
 //get the directory to which we need to send redirects
-$siteRoot = $siteBase . '/PeoplePods';
-
-//immediately set a handler for pages not routed by either .htaccess or in Moor
-Moor::setNotFoundCallback('default404');
-//Moor::enableDebug(  );
-
-//go ahead and declare it, this is a fairly long file. No need to get lost
-function default404(  ){
-	//header( "Location: /test/PeoplePods/pods/page_unknown/view.php" );
-	//just a test...
-	echo 'I feel your pain. By the way. siteRoot is ' . $siteRoot;
-	exit;
-}
+$siteRoot = $POD->siteInstallRoot( FALSE );
  
 Moor::
 	setUrlPrefix( $siteRoot )->
@@ -399,9 +385,13 @@ function install(  ){//todo check if database is present before routing to insta
 	
 }//install" )-> //todo needs to go to /PeoplePods/install/, but only the first run though...
 
-
-//todo Taking a bit of a break, but further work will be to implement all of the paths in the .htaccess, and write the routing handlers.
-//Plugin creators will have to edit 2 files instead of one, but hey, that is the price of being able to generate the links to their plugins in the templates
-//currently there are 100s of hardcoded links to different places in the code, they all have to be made a bit more flexible
+//go ahead and declare it, this is a fairly long file. No need to get lost
+function default404(){
+	//header( "Location: /test/PeoplePods/pods/page_unknown/view.php" );
+	//just a test...
+	echo '<h1>I feel your pain.</h1>';
+	echo '<p>and by your pain, I mean I also do not know what page you were seeking.</p>';
+	exit;
+}
 ?>
 
