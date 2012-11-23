@@ -166,8 +166,8 @@
 								$POD->enablePOD($name);
 							}
 						}
-						/*//going to go ahead and test my routing solution locally
-						//$message = $POD->writeHTACCESS($installDir."/..");
+						
+						$message = $POD->writeHTACCESS($installDir."/..");
 						if (!$POD->success()) { 
 							$error = true;
 							unlink($POD->libOptions('etcPath') . "/options.php");
@@ -178,7 +178,7 @@
 
 							echo "<p>$message</p>";
 						}
-					 */
+					 
 					 
 						//go ahead and try to mimick the rest of the libOptions during install
 						$POD->saveLibOptions(true);
