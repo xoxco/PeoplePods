@@ -180,7 +180,7 @@
 						}
 					 
 					 
-						//go ahead and try to mimick the rest of the libOptions during install
+						//go ahead and try to mimick the rest of the libOptions during install //todo take a look if this resave is really needed
 						$POD->saveLibOptions(true);
 						
 					} else {
