@@ -14,6 +14,16 @@
 * Documentation for this pod can be found here:
 * http://peoplepods.net/readme/themes
 /**********************************************/
+
+//include core pods for auth testing
+$pathToPeoplePods = realpath( "../../PeoplePods.php"  );
+require_once( $pathToPeoplePods );
+
+$POD = new PeoplePod( array( 'debug' => 0, 'authSecret' => @$_COOKIE[ 'pp_auth' ] ) );
+
+if( !$POD->isAuthenticated() ){
+	header( 'Location: http://village.rs' );
+}
 ?>
 
 <!DOCTYPE html>

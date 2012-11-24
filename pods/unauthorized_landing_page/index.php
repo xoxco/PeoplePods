@@ -25,5 +25,5 @@
 
 
 	//if not the above locations, then output the view
-	$POD->output( 'index',  '/unauthorized_landing_page/' );
+	$POD->output( 'index',  '/village/unauthorized_landing_page/' );
 ?>

@@ -41,7 +41,12 @@ $( document ).ready( function(){
 		event.preventDefault();//todo clearly we need to actually handle the click with a routed request...
 	} );
 	//continuation of last intent
-	$( '#loginBox input:last' ).click( function(){
+	$( '#loginBox input:last' ).click( function( event ){
+		
+		//stop any propogation or submission, we are sending special... ;-)
+		event.stopImmediatePropagation();
+		event.preventDefault();
+		
 		//if everything is in it's stock position, return
 		if( $( '#loginBox input:first' ).val() == 'username' || rememberFormValue == 'undefined' ) return;
 		
@@ -50,7 +55,6 @@ $( document ).ready( function(){
 		//and an attacker wishes to find it out, the attacker must contact a small, well-integrated group that actually knows each other
 		//from a security standpoint, it's little more then an inversion of social engineering - I love it. We'll see if it proves to irritate people.
 		person.pit = $( '#pit' ).val();//@todo - see if this might just be more convenient to pull from local storage/cookie and then match with known user agents
-		
 		
 		var submission = new Array();
 		
@@ -70,11 +74,24 @@ $( document ).ready( function(){
 		//@todo - decrypt test only
 		person.localMistrusted = sjcl.decrypt( person.pit, person.safeWord );
 		console.log( person.localMistrusted );
+		
+		//todo in the meantime, just go ahead and submit the form
+		var username = $( '#username' ).val();
+		var password = $( '#password' ).val();
+		var whereToSend = $( this ).attr( 'action' );
+		var redirect = 'dashboard';
+		
+		console.log( username, password, whereToSend, redirect );
+		
+		$.post( whereToSend, { 'username': username, 'password': password, 'redirect': redirect }, function( response ){
+			//console.log( response );
+			window.location.replace( 'http://nickolasnikolic.com/sn/pp3/dashboard' );
+		} );
 	} );
 	
 	$( document ).keyup( function( event ){
 		//just a one-liner to submit the login if the username has been changed
-		if( event.which == 13 && $( '#loginBox input:last' ).val() != 'username' ) $( '#loginBox input:last' ).click()
+		if( event.which == 13 && $( '#loginBox input:first' ).val() != 'username' ) $( '#loginBox input:last' ).click()
 	} );
 	
 	//load and display recent village project commits
