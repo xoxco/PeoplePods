@@ -46,9 +46,10 @@ if( !$POD->isAuthenticated() ){
 
 	<?php $POD->extraJS(); ?>
 	
-	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/styles.css" media="screen" />
+	<!--<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/styles.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/appStyles.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/custom.css" media="screen"" />
+	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/custom.css" media="screen"" />-->
+    <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/singlify.css" media="screen"" />
 	
 	<?php $POD->extraCSS(); ?>
 	

@@ -35,6 +35,12 @@ $( document ).ready( function(){
 		alert( $( this ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
 	} );
 	
+	$( '#submitLogin' ).click( function(){
+		//just a one-liner to submit the login if the username has been changed
+		if( event.which == 13 && $( '#loginBox input:first' ).val() != 'username' || $( '#loginBox input:eq( 2 )' ).val() != 'password' ) $( '#loginBox' ).trigger( 'submit' );	
+	} );
+	
+	/*
 	//send login to custom route inside of PeoplePods
 	$( 'form' ).submit( function( event ){
 		//stop form from sending to action file
@@ -89,10 +95,12 @@ $( document ).ready( function(){
 		} );
 	} );
 	
+	
 	$( document ).keyup( function( event ){
 		//just a one-liner to submit the login if the username has been changed
-		if( event.which == 13 && $( '#loginBox input:first' ).val() != 'username' ) $( '#loginBox input:last' ).click()
+		if( event.which == 13 && $( '#loginBox input:first' ).val() != 'username' || $( '#loginBox input:eq( 2 )' ).val() != 'password' ) $( '#loginBox input:last' ).click()
 	} );
+	*/
 	
 	//load and display recent village project commits
 	//recreating the following document structure:

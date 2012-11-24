@@ -41,7 +41,7 @@ if( $POD->isAuthenticated() ){
   </div>
   </noscript>
   <div class="header">
-    <div class="logo"><a tabindex="5" href="index.php"><img src="images/logo.png" alt="logo"></a></div>
+    <div class="logo"><a tabindex="5" href="index.php"><img src="../img/logo.png" alt="logo"></a></div>
   </div>
   <div class="home_center">
     <div class="pack_descr">
@@ -49,7 +49,7 @@ if( $POD->isAuthenticated() ){
       <p class="home_intro">village.rs is a connection point between healers, patients, and the people that love them. It is a new kind of kinder service.</p>
       <div class="buttons">
         <div class="demoButton"><a href="/join/">join</a></div>
-        <div class="demoButton"><a href="/demo/doctor/">demo as doctor or social worker</a></div>
+        <div class="demoButton"><a href="/demo/healer/">demo as doctor or social worker</a></div>
         <div class="demoButton"><a href="/demo/patient/">demo as patient</a></div>
         <div class="demoButton"><a href="/demo/family/">demo as family or friend of patient</a></div>
       </div>
@@ -165,9 +165,10 @@ if( $POD->isAuthenticated() ){
 <div id="footer"> This is a location for regular links to information regarding the service. (placeholder)</div>
 <div id="login">
   <form name='loginBox' id="loginBox" method="post" action="<?php $POD->siteRoot(); ?>/login" class="valid">
-    <div><label>username:</label><input tabindex="1" class="required email text" type="text" name="username" id="userName" value="username"/></div>
+    <div><label>username:</label><input tabindex="1" class="required email text" type="text" name="email" id="userName" value="username"/></div>
     <div><label>password:</label><input tabindex="2" class="required text" type="password" id="password" name="password" value="password" /></div>
     <div><label>safeword:</label><input tabindex="3" type="text" id="pit" size="25" name="pit" value="your village safeword (optional)" /></div>
+    <input type="hidden" name="redirect" id="redirect" value="dashboard" />
     <div><input tabindex="4" type="button" id="submitLogin" value="login" /></div>
     <div><a href="/forgottenPass/">forgot password or safeword?</a></div>
   </form>
