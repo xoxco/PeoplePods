@@ -42,14 +42,17 @@ if( !$POD->isAuthenticated() ){
 	<script src="<?php $POD->templateDir(); ?>/js//underscore.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/sjcl.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/moment.min.js"></script>
-    <script src="<?php $POD->templateDir(); ?>/js/unauthorized.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/javascript.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/inApp.js"></script>
 
 	<?php $POD->extraJS(); ?>
 	
 	<!--<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/styles.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/appStyles.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/custom.css" media="screen"" />-->
-    <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/singlify.css" media="screen"" />
+	<link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/custom.css" media="screen" />-->
+    <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/js/bootstrap/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php $POD->templateDir(); ?>/css/singlify.css" media="screen" />
 	
 	<?php $POD->extraCSS(); ?>
 	
@@ -107,8 +110,8 @@ if( !$POD->isAuthenticated() ){
 			
 			<nav class="grid">
 				<?php if ($POD->isEnabled('core_search')) { ?>
-					<form method="get" action="<?php $POD->siteRoot(); ?>/search">
-						<label for="nav_search_q">Search</label> <input name="q" id="nav_search_q" size="12" class="repairField" data-default="this site" />
+					<form class="form-search" method="get" action="<?php $POD->siteRoot(); ?>/search">
+						<label for="nav_search_q">Search</label> <input name="q" id="nav_search_q" size="12" class="repairField search-query" data-default="this site" />
 					</form>
 				<?php } ?>
 				

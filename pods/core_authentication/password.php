@@ -11,7 +11,7 @@
 * http://peoplepods.net/readme
 /**********************************************/
 	
-	include_once("../../lib/Core.php");
+	require_once( "../../PeoplePods.php" );
 	
 	$POD = new PeoplePod(array('authSecret'=>@$_COOKIE['pp_auth']));
 	if (!$POD->libOptions('enable_core_authentication_login')) { 

@@ -13,6 +13,7 @@
 * http://peoplepods.net/readme/person-object
 /**********************************************/
 ?>
+<!--- use this for a less nefarious purpose
 <div class="sidebar padded" id="ad_unit_sidebar">
 	Place Ad Code Here
-</div>
+</div>-->

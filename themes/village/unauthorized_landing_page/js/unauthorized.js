@@ -26,13 +26,54 @@ $( document ).ready( function(){
 	
 	//reorganize main buttons to link to their childrens' a href attributes
 	$( '.demoButton' ).click( function(){
-		alert( $( this ).children( 'a:first' ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
+		$( this ).children( 'a:first' ).click();
 	} );
 	
+	//set up a general handler to demo paths to which links will send the user
 	$( 'a' ).click( function( event ){
 		event.preventDefault();
 		event.stopImmediatePropagation();
-		alert( $( this ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
+		
+		//if it is any other link then join, report path in an alert //todo this method is a bit of a joke, but it is quick; you need to give it attention...
+		if( $( this ).attr( 'href' ) !=  '/join/' ){
+			alert( $( this ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
+		}else{ //handle join link
+			$('#joinModal').modal( 'show' );
+		}
+	} );
+	
+	//the form id to operate upon, and ultimately submit
+	var whichFormId;
+	//show only one of the following forms when the corresponding radio button is clicked
+	$( "#toggleJoinForm > button.btn" ).click( function(){
+		whichFormId = '#' + String( this.innerHTML ) + 'Join';
+		
+		//hide all
+		$( '.joinForm, #hideMe' ).fadeOut( 'fast' );
+		
+		//then show the winner! ;-)
+		$( whichFormId ).fadeIn( 'fast' );
+			
+	});
+	
+	//upon sending form
+	$( '#joinSubmit' ).click( function(){
+		if( !whichFormId ) return console.log( 'whichFormId is empty.' );
+		
+		//spool an object with properties and values from the form
+		var postSubmit = new Object();
+		
+		$( whichFormId ).find( 'input' ).each( function(){
+			console.log( $( this ).attr( 'name' ) );
+			console.log( $( this ).val() );
+			postSubmit[ $( this ).attr( 'name' ) ] = $( this ).val();	
+		} );
+				
+		$.post( '/join', postSubmit, function( response ){
+			//game on (do a little dance)
+			console.log( reponse );
+			window.history.replace( 'http://village.rs' );
+		} );
 	} );
 	
 	$( '#submitLogin' ).click( function(){

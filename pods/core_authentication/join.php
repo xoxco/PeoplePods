@@ -11,9 +11,10 @@
 * http://peoplepods.net/readme
 /**********************************************/
 
-	include_once("../../lib/Core.php"); 
+	require_once( "../../PeoplePods.php" ); 
 
 	$POD = new PeoplePod(array('authSecret'=>@$_COOKIE['pp_auth']));
+	
 	if (!$POD->libOptions('enable_core_authentication_creation')) { 
 		header("Location: " . $POD->siteRoot(false));
 		exit;
@@ -99,11 +100,6 @@
 		}
 	
 	}
-	
-	$POD->header("Create an account");
-	$p->output('join');
-	$POD->footer();
-
 
 	function generatePassword($length=9, $strength=8) {
 		$vowels = 'aeuy';
@@ -135,5 +131,13 @@
 		return $password;
 	}
  
-
+	//if the referrer is the home page, then give a little bit of a response
+	if( $_SERVER[ 'HTTP_REFERER' ] == $POD->siteRoot() ){
+		echo "{ 'signup': 'ok, verification needed.' }";
+	}else{
+		//we are signing up through another application interface, output the normal fields and template
+		$POD->header("Create an account");
+		$p->output('join');
+		$POD->footer();
+	}
 ?>

@@ -74,7 +74,7 @@
 		
 		<!-- this is where new posts from friends and groups show up -->
 		<?php 
-				$docs->output('short','header','pager','My New Stuff','There\'s nothing new yet!'); 
+				$docs->output('short','header','pager','New Stuff','There\'s nothing new yet!'); 
 		?>
 
 		
@@ -103,8 +103,8 @@
 			
 			<?php $POD->output('sidebars/activity_stream'); ?>
 			
-			<?php $POD->output('sidebars/ad_unit'); ?>
-			<?php $POD->output('sidebars/tag_cloud'); ?>
+			<?php //$POD->output('sidebars/ad_unit'); ?>
+			<?php //$POD->output('sidebars/tag_cloud'); ?>
 			
 			<?php $POD->output('sidebars/recent_visitors'); ?>
 

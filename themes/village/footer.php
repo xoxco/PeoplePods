@@ -16,17 +16,17 @@
 	</section> <!-- main -->
 	<footer class="grid">
 		<div class="column_4">
-			<div class="lightblue">
-				By using this site you agree to <b class="highlight">not be lame.</b>
+			<div>
+				By using this site you agree to not be lame.
 			</div>
 		</div>
 		<div class="column_4">
-			<div class="pink" style="text-align: center;">
+			<div style="text-align: center;">
 				Proudly powered by <a href="http://peoplepods.net" title="PeoplePods">PeoplePods</a>
 			</div>
 		</div>
 		<div class="column_4">
-			<div class="lightblue">
+			<div>
 				<a href="<?php $POD->siteRoot(); ?>">Home</a>
 				<?php if ($POD->libOptions('enable_contenttype_document_list')) { ?> | <a href="<?php $POD->siteRoot(); ?>/show">What's New?</a><?php } ?>
 				<?php if ($POD->libOptions('enable_core_groups')) { ?> | <a href="<?php $POD->siteRoot(); ?>/groups">Groups</a><?php } ?>

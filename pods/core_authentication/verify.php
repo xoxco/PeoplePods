@@ -12,7 +12,8 @@
 /**********************************************/
 
 
-	include_once("../../lib/Core.php");
+	require_once( "../../PeoplePods.php" );
+	
 	$POD = new PeoplePod(array('lockdown'=>'login','authSecret'=>@$_COOKIE['pp_auth']));
 	if (!$POD->libOptions('enable_core_authentication_creation')) { 
 		header("Location: " . $POD->siteRoot(false));

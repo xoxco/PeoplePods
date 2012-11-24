@@ -57,6 +57,11 @@ a, .gitHub {
 	padding:2px;
 	color:#F77727;
 }
+
+a:hover{
+	text-decoration: none;	
+}
+
 a:visited {
 	color:#F77727;
 }
@@ -108,7 +113,11 @@ p {
 .pack_pic {
 	float:right;
 }
-form, .pack_descr {
+
+
+
+#login, #contactForm, .pack_descr {
+	visibility: visible;
 	float:left;
 	width:525px;
 	margin-top: 0.86em;
@@ -118,7 +127,7 @@ form, .pack_descr {
 	border-radius: 5px;
 }
 
-form{
+#login, #contactForm{
 	font-family: 'geosanslightregular';
 	width: auto;
 	overflow: visible;
@@ -127,26 +136,26 @@ form{
 	background-color: rgba( 15, 15, 15, 0.3 );
 }
 
-form div{
+#login div, #contactForm div{
 	width: auto;
 	padding: 5px;
 	margin: 0.5em auto;	
 }
 
-form input{
+#login input, #contactForm input{
 	width: 160px;
 	text-align: left;
 }
 
-form input[type='button' ]{
+#login input[type='button' ], #contactForm input[type='button' ]{
 	width: auto;
-	float: right;
 	clear: both;
 }
 
-form label{
+#login label, #contactForm label{
 	background-color: transparent;
-	color: #fff;
+	color: #f93;
+	text-shadow: 0px 0px 10px #000;
 }
 
 .pack_descr h1 {
@@ -168,7 +177,7 @@ p.home_intro {
 }
 .demoButton {
 	font-size: 24px;
-	height: 30px;
+	height: 30px !important;
 	padding: 10px;
 	margin: 5px;
 	background-color: #000;
@@ -318,11 +327,12 @@ input.form_submit {
 }
 /* login box */
 #login {
-	min-width: 375px;
+	min-width: 230px;
 	height: auto;
 	position: absolute;
 	top: 12px;
 	right: 30px;
+	background: transparent;
 }
 input, textarea{
 	padding: 0px 5px;
@@ -348,6 +358,16 @@ input, textarea{
 	border: none;
 	cursor: pointer;
 }
+/*-----------------------Join Form-------------------------*/
+.joinForm{
+	display: none;
+}
+.modal-body{
+	color: #000;	
+}
+
+/*-----------------------Join Form-------------------------*/
+
 /*-----------------------footer-------------------------*/
 #footer {
 	width:100%;

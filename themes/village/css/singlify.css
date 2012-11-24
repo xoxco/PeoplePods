@@ -9,13 +9,21 @@ black - #000
 
 /* CSSTidy 1.3: Sat, 24 Nov 2012 06:56:50 -0700 */
 
+/*
+If is isn't explicity set, all items should be background: transparent;
+Ditto with grey text color.
+*/
+*{
+	background-color: transparent;
+	color: #333;
+}
+
 body {
-background:#F0F0F0;
+
 font-family:Arial, Helvetica, sans-serif;
 font-family:'geosanslightregular';
 font-size:12px;
-background-color:#fff;
-color:#CC0;
+color:#333;
 width:960px;
 margin:3em auto;
 padding:0;
@@ -73,10 +81,26 @@ form {
 font-family:'geosanslightregular';
 width:auto;
 overflow:visible;
+margin:0.4em;
+border-radius:5px;	
+}
+
+
+form div {
+width:auto;
+margin:.5em auto;
+padding:5px;
+}
+
+form input {
+width:160px;
+text-align:left;
+}
+
+form input[type='button' ] {
+width:auto;
 float:right;
-background-color:rgba(15,15,15,0.3);
-margin:0;
-padding:1em;
+clear:both;
 }
 
 .lightblue {
@@ -153,7 +177,7 @@ header nav ul li a:hover {
 
 header nav form {
 	float:right;
-	margin-top:10px;
+	margin-top:0.5em;
 	margin-right:10px;
 	padding: 0px;
 }
@@ -210,9 +234,7 @@ padding-bottom:20px;
 }
 
 section#editform {
-background:#E3E3E3;
--moz-border-radius:5px;
--webkit-border-radius:5px;
+border-radius:5px;
 margin-bottom:10px;
 padding:5px;
 }
@@ -226,10 +248,8 @@ padding:20px 30px;
 
 section#editform textarea#headline {
 width:100%;
-font-family:Helvetica, Arial, sans serif;
-border:1px solid #CCC;
+min-height: 72px;
 margin-bottom:10px;
-height:25px;
 font-size:18px;
 }
 
@@ -300,7 +320,6 @@ padding:10px;
 }
 
 ul#navigator {
-border-left:1px solid #CCC;
 list-style-type:none;
 margin:0 0 20px;
 padding:0;
@@ -937,34 +956,6 @@ border-radius:5px;
 padding:30px;
 }
 
-form{
-margin-top:.86em;
-background-color:rgba(15,15,15,0.1);
-border-radius:5px;	
-}
-
-form div {
-width:auto;
-margin:.5em auto;
-padding:5px;
-}
-
-form input {
-width:160px;
-text-align:left;
-}
-
-form input[type='button' ] {
-width:auto;
-float:right;
-clear:both;
-}
-
-form label {
-background-color:transparent;
-color:#fff;
-}
-
 .pack_descr h1 {
 text-align:justify;
 font-size:26px;
@@ -1115,7 +1106,6 @@ padding:0 20px 0 0;
 input.form_input {
 width:205px;
 height:30px;
-background-color:#f0eee5;
 color:#4f4f4d;
 border:none;
 float:left;
@@ -1127,7 +1117,7 @@ clear:both;
 width:100%;
 height:90px;
 font-family:Arial, Helvetica, sans-serif;
-background-color:#f0eee5;
+
 color:#4f4f4d;
 border:none;
 float:left;
@@ -1144,7 +1134,6 @@ text-align:center;
 font-family:Arial, Helvetica, sans-serif;
 cursor:pointer;
 float:right;
-background-color:#F77727;
 border:none;
 margin:0;
 padding:3px 10px;
@@ -1153,15 +1142,13 @@ padding:3px 10px;
 #login {
 	height:auto;
 }
-
+/*
 input,textarea {
 color:#111;
 border-radius:3px;
-background-color:rgba(255,153,51,0.8);
-box-shadow:0 0 30px #6cf;
 padding:0 5px;
 }
-
+*/
 #submitLogin {
 width:auto;
 height:auto;

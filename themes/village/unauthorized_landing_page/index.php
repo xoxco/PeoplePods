@@ -23,11 +23,13 @@ if( $POD->isAuthenticated() ){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>village.rs | real insight into wellness</title>
+<link rel="stylesheet" type="text/css" href="../js/bootstrap/css/bootstrap.min.css" media="all"/>
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <script src="../js/jquery-1.8.3.min.js"></script>
 <script src="../js/underscore.js"></script>
 <script src="../js/sjcl.js"></script>
 <script src="../js/moment.min.js"></script>
+<script src="../js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/unauthorized.js"></script>
 </head>
 
@@ -35,13 +37,13 @@ if( $POD->isAuthenticated() ){
 <div id="main_container">
   <noscript id="javascriptAnnouncment">
   <div>
-    <p>This website relies upon modern technology of the web for it's features and security. While we believe in accessiblility to all who may come, you must have JavaScript, HTML5 features such as Local Storage, and Cookies turned on to use the site.</p>
+    <p>This website relies upon modern technology of the web for it's features and security. While we believe in accessiblility to all who may come, but you must have JavaScript, HTML5 features such as Local Storage, and Cookies turned on to use the site.</p>
     <p>Technologically speaking, meet us halfway. We've done our best to accomodate those that don't have a choice, for instance, taken stock of public library offerings and other resources used by many patients within the community-care approach - with special consideration for the homeless patient. But, the services we offer require features that can help assure privacy and an all around good experience.</p>
     <p>Turn the features on, please. Thank you for your understanding. </p>
   </div>
   </noscript>
   <div class="header">
-    <div class="logo"><a tabindex="5" href="index.php"><img src="../img/logo.png" alt="logo"></a></div>
+    <div class="logo"><a tabindex="5" href="index.php"><img src="images/logo.png" alt="logo"></a></div>
   </div>
   <div class="home_center">
     <div class="pack_descr">
@@ -163,6 +165,8 @@ if( $POD->isAuthenticated() ){
 <!--end of center content-->
 
 <div id="footer"> This is a location for regular links to information regarding the service. (placeholder)</div>
+
+<!--start of login box-->
 <div id="login">
   <form name='loginBox' id="loginBox" method="post" action="<?php $POD->siteRoot(); ?>/login" class="valid">
     <div><label>username:</label><input tabindex="1" class="required email text" type="text" name="email" id="userName" value="username"/></div>
@@ -173,6 +177,98 @@ if( $POD->isAuthenticated() ){
     <div><a href="/forgottenPass/">forgot password or safeword?</a></div>
   </form>
 </div>
+<!--end of login box-->
+
+<!-- Modal join dialogue -->
+<div id="joinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Join" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Join village.rs!</h3>
+    <div id="joinChoice">Join as:
+    	<div id="toggleJoinForm" class="btn-group" data-toggle="buttons-radio">
+          <button type="button" class="btn">healer</button>
+          <button type="button" class="btn">patient</button>
+          <button type="button" class="btn">family</button>
+		</div>
+    </div>
+  </div>
+  <div class="modal-body">
+  	<h1 id="hideMe">Please be sure to select a role in the social network. Be honest, we check.</h1>
+    <form id="healerJoin" class="joinForm form-horizontal">
+      <fieldset>
+            <legend>Join our network as a doctor or social worker</legend>
+            
+            <label>name</label>
+            <input name="name" type="text" placeholder="first and last name">
+            
+            <label>email</label>
+            <input name="email" type="text" placeholder="valid email address">
+            <span class="help-block">All email addresses will be verified.</span>
+            
+            <label>password</label>
+            <input name="password" type="password">
+            <span class="help-block">Make it a good one.</span>
+            
+            <label>safeword</label>
+            <input name="meta_safeword" type="text" placeholder="Type something…">
+            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
+    
+            <label class="checkbox">
+              <input name="meta_joinVillageWithoutApproval" type="checkbox">Allow patients to join my villages without my approving them first?</input><br />
+              <input name="meta_requireSafeword" type="checkbox">Require a safeword of all joining and entering my villages?</input>
+            </label>
+      </fieldset>
+    </form>
+    
+    <form id="patientJoin" class="joinForm form-horizontal">
+      <fieldset>
+            <legend>Join our network as a patient</legend>
+            
+            <label>name</label>
+            <input name="name" type="text" placeholder="first and last name">
+            
+            <label>email</label>
+            <input name="email" type="text" placeholder="valid email address">
+            <span class="help-block">All email addresses will be verified.</span>
+            
+            <label>password</label>
+            <input name="password" type="password">
+            <span class="help-block">Make it good.</span>
+    
+            <label>safeword</label>
+            <input name="meta_safeword" type="text" placeholder="Type something…">
+            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
+      </fieldset>
+    </form>
+    
+    <form id="familyJoin" class="joinForm form-horizontal">
+      <fieldset>
+            <legend>Join our network as a family member or close friend of patient</legend>
+            
+            <label>name</label>
+            <input name="name" type="text" placeholder="first and last name">
+            
+            <label>email</label>
+            <input name="email" type="text" placeholder="valid email address">
+            <span class="help-block">All email addresses will be verified.</span>
+            
+            <label class="control-label">password</label>
+            <input name="password" type="password">
+            <span class="help-block">Make it good.</span>
+    
+            <label>safeword</label>
+            <input name="meta_safeword" type="text" placeholder="Type something…">
+            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
+      </fieldset>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="joinSubmit" class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+<!-- end Modal join dialogue -->
 </div>
 </body>
 </html>
