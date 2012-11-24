@@ -47,6 +47,7 @@ class PeoplePod {
 	protected $CSS_FILES = array();
 	protected $JS_FILES =  array();
 	protected $MESSAGES =  array();
+	protected $REWRITE_RULES = ''; //avoid warning reporting later on
 
 	static protected $CURRENT_USER;
 	static protected $IS_AUTHENTICATED = false;

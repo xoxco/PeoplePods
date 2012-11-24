@@ -101,7 +101,7 @@
 					</form>
 				<?php } ?>
 				
-				<ul><li><a href="<?php $POD->siteRoot(); ?>">Home</a></li>
+				<ul><li><a href="<?php $POD->siteRoot(); ?>/dashboard">Home</a></li>
 					<?php if ($POD->libOptions('enable_contenttype_document_list')) { ?><li><a href="<?php $POD->siteRoot(); ?>/show">What's New?</a></li><?php } ?>
 					<?php if ($POD->libOptions('enable_core_groups')) { ?><li><a href="<?php $POD->siteRoot(); ?>/groups">Groups</a></li><?php } ?>
 					<?php if ($POD->isAuthenticated()) { ?>

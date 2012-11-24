@@ -1,9 +1,20 @@
 <?php
-include ( '../template_helpers/mobile_detect/mobile_detect.php' );
+include( '../template_helpers/mobile_detect/mobile_detect.php' );
 $detect = new Mobile_Detect();
 
 if ($detect->isMobile()) {
     //@todo redirect to mobile web login
+}
+$pathToPeoplePods = realpath( "../../../PeoplePods.php"  );
+include_once( $pathToPeoplePods );
+	
+//set up central object with info to query regarding the person and their login
+$POD = new PeoplePod(array('debug'=>0,'authSecret'=>@$_COOKIE['pp_auth'])); //todo this line check to see if auth is current, must change to opposite
+
+//if they have already logged in
+if( $POD->isAuthenticated() ){
+	//send them to their respective dashboard //todo make smarter - needs to route between healer dashboards, patient, and family/friend dashboards.
+	header( 'Location: dashboard' );	
 }
 ?>
 
@@ -153,7 +164,7 @@ if ($detect->isMobile()) {
 
 <div id="footer"> This is a location for regular links to information regarding the service. (placeholder)</div>
 <div id="login">
-  <form name='loginBox' id="loginBox" method="post" action="">
+  <form name='loginBox' id="loginBox" method="post" action="/login">
     <div><label>username:</label><input tabindex="1" type="text" name="userName" id="userName" value="username"/></div>
     <div><label>password:</label><input tabindex="2" type="password" id="password" name="password" value="password" /></div>
     <div><label>safeword:</label><input tabindex="3" type="text" id="pit" size="25" name="pit" value="your village safeword (optional)" /></div>
