@@ -152,14 +152,19 @@ $( document ).ready( function(){
 //          </div>
 //        </div>
 	
-	$.getJSON( 'https://api.github.com/repos/nickolasnikolic/PeoplePods/commits', function( commits ){
-			//refresh and clear the news box
-			$( '#latest_news' ).show().html( '<h1>Software Updates</h1>' );
-						
-			var firstFewCommits = commits.slice( 0, 5 );
+	$.getJSON( 'https://api.github.com/repos/nickolasnikolic/PeoplePods/commits?callback=?', function( commits ){
+			//if all is good with the request
+			if( commits.meta.status ==  200 ){
+				//refresh and clear the news box while preparing to populate the project updates
+				$( '#latest_news' ).show().html( '<h1>Software Updates</h1>' );
+			}else{
+				//return with my tail between my legs
+				return console.log( 'There has been a problem with the request to GitHub. Response code is: ' + commits.meta.status );
+			}
 			
-			console.log( firstFewCommits );
-			
+			//get the last 10 updates from GitHub
+			var firstFewCommits = commits.data.slice( 0, 10 );
+
 			$.each( firstFewCommits, function( index, elementAtIndex ){
 				//apparently all of the commits from on campus are only attributed to the machine that made them due to firewall/ad restrictions
 				//still get to make the commit, however it seems that git has to do a little oAuth tango to get it done
