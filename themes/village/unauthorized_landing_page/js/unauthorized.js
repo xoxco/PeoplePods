@@ -9,7 +9,7 @@ $( document ).ready( function(){
 	var rememberFormValue;
 	var currentText;
 	var previousStyle;
-	
+	 //disabled for the moment. Relying on bootstrap default styles and behavior for testing
 	$( 'form div' ).children( 'input:text, input:password, textarea' ).focus( function(){
 		rememberFormValue = $( this ).val();
 		$( this ).val( '' );
@@ -23,6 +23,39 @@ $( document ).ready( function(){
 		currentText = $( this ).val();
 		if( !currentText ) $( this ).val( rememberFormValue );
 	} );
+	
+	/* //disabled for the moment - using custom interactivity for this form as there is a styles conflict. //todo maybe namespaced styles?
+	$( 'label.tooltip' ).next().each( function(){
+		var whichTooltip = $( this ).attr( 'id' );
+		
+		switch( whichTooltip ){
+			case 'userName': $( this ).popover( {
+					'placement'	: 'left',
+					'trigger'	: 'focus',
+					'title'		: 'Your username is your registered email address',
+					'content'	: 'Please only register one email with the service. If you have forgotten the email that you registered, contact us through the form on this page.'				
+				} );
+				break;
+			
+			case 'password': $( this ).popover( {
+					'placement'	: 'left',
+					'trigger'	: 'focus',
+					'title'		: 'Your password is only to be known by you, period! No one will ever ask for your password from village.rs!',
+					'content'	: 'If someone asks you for your password let your doctor know so that she or he may report the individual.'					
+				} );
+				break;
+			
+			case 'pit': $( this ).popover( {
+					'placement'	: 'left',
+					'trigger'	: 'focus',
+					'title'		: 'Your village safeword',
+					'content'	: 'This is a shared password within your village. It grants you first access to the village. Later on, lets others know that you are "in the know" because only those people that are in the village will know it. If someone you don\'t know asks you for your safeword, immediately report it to your doctor, and, if appropriate, to the police.'					
+				} );
+				break;	
+		}
+		
+	} );
+	*/
 	
 	//reorganize main buttons to link to their childrens' a href attributes
 	$( '.demoButton' ).click( function(){
@@ -69,10 +102,18 @@ $( document ).ready( function(){
 			postSubmit[ $( this ).attr( 'name' ) ] = $( this ).val();	
 		} );
 				
-		$.post( '/join', postSubmit, function( response ){
+		//todo fixme change this in final implementation to siteroot/join
+		$.post( 'http://nickolasnikolic.com/sn/pp3/join', postSubmit, function( response ){
 			//game on (do a little dance)
-			console.log( reponse );
-			window.history.replace( 'http://village.rs' );
+			//if the response says 200, then a account has been created.
+			if( response.status == '200' ){
+				$( '.alert-success' ).removeClass( 'hidden' );
+			}else{
+				$( '.alert-error' ).removeClass( 'hidden' );
+				console.log( reponse );//todo this object should be sent to logs to decipher what may be the problem.
+			}
+			
+			//window.history.replace( 'http://village.rs' );
 		} );
 	} );
 	

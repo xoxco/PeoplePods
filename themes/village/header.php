@@ -36,14 +36,14 @@ if( !$POD->isAuthenticated() ){
 	<link rel="icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
 	<link rel="shortcut icon" href="<?php $POD->templateDir(); ?>/img/peoplepods_favicon.png" type="image/x-icon">
 
-	<script src="<?php $POD->templateDir(); ?>/js/jquery-1.8.3.js"></script>
+	<script src="<?php $POD->templateDir(); ?>/js/jquery-1.8.3.min.js"></script>
 	<script src="<?php $POD->templateDir(); ?>/js/jquery.validate.min.js"></script>
 	<script src="<?php $POD->templateDir(); ?>/js/jquery-tagsinput/jquery.tagsinput.js"></script>
 	<script src="<?php $POD->templateDir(); ?>/js//underscore.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/sjcl.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/moment.min.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php $POD->templateDir(); ?>/js/javascript.js"></script>
+    <script src="<?php $POD->templateDir(); ?>/js/default.js"></script>
     <script src="<?php $POD->templateDir(); ?>/js/inApp.js"></script>
 
 	<?php $POD->extraJS(); ?>

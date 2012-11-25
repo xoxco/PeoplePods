@@ -169,9 +169,9 @@ if( $POD->isAuthenticated() ){
 <!--start of login box-->
 <div id="login">
   <form name='loginBox' id="loginBox" method="post" action="<?php $POD->siteRoot(); ?>/login" class="valid">
-    <div><label>username:</label><input tabindex="1" class="required email text" type="text" name="email" id="userName" value="username"/></div>
-    <div><label>password:</label><input tabindex="2" class="required text" type="password" id="password" name="password" value="password" /></div>
-    <div><label>safeword:</label><input tabindex="3" type="text" id="pit" size="25" name="pit" value="your village safeword (optional)" /></div>
+    <div><label class="tooltip">username:</label><input tabindex="1" class="required email text input-large" type="text" name="email" id="userName" placeholder="username is your registered email"/></div>
+    <div><label class="tooltip">password:</label><input tabindex="2" class="password required text input-large" type="password" id="password" name="password" placeholder="password (don't give others this)" /></div>
+    <div><label class="tooltip">safeword:</label><input class="safeword input-large" tabindex="3" type="text" id="pit" size="25" name="pit" placeholder="your village safeword (optional)" /></div>
     <input type="hidden" name="redirect" id="redirect" value="dashboard" />
     <div><input tabindex="4" type="button" id="submitLogin" value="login" /></div>
     <div><a href="/forgottenPass/">forgot password or safeword?</a></div>
@@ -181,6 +181,19 @@ if( $POD->isAuthenticated() ){
 
 <!-- Modal join dialogue -->
 <div id="joinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Join" aria-hidden="true">
+<!--START Alert Messages for join form-->
+	<div class="hidden alert alert-success">
+	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><i class="icon-ok-circle"></i> Registration started!</h4>
+        <p>Now you should check your email in a few minutes to verify your account.</p>
+	</div>
+	<div class="hidden alert alert-error">
+	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><i class="icon-minus-sign"></i> Registration didn't work</h4>
+        <p>Try again a few seconds later, if it doesn't work again...</p>
+        <p><a class="btn btn-danger" href="#hypothetical-contact-form">Let us know</a> <a class="btn" href="#">Or just cancel</a></p>
+	</div>
+<!--END Alert Messages for join form-->
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Join village.rs!</h3>

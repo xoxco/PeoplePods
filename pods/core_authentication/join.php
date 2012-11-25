@@ -132,8 +132,8 @@
 	}
  
 	//if the referrer is the home page, then give a little bit of a response
-	if( $_SERVER[ 'HTTP_REFERER' ] == $POD->siteRoot() ){
-		echo "{ 'signup': 'ok, verification needed.' }";
+	if( $_SERVER[ 'HTTP_REFERER' ] == $POD->siteRoot( false ) ){
+		echo "{ 'status': '200' }";
 	}else{
 		//we are signing up through another application interface, output the normal fields and template
 		$POD->header("Create an account");

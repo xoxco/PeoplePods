@@ -144,7 +144,6 @@ p {
 }
 
 #login input, #contactForm input{
-	width: 160px;
 	text-align: left;
 }
 
@@ -346,7 +345,7 @@ input, textarea{
 	background-color: rgba( 255, 153, 51, 0.8 );
 	box-shadow: 0px 0px 30px #6cf;
 }
-#userName, #submitLogin, #pit{
+#userName, #submitLogin, #password, #pit{
 	font-family: 'geosanslightregular';
 }
 
@@ -368,6 +367,10 @@ input, textarea{
 }
 .modal-body{
 	color: #000;	
+}
+
+.hidden{  
+	display: none;
 }
 
 /*-----------------------Join Form-------------------------*/

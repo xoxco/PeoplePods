@@ -15,10 +15,13 @@ Ditto with grey text color.
 */
 *{
 	background-color: transparent;
-	color: #333;
+	color: #f77727;
+	font-family: 'geosanslightregular';
 }
 
 body {
+
+background-image: 
 
 font-family:Arial, Helvetica, sans-serif;
 font-family:'geosanslightregular';
@@ -54,7 +57,7 @@ h1 {
 line-height:30px;
 font-size:30px;
 font-weight:normal;
-color:#CCCC00;
+color:#f77727;
 margin:0;
 padding:20px 0;
 }
@@ -121,7 +124,7 @@ letter-spacing:-1px;
 }
 
 .gray a {
-color:#CCC;
+color:#f77727;
 font-weight:bold;
 }
 
@@ -152,14 +155,14 @@ font-size:10px;
 header nav {
 	color:#666;
 	font-size:12px;
-	box-shadow:0 0 5px #6cf;
+	border: 1px solid #f77727;
 	border-radius: 4px;
 }
 
 header nav ul li {
 display:block;
 float:left;
-border-right:1px solid #CCC;
+border-right:1px solid #f77727;
 font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -173,6 +176,7 @@ padding:10px;
 header nav ul li a:hover {
 	background:rgba(255,255,255,0.8);
 	color:#000;
+	text-decoration: none;
 }
 
 header nav form {
@@ -187,14 +191,14 @@ font-weight:normal;
 }
 
 header nav form input {
-border:2px solid #CCC;
+border:2px solid #f77727;
 margin:0;
 }
 
 header #system_messages {
 z-index:0;
 background:#FFFFCC;
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 width:940px;
 margin-top:3px;
 border-top:0;
@@ -241,7 +245,7 @@ padding:5px;
 
 section#editform form {
 background:#FFF;
-border:1px solid #CCC;
+border:1px solid #f77727;
 margin:0;
 padding:20px 30px;
 }
@@ -268,7 +272,7 @@ font-weight:bold;
 
 li.post_option a {
 display:block;
-color:#CCC;
+color:#f77727;
 padding:5px;
 }
 
@@ -280,19 +284,21 @@ font-weight:bold;
 label#edit_form_title {
 float:left;
 margin-right:20px;
-font-size:16px;
+font-size:1.2em;
 padding:5px;
+font-family: 'geosanslightregular';
+color: #f77727;
 }
 
 .post_extra textarea {
 width:100%;
-border:1px solid #CCC;
+border:1px solid #f77727;
 height:200px;
 }
 
 .post_extra input {
 width:100%;
-border:1px solid #CCC;
+border:1px solid #f77727;
 }
 
 #editform #editform_save {
@@ -302,12 +308,12 @@ margin-right:10px;
 
 textarea.htmlarea {
 width:100%;
-border:1px solid #CCC;
+border:1px solid #f77727;
 height:100px;
 }
 
 ul#dashboard_tabs {
-border-bottom:2px solid #CCC;
+border-bottom:2px solid #f77727;
 list-style-type:none;
 margin:0;
 padding:0;
@@ -343,7 +349,7 @@ font-weight:bold;
 }
 
 #member_info {
-border:1px solid #CCC;
+border:1px solid #f77727;
 margin-bottom:20px;
 background:0 color-stop(80%,#F0F0F0), color-stop(100%,#ededed));
 -moz-border-radius:3px;
@@ -352,7 +358,7 @@ border-radius:3px;
 }
 
 #author_info {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 margin-bottom:10px;
 }
 
@@ -373,7 +379,7 @@ margin-left:70px;
 }
 
 .person_short {
-border-bottom:1px dashed #CCC;
+border-bottom:1px dashed #f77727;
 }
 
 .person_short .person_short_follow_button {
@@ -392,7 +398,7 @@ font-size:14px;
 }
 
 section.stack_output ul li header {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 margin-bottom:20px;
 padding:10px 0;
 }
@@ -438,7 +444,7 @@ border:0;
 .content_short .content_body ul.content_options {
 list-style-type:none;
 font-size:13px;
-border-top:1px solid #CCC;
+border-top:1px solid #f77727;
 margin:0;
 padding:0;
 }
@@ -481,13 +487,13 @@ margin-right:10px;
 }
 
 .post_stream_navigation {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 font-size:13px;
 margin-bottom:10px;
 }
 
 .post_stream_navigation header {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 padding:5px 10px 10px;
 }
 
@@ -511,7 +517,7 @@ padding:10px;
 
 a.post_previous {
 width:139px;
-border-right:1px solid #CCC;
+border-right:1px solid #f77727;
 }
 
 a.post_previous strong,a.post_next strong,span.post_next strong {
@@ -547,12 +553,12 @@ padding-right:10px;
 }
 
 #comments {
-border-top:5px solid #CCC;
+border-top:5px solid #f77727;
 padding-top:10px;
 }
 
 .comment:last-child {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 padding-bottom:10px;
 }
 
@@ -571,7 +577,7 @@ padding:10px;
 
 #profile_actions {
 margin-bottom:10px;
-border:1px dashed #CCC;
+border:1px dashed #f77727;
 background:#E3E3E3;
 padding:10px;
 }
@@ -582,7 +588,7 @@ display:block;
 }
 
 #profile_actions .person_output_follow_button.active {
-color:#CCC;
+color:#f77727;
 font-weight:normal;
 }
 
@@ -602,7 +608,7 @@ padding:10px;
 
 #create_group_widget {
 margin-bottom:20px;
-background:#CCC;
+background:#f77727;
 padding:10px;
 }
 
@@ -611,7 +617,7 @@ width:100%;
 }
 
 li.group {
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 padding-bottom:10px;
 margin-bottom:10px;
 }
@@ -654,18 +660,18 @@ padding:3px;
 
 #friends_actions ul {
 list-style-type:none;
-border-bottom:2px solid #CCC;
+border-bottom:2px solid #f77727;
 margin:0;
 padding:0;
 }
 
 .friend_list_member,.group_list_member {
-border-top:1px solid #CCC;
+border-top:1px solid #f77727;
 }
 
 #login_join_form .federated_login_link {
 font-size:12px;
-border:1px solid #CCC;
+border:1px solid #f77727;
 -moz-border-radius:20px;
 -webkit-border-radius:20px;
 border-radius:20px;
@@ -674,7 +680,7 @@ padding:5px 10px;
 
 #welcome_message {
 background:#FFF;
-border:1px dashed #CCC;
+border:1px dashed #f77727;
 margin-bottom:10px;
 padding:10px;
 }
@@ -691,7 +697,7 @@ font-size:20px;
 
 #connect_form .connect_details {
 margin-bottom:20px;
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 }
 
 .sidebar {
@@ -706,7 +712,7 @@ margin-bottom:5px;
 
 .thread_short:hover {
 background:#CCD9E5;
-border-bottom:1px solid #CCC;
+border-bottom:1px solid #f77727;
 }
 
 #thread .message span.byline {
@@ -723,7 +729,7 @@ line-height:150%;
 }
 
 #list_filters ul {
-border-left:1px solid #CCC;
+border-left:1px solid #f77727;
 list-style-type:none;
 margin:0;
 padding:0;
@@ -857,7 +863,7 @@ text-align:right;
 }
 
 div.tagsinput {
-border:1px solid #CCC;
+border:1px solid #f77727;
 background:#FFF;
 width:300px;
 height:100px;
@@ -1053,6 +1059,18 @@ padding:0 0 0 14px;
 padding-top:0;
 }
 
+.sidebar, .sidebar h3{
+	color: #ccc;
+	font-family:'geosanslightregular';	
+}
+
+.editFormSaveRow input, .editFormSaveRow label{
+	display: inline;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
 .testimonial_box {
 width:285px;
 background:url(../images/quotes_top.png) no-repeat top left;
@@ -1176,6 +1194,7 @@ padding:10px 0 0;
 #siteName {
 background-image:url(../img/logo.png);
 background-repeat:no-repeat;
+background-position: 0px -10px;
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,.post_extra label,#post_output #post_tools ul.post_actions li:last-child {
@@ -1191,7 +1210,7 @@ background:#FFFFCC;
 }
 
 .gray,.person_short .person_short_follow_button_stop,.content_short .content_body ul.content_options li.delete_option a {
-color:#CCC;
+color:#f77727;
 }
 
 .empty_list,.padded,header #system_messages ul li,ul#navigator li,section.stack_output ul li.empty_list,#watchers .person_short,#profile_info h1,#group_description,#friends_actions li#people_search,#thread .message .attributed_content {
@@ -1226,7 +1245,7 @@ display:inline-block;
 }
 
 ul#dashboard_tabs li.active,ul#dashboard_tabs li a.active,#friends_actions ul li a.active,#list_filters li.active {
-background:#CCC;
+background:#f77727;
 }
 
 ul#navigator li ul,ul#navigator li ul li {
@@ -1273,7 +1292,7 @@ padding:10px;
 }
 
 #post_info,#groups_options {
-border-left:1px solid #CCC;
+border-left:1px solid #f77727;
 }
 
 #watchers header,p.big_input,p.no_padding {
@@ -1298,7 +1317,7 @@ margin-top:0;
 }
 
 ul.group_actions li a:hover,#sidebar_login_form input {
-border:1px solid #CCC;
+border:1px solid #f77727;
 }
 
 #login_join_form,#connect_form {
@@ -1320,7 +1339,7 @@ margin-right:20px;
 
 #login_join_form input,#connect_form input {
 font-size:18px;
-border:1px solid #CCC;
+border:1px solid #f77727;
 padding:5px;
 }
 
@@ -1329,7 +1348,7 @@ margin-left:195px;
 }
 
 #login_join_form .info,#connect_form .info {
-border:1px dashed #CCC;
+border:1px dashed #f77727;
 background:#E3E3E3;
 }
 

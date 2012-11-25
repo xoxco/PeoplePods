@@ -76,11 +76,12 @@
 		(Separate tags with a space: monkeys robots ninjas)
 		</p>
 
-		<p>
+		<p class="editFormSaveRow">
 			<input type="submit" id="editform_save" value="Save" />
 
 			<?php
 				// if this is a new post, we need to give the option to set it friend only or group only
+				//todo fundamental settings for privacy in posts are set for the post creation in a rather simpe way here
 				if (!$doc->get('id')) { 
 					if ($doc->group()) {
 						if ($doc->group()->get('type')=="private") { ?>
