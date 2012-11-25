@@ -8,7 +8,7 @@
 * This file just redirects to the admin or install tools
 /**********************************************/
 
-	include_once("PeoplePods.php");
+	require_once("PeoplePods.php");
 	
 	$POD = new PeoplePod(array('authSecret'=>@$_COOKIE['pp_auth']));
 	

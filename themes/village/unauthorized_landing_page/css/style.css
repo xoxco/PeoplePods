@@ -137,7 +137,8 @@ p {
 }
 
 #login div, #contactForm div{
-	width: auto;
+	width: 100%;
+	max-width: 266px;
 	padding: 5px;
 	margin: 0.5em auto;	
 }
@@ -147,7 +148,9 @@ p {
 	text-align: left;
 }
 
-#login input[type='button' ], #contactForm input[type='button' ]{
+#login input[type='button' ], #contactForm input[type='submit' ]{
+	font-family: 'geosanslightregular';
+	font-size: 16px;
 	width: auto;
 	clear: both;
 }
@@ -302,6 +305,7 @@ input.form_input {
 textarea.form_textarea {
 	clear: both;
 	width: 100%;
+	max-width: 266px;
 	height:90px;
 	font-family:Arial, Helvetica, sans-serif;
 	background-color:#f0eee5;

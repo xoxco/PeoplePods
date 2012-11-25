@@ -53,7 +53,7 @@ if( $POD->isAuthenticated() ){
         <div class="demoButton"><a href="/join/">join</a></div>
         <div class="demoButton"><a href="/demo/healer/">demo as doctor or social worker</a></div>
         <div class="demoButton"><a href="/demo/patient/">demo as patient</a></div>
-        <div class="demoButton"><a href="/demo/family/">demo as family or friend of patient</a></div>
+        <div class="demoButton"><a href="/demo/family/">demo as family of patient</a></div>
       </div>
     </div>
     <div class="pack_pic"></div>
@@ -241,9 +241,9 @@ if( $POD->isAuthenticated() ){
       </fieldset>
     </form>
     
-    <form id="familyJoin" class="joinForm form-horizontal">
+    <form id="familyJoin" class="joinForm">
       <fieldset>
-            <legend>Join our network as a family member or close friend of patient</legend>
+            <legend>Join our network as a family member</legend>
             
             <label>name</label>
             <input name="name" type="text" placeholder="first and last name">
@@ -252,7 +252,7 @@ if( $POD->isAuthenticated() ){
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
             
-            <label class="control-label">password</label>
+            <label>password</label>
             <input name="password" type="password">
             <span class="help-block">Make it good.</span>
     
