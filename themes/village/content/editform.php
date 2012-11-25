@@ -81,7 +81,7 @@
 
 			<?php
 				// if this is a new post, we need to give the option to set it friend only or group only
-				//todo fundamental settings for privacy in posts are set for the post creation in a rather simpe way here
+				//todo fundamental settings for privacy in posts are set for the post creation in a rather simple way here
 				if (!$doc->get('id')) { 
 					if ($doc->group()) {
 						if ($doc->group()->get('type')=="private") { ?>
