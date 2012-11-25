@@ -11,7 +11,7 @@
 * Include this file into any other PHP file to access PeoplePods functionality
 /**********************************************/
 
-
-	include("lib/Core.php"); 
+//avoiding sporadic duplicate object definition errors with require once
+require_once( "lib/Core.php" ); 
 		
 ?>
