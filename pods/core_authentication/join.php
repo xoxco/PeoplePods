@@ -124,7 +124,7 @@
 	//if the referrer is the home page (landing page), then give a little bit of a response //todo be sure this changes in final implementation
 	//we check by simply pulling the directory from the referrer. //todo pick a more secure way to spend a sunday night...
 	if( strpos( $_SERVER[ 'HTTP_REFERER' ], "/PeoplePods/themes/village/unauthorized_landing_page/" ) ){
-		if (@$_POST['email']&& @$_POST['name'] &&$_POST['password'] ){
+		if (@$_POST['email']&& @$_POST['name'] && $_POST['password'] ){
 			$statusJSON = array( 'status' => '200' );
 			echo json_encode( $statusJSON );
 		}else{
