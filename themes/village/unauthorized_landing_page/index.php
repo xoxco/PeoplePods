@@ -51,9 +51,9 @@ if( $POD->isAuthenticated() ){
       <p class="home_intro">village.rs is a connection point between healers, patients, and the people that love them. It is a new kind of kinder service.</p>
       <div class="buttons">
         <div class="demoButton"><a href="/join/">join</a></div>
-        <div class="demoButton"><a href="/demo/healer/">demo as doctor or social worker</a></div>
+        <div class="demoButton"><a href="/demo/healer/">demo as doctor or other licensed healer</a></div>
         <div class="demoButton"><a href="/demo/patient/">demo as patient</a></div>
-        <div class="demoButton"><a href="/demo/family/">demo as family of patient</a></div>
+        <div class="demoButton"><a href="/demo/family/">demo as family or friend of patient</a></div>
       </div>
     </div>
     <div class="pack_pic"></div>
@@ -214,11 +214,11 @@ if( $POD->isAuthenticated() ){
             
             <label>phone</label>
             <input name="meta_phone" type=text placeholder="1(555)555-5555">
-            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <span class="help-block">In an emergency, we will instigate a call to or from you. Otherwise, mum's the word.</span>
             <label class="checkbox">
             	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
 			</label>
-            
+            <hr />
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
@@ -226,20 +226,20 @@ if( $POD->isAuthenticated() ){
             <label>password</label>
             <input name="password" type="password">
             <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
-            
+            <hr />
             <label>Your chosen safeword</label>
             <input name="meta_safeword" type="text" placeholder="Type something memorable">
             <span class="help-block">A safeword is like a group password that you will share with your patients and their loved ones. It helps just a little of the way to know that you are talking to just who you think you are talking to. If someone asks for the safeword that has no reason to need it, be suspicious, and possibly report them to the authorities based on your good judgement. Also, we tell you when someone has logged on without one.</span>
-            
+            <hr />
             <label>verifiable state license identification</label>
             <input name="meta_license_type" type="text" class="input-xlarge" placeholder="what does this license allow you to do?"><br />
     		<input name="meta_license" type="text" placeholder="license number"><br />
             <input name="meta_state_issuer_of_license" type="text" placeholder="state issuing license"><br />
             <span class="help-block">Please be sure that it is a verifiable license from an issuing state agency.</span>
-            
+            <hr />
             <label class="checkbox">
-              <input name="meta_joinVillageWithoutApproval" type="checkbox">Allow patients to join my villages without my approving them first?</input><br />
-              <input name="meta_requireSafeword" type="checkbox">Require a safeword of all joining and entering my villages?</input>
+              <input name="meta_joinVillageWithoutApproval" type="checkbox">Allow patients to join my villages without my approving them first</input><br />
+              <input name="meta_requireSafeword" type="checkbox">Require a safeword of all joining and entering my villages</input>
             </label>
             
       </fieldset>
@@ -254,11 +254,11 @@ if( $POD->isAuthenticated() ){
             
             <label>phone</label>
             <input name="meta_phone" type=text placeholder="1(555)555-5555">
-            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <span class="help-block">In an emergency, we will instigate a call to or from you. Otherwise, mum's the word.</span>
             <label class="checkbox">
             	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
 			</label>
-            
+            <hr />
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
@@ -266,7 +266,7 @@ if( $POD->isAuthenticated() ){
             <label>password</label>
             <input name="password" type="password">
             <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
-    
+    		<hr />
             <label>Do you have a village safeword already? If not, don't worry, your village healer will give you one.</label>
             <input name="meta_safeword" type="text" placeholder="optional">
             <span class="help-block">A safeword is like a group password. We tell you and your healer when someone has logged on without one. If someone should ask for it with no reason to need it, you should be suspicious and report it to your healer immediately.</span>
@@ -282,11 +282,11 @@ if( $POD->isAuthenticated() ){
             
             <label>phone</label>
             <input name="meta_phone" type=text placeholder="1(555)555-5555">
-            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <span class="help-block">In an emergency, we will instigate a call to or from you. Otherwise, mum's the word.</span>
             <label class="checkbox">
             	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
 			</label>
-            
+            <hr />
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
@@ -294,7 +294,7 @@ if( $POD->isAuthenticated() ){
             <label>password</label>
             <input name="password" type="password">
             <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
-    
+    		<hr />
             <label>Do you have a village safeword already? If not, don't worry, your village healer or patient will give you one.</label>
             <input name="meta_safeword" type="text" placeholder="optional">
             <span class="help-block">A safeword is like a group password. We tell you, your loved one, and their healer, when someone has logged on without one. If someone should ask for it with no reason to need it, you should be suspicious and report it to the village healer immediately.</span>

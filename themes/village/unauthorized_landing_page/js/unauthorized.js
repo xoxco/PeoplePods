@@ -85,7 +85,7 @@ $( document ).ready( function(){
 		whichFormId = '#' + role + 'Join';
 		
 		//hide all
-		$( '.joinForm, #hideMe' ).fadeOut( 'fast' );
+		$( '.joinForm, #hideMe' ).hide();
 		
 		//then show the winner! ;-)
 		$( whichFormId ).show();
