@@ -91,16 +91,6 @@
 		}
 	}
 
-	if ($redir) {
-		// if we logged in correctly, we redirect to the homepage of the site, or to any url passed in as a parameter	
-		if ($redirect) { 
-			print header("Location: " . $redirect);
-		} else {
-			print header("Location: " . $POD->siteRoot(false));
-		}
-	
-	}
-
 	function generatePassword($length=9, $strength=8) {
 		$vowels = 'aeuy';
 		$consonants = 'bdghjmnpqrstvz';
@@ -131,13 +121,33 @@
 		return $password;
 	}
  
-	//if the referrer is the home page, then give a little bit of a response
-	if( $_SERVER[ 'HTTP_REFERER' ] == $POD->siteRoot( false ) ){
-		echo "{ 'status': '200' }";
+	//if the referrer is the home page (landing page), then give a little bit of a response //todo be sure this changes in final implementation
+	//we check by simply pulling the directory from the referrer. //todo pick a more secure way to spend a sunday night...
+	if( strpos( $_SERVER[ 'HTTP_REFERER' ], "/PeoplePods/themes/village/unauthorized_landing_page/" ) ){
+		if (@$_POST['email']&& @$_POST['name'] &&$_POST['password'] ){
+			$statusJSON = array( 'status' => '200' );
+			echo json_encode( $statusJSON );
+		}else{
+			$statusJSON = array( 'status' => 'yo, check yo self' );
+			echo json_encode( $statusJSON );
+
+		}
 	}else{
-		//we are signing up through another application interface, output the normal fields and template
+		//otherwise...
+		if ($redir) {
+			// if we enrolled in correctly, we redirect to the homepage of the site, or to any url passed in as a parameter	
+			if ($redirect) { 
+				print header("Location: " . $redirect);
+			} else {
+				print header("Location: " . $POD->siteRoot(false));
+			}
+		
+		}
+		
+		//we are signing up through another possible application interface, output the normal fields and template
 		$POD->header("Create an account");
 		$p->output('join');
 		$POD->footer();
+		
 	}
 ?>

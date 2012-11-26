@@ -77,15 +77,18 @@ $( document ).ready( function(){
 	
 	//the form id to operate upon, and ultimately submit
 	var whichFormId;
+	var role;
 	//show only one of the following forms when the corresponding radio button is clicked
 	$( "#toggleJoinForm > button.btn" ).click( function(){
-		whichFormId = '#' + String( this.innerHTML ) + 'Join';
+		
+		role = String( this.innerHTML );
+		whichFormId = '#' + role + 'Join';
 		
 		//hide all
 		$( '.joinForm, #hideMe' ).fadeOut( 'fast' );
 		
 		//then show the winner! ;-)
-		$( whichFormId ).fadeIn( 'fast' );
+		$( whichFormId ).show();
 			
 	});
 	
@@ -96,23 +99,28 @@ $( document ).ready( function(){
 		//spool an object with properties and values from the form
 		var postSubmit = new Object();
 		
+		postSubmit.meta_role = role;
+		
 		$( whichFormId ).find( 'input' ).each( function(){
-			console.log( $( this ).attr( 'name' ) );
-			console.log( $( this ).val() );
 			postSubmit[ $( this ).attr( 'name' ) ] = $( this ).val();	
 		} );
 				
 		//todo fixme change this in final implementation to siteroot/join
 		$.post( 'http://nickolasnikolic.com/sn/pp3/join', postSubmit, function( response ){
-			//game on (do a little dance)
-			//if the response says 200, then a account has been created.
-			if( response.status == '200' ){
-				$( '.alert-success' ).removeClass( 'hidden' );
-			}else{
-				$( '.alert-error' ).removeClass( 'hidden' );
-				console.log( reponse );//todo this object should be sent to logs to decipher what may be the problem.
-			}
+			//game on (do a little dance...)
 			
+			//an annoying parse bug caused the need for this line, nothing else...
+			var irritable = JSON.parse( response );
+			
+			//if the response says 200, then a account has been created.
+			if( irritable.status == '200' ){
+				$( '.alert-success' ).removeClass( 'tempShowHide' ).show();
+			}else{
+				$( '.alert-error' ).removeClass( 'tempShowHide' ).show();
+				console.log( response );//todo this object should be sent to logs to decipher what may be the problem.
+				console.log( response.status );
+			}
+			//if we needed a redirect, we wouldn't have commented the following line...
 			//window.history.replace( 'http://village.rs' );
 		} );
 	} );

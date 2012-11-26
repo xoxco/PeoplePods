@@ -9,7 +9,7 @@ $pathToPeoplePods = realpath( "../../../PeoplePods.php"  );
 require_once( $pathToPeoplePods );
 	
 //set up central object with info to query regarding the person and their login
-$POD = new PeoplePod( array( 'debug' =>0, 'authSecret' => @$_COOKIE['pp_auth'] ) ); //todo this line check to see if auth is current, must change to opposite
+$POD = new PeoplePod( array( 'debug' =>0, 'authSecret' => @$_COOKIE['pp_auth'] ) );
 
 //if they have already logged in
 if( $POD->isAuthenticated() ){
@@ -182,20 +182,18 @@ if( $POD->isAuthenticated() ){
 <!-- Modal join dialogue -->
 <div id="joinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Join" aria-hidden="true">
 <!--START Alert Messages for join form-->
-	<div class="hidden alert alert-success">
-	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+	<div class="tempShowHide alert alert-success">
         <h4><i class="icon-ok-circle"></i> Registration started!</h4>
         <p>Now you should check your email in a few minutes to verify your account.</p>
 	</div>
-	<div class="hidden alert alert-error">
-	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+	<div class="tempShowHide alert alert-error">
         <h4><i class="icon-minus-sign"></i> Registration didn't work</h4>
         <p>Try again a few seconds later, if it doesn't work again...</p>
-        <p><a class="btn btn-danger" href="#hypothetical-contact-form">Let us know</a> <a class="btn" href="#">Or just cancel</a></p>
+        <p><a class="btn btn-danger" href="#hypothetical-contact-form">Let us know</a>
 	</div>
 <!--END Alert Messages for join form-->
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h3 id="myModalLabel">Join village.rs!</h3>
     <div id="joinChoice">Join as:
     	<div id="toggleJoinForm" class="btn-group" data-toggle="buttons-radio">
@@ -206,13 +204,20 @@ if( $POD->isAuthenticated() ){
     </div>
   </div>
   <div class="modal-body">
-  	<h1 id="hideMe">Please be sure to select a role in the social network. Be honest, we check.</h1>
-    <form id="healerJoin" class="joinForm form-horizontal">
+  	<h1 id="hideMe">Be sure to select a role in the network.<br /> Be honest; we check.</h1>
+    <form id="healerJoin" class="joinForm">
       <fieldset>
-            <legend>Join our network as a doctor or social worker</legend>
+            <legend>Join our network as a healer</legend>
             
             <label>name</label>
             <input name="name" type="text" placeholder="first and last name">
+            
+            <label>phone</label>
+            <input name="meta_phone" type=text placeholder="1(555)555-5555">
+            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <label class="checkbox">
+            	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
+			</label>
             
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
@@ -220,37 +225,51 @@ if( $POD->isAuthenticated() ){
             
             <label>password</label>
             <input name="password" type="password">
-            <span class="help-block">Make it a good one.</span>
+            <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
             
-            <label>safeword</label>
-            <input name="meta_safeword" type="text" placeholder="Type something…">
-            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
-    
+            <label>Your chosen safeword</label>
+            <input name="meta_safeword" type="text" placeholder="Type something memorable">
+            <span class="help-block">A safeword is like a group password that you will share with your patients and their loved ones. It helps just a little of the way to know that you are talking to just who you think you are talking to. If someone asks for the safeword that has no reason to need it, be suspicious, and possibly report them to the authorities based on your good judgement. Also, we tell you when someone has logged on without one.</span>
+            
+            <label>verifiable state license identification</label>
+            <input name="meta_license_type" type="text" class="input-xlarge" placeholder="what does this license allow you to do?"><br />
+    		<input name="meta_license" type="text" placeholder="license number"><br />
+            <input name="meta_state_issuer_of_license" type="text" placeholder="state issuing license"><br />
+            <span class="help-block">Please be sure that it is a verifiable license from an issuing state agency.</span>
+            
             <label class="checkbox">
               <input name="meta_joinVillageWithoutApproval" type="checkbox">Allow patients to join my villages without my approving them first?</input><br />
               <input name="meta_requireSafeword" type="checkbox">Require a safeword of all joining and entering my villages?</input>
             </label>
+            
       </fieldset>
     </form>
     
-    <form id="patientJoin" class="joinForm form-horizontal">
+    <form id="patientJoin" class="joinForm">
       <fieldset>
             <legend>Join our network as a patient</legend>
             
             <label>name</label>
             <input name="name" type="text" placeholder="first and last name">
             
+            <label>phone</label>
+            <input name="meta_phone" type=text placeholder="1(555)555-5555">
+            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <label class="checkbox">
+            	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
+			</label>
+            
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
             
             <label>password</label>
             <input name="password" type="password">
-            <span class="help-block">Make it good.</span>
+            <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
     
-            <label>safeword</label>
-            <input name="meta_safeword" type="text" placeholder="Type something…">
-            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
+            <label>Do you have a village safeword already? If not, don't worry, your village healer will give you one.</label>
+            <input name="meta_safeword" type="text" placeholder="optional">
+            <span class="help-block">A safeword is like a group password. We tell you and your healer when someone has logged on without one. If someone should ask for it with no reason to need it, you should be suspicious and report it to your healer immediately.</span>
       </fieldset>
     </form>
     
@@ -261,17 +280,24 @@ if( $POD->isAuthenticated() ){
             <label>name</label>
             <input name="name" type="text" placeholder="first and last name">
             
+            <label>phone</label>
+            <input name="meta_phone" type=text placeholder="1(555)555-5555">
+            <span class="help-block">In an emergency, we will instagate a call to or from you. Otherwise, mum's the word.</span>
+            <label class="checkbox">
+            	<input name="meta_neverCall" type="checkbox">I want you never to do that. <span class="help-inline">You can say no now, then change your mind later.</span>
+			</label>
+            
             <label>email</label>
             <input name="email" type="text" placeholder="valid email address">
             <span class="help-block">All email addresses will be verified.</span>
             
             <label>password</label>
             <input name="password" type="password">
-            <span class="help-block">Make it good.</span>
+            <span class="help-block">Make it a great password that evil people can't guess. Memorize it.</span>
     
-            <label>safeword</label>
-            <input name="meta_safeword" type="text" placeholder="Type something…">
-            <span class="help-block">A safeword is like a group password. We tell you when someone has logged on without one.</span>
+            <label>Do you have a village safeword already? If not, don't worry, your village healer or patient will give you one.</label>
+            <input name="meta_safeword" type="text" placeholder="optional">
+            <span class="help-block">A safeword is like a group password. We tell you, your loved one, and their healer, when someone has logged on without one. If someone should ask for it with no reason to need it, you should be suspicious and report it to the village healer immediately.</span>
       </fieldset>
     </form>
 
