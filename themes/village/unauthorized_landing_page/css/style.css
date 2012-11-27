@@ -162,14 +162,21 @@ p {
 
 #joinModal{
 	color: #000;
+	/*set a default if the following rules are not usable*/
 	background-color: #fff;
-	background-color: rgba( 255, 255, 255, 0.8 );
+	border: none;
 }
+
+#joinModal form{
+	display: none;	
+}
+
 
 #joinModal h1, #joinModal h2, #joinModal h3, #joinModal p, #joinModal input{
 	font-family: 'geosanslightregular';
 	color: #000;
 }
+
 
 #joinModal h1, #joinModal h3, #joinModal legend{
 	color: #f77727;	
@@ -384,11 +391,13 @@ input, textarea{
 	box-shadow: 0px 0px 30px #f93;
 }
 /*-----------------------Join Form-------------------------*/
-.joinForm{
-	display: none;
+
+.modal-header{
 }
+
 .modal-body{
-	color: #000;	
+	color: #000;
+	background-color: #fff;	
 }
 
 .tempShowHide{  
@@ -407,4 +416,5 @@ input, textarea{
 	padding:10px 0 0 0;
 	margin:1.86em auto 0px auto;
 	background-color: rgba( 255, 255, 255, 0.2 );
+	display: none;
 }

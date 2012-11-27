@@ -67,12 +67,15 @@ $( document ).ready( function(){
 		event.preventDefault();
 		event.stopImmediatePropagation();
 		
-		//if it is any other link then join, report path in an alert //todo this method is a bit of a joke, but it is quick; you need to give it attention...
-		if( $( this ).attr( 'href' ) !=  '/join/' ){
-			alert( $( this ).attr( 'href' ) ); //todo clearly we need to actually handle the click with a routed request...
-		}else{ //handle join link
-			$('#joinModal').modal( 'show' );
+		//switch between routes and post to demo installation
+		switch( $( this ).attr( 'href' ) ){
+			case '/join/'			: $('#joinModal').modal( 'show' ); break;
+			case '/demo/healer/'	: goToDemo( 'healer@nickolasnikolic.com', 'healer' ); break;
+			case '/demo/patient/'	: goToDemo( 'patient@nickolasnikolic.com', 'patient' ); break;
+			case '/demo/family/'	: goToDemo( 'family@nickolasnikolic.com', 'family' ); break;
+					
 		}
+		
 	} );
 	
 	//the form id to operate upon, and ultimately submit
@@ -96,6 +99,15 @@ $( document ).ready( function(){
 	$( '#joinSubmit' ).click( function(){
 		if( !whichFormId ) return console.log( 'whichFormId is empty.' );
 		
+		//new submission state: hide all notices
+		$( '.tempShowHide, .alert' ).hide();
+		
+		//remember a reference for multiple contexts of 'this'
+		var $joinSubmit = $(this);
+		
+		//set button to loading state
+		$joinSubmit.button( 'loading' );
+        
 		//spool an object with properties and values from the form
 		var postSubmit = new Object();
 		
@@ -115,8 +127,11 @@ $( document ).ready( function(){
 			//if the response says 200, then a account has been created.
 			if( irritable.status == '200' ){
 				$( '.alert-success' ).removeClass( 'tempShowHide' ).show();
+				$joinSubmit.button( 'complete' ).addClass( 'btn-success' )
+				$joinSubmit.attr( 'disabled', 'disabled' );
 			}else{
 				$( '.alert-error' ).removeClass( 'tempShowHide' ).show();
+				$joinSubmit.button( 'reset' );
 				console.log( response );//todo this object should be sent to logs to decipher what may be the problem.
 				console.log( response.status );
 			}
@@ -170,19 +185,6 @@ $( document ).ready( function(){
 		//@todo - decrypt test only
 		person.localMistrusted = sjcl.decrypt( person.pit, person.safeWord );
 		console.log( person.localMistrusted );
-		
-		//todo in the meantime, just go ahead and submit the form
-		var username = $( '#username' ).val();
-		var password = $( '#password' ).val();
-		var whereToSend = $( this ).attr( 'action' );
-		var redirect = 'dashboard';
-		
-		console.log( username, password, whereToSend, redirect );
-		
-		$.post( whereToSend, { 'username': username, 'password': password, 'redirect': redirect }, function( response ){
-			//console.log( response );
-			window.location.replace( 'http://nickolasnikolic.com/sn/pp3/dashboard' );
-		} );
 	} );
 	
 	
@@ -240,4 +242,27 @@ $( document ).ready( function(){
 				
 			} );
 	} );
+	
+	function goToDemo( username, pass ){
+		//todo in the meantime, just go ahead and submit the form
+		$( '#userName' ).val( username );
+		$( '#password' ).val( pass );
+		
+		
+		$( '#loginBox' ).submit();
+		
+		//todo add a use for the safeword...
+		
+		/* //to ajax, or not to ajax, that is the question... for now, just submit the form as above
+		var whereToSend = $( '#loginBox' ).attr( 'action' );
+		
+		//default value if needed
+		var redirect =  redirect || 'dashboard';
+		
+		$.post( whereToSend, { 'username': username, 'password': password, 'redirect': redirect }, function( response ){
+			//console.log( response );
+			window.location.replace( 'http://nickolasnikolic.com/sn/pp3/dashboard' );
+		} );
+		*/	
+	}
 } );

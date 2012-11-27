@@ -49,6 +49,7 @@ if( $POD->isAuthenticated() ){
     <div class="pack_descr">
       <h1>If this is what your patient's experience is like after she leaves your office, you need to know about it. We help with that.</h1>
       <p class="home_intro">village.rs is a connection point between healers, patients, and the people that love them. It is a new kind of kinder service.</p>
+      <p class="home_intro">The service is currently in pre-alpha development and things will change quite often.</p>
       <div class="buttons">
         <div class="demoButton"><a href="/join/">join</a></div>
         <div class="demoButton"><a href="/demo/healer/">demo as doctor or other licensed healer</a></div>
@@ -304,7 +305,7 @@ if( $POD->isAuthenticated() ){
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button id="joinSubmit" class="btn btn-primary">Save changes</button>
+    <button id="joinSubmit" class="btn btn-primary" data-loading-text="Saving..." data-complete-text="Done">Save changes</button>
   </div>
 </div>
 <!-- end Modal join dialogue -->
