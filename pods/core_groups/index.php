@@ -65,17 +65,6 @@
 	
 	$POD->header('My Groups');
 	
-	?>
-	<div class="column_8">	
-		<? $groups->output('short','header','pager',$header,'No groups have been created'); ?>
-	</div>
+	$groups->output('short','2col_header','groups_pager',$header,'No groups have been created');
 
-	<div class="column_4 structure_only">
-	
-		<? $POD->output('sidebars/group_search'); ?>
-		<? $POD->output('sidebars/create_group'); ?>
-		<? $POD->output('sidebars/recent_groups'); ?>
-		
-	</div>
-		
-<?	$POD->footer(); ?>
+	$POD->footer(); ?>

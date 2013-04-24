@@ -26,21 +26,9 @@
 	}
 	$docs = $POD->getContents(array('type'=>$content_type,'status:!='=>'friends_only'),null,30,$offset);
 	
-	$POD->header('What\'s New?'); ?>
+	$POD->header('What\'s New?');
 
-	<div class="column_8">
-		<? $docs->output('short','header','pager','What\'s New?','Nothing has been posted on this site yet. Wow, it must be brand new!'); ?>
-	</div>	
-	<div class="column_4 structure_only">
-		
-		<? $POD->output('sidebars/search'); ?>
+	$docs->output('short','2col_header','2col_pager','What\'s New?','Nothing has been posted on this site yet. Wow, it must be brand new!'); 
 
-		<? $POD->output('sidebars/ad_unit'); ?>
-
-		<? $POD->output('sidebars/tag_cloud'); ?>
-
-		<? $POD->output('sidebars/recent_visitors'); ?>
-		
-	</div>	
-
-<?	$POD->footer(); ?>
+	$POD->footer();
+?>
