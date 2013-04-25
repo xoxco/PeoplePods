@@ -40,7 +40,7 @@
 		$msg =  $docs->error();
 	}
 ?>
-	<div class="two_thirds">
+	<div class="column_8">
 		<?
 			if ($user->get('verificationKey')) { ?>
 				<div id="welcome_message">
@@ -80,7 +80,7 @@
 		
 		
 	</div>
-	<div class="one_third structure_only">
+	<div class="column_4 structure_only">
 		<? 
 			$user->output('member_info');
 			

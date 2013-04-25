@@ -19,12 +19,12 @@
 ?>
 
 
-<div class="two_thirds">
+<div class="column_8">
 	<h1>Welcome to <? $POD->siteName(); ?></h1>
 
 	<? $recent_posts->output('short','header','pager','Recent Posts'); ?>
 </div>
-<div class="one_third structure_only">
+<div class="column_4 structure_only">
 	<? 
 	
 		$POD->output('sidebars/login');
