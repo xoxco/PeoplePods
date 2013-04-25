@@ -68,10 +68,6 @@ footer,header,hgroup,menu,nav,section {
 	.column_10.structure_only { width: 800px; margin: 0px; }
 	.column_11.structure_only { width: 880px; margin: 0px; }
 	.column_12.structure_only { width: 960px; margin: 0px; }
-	
-	.two_thirds {  width: 620px; margin: 0px 10px; padding: 10px 0px; float: left; overflow: hidden; }
-	.one_third { width: 300px; margin: 0px 10px; padding: 10px 0px; float: left; overflow: hidden;}
-	.one_third.structure_only { width: 320px; margin: 0px; }
 
 	.padded { padding: 10px; } 
 	

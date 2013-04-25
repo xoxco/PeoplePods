@@ -75,10 +75,10 @@
 	<header>
 			<!-- begin login status -->
 			<section class="grid">
-				<div class="two_thirds" id="siteName">
+				<div class="column_8" id="siteName">
 					<h1><? $POD->siteName(); ?></h1>
 				</div>
-				<div class="one_third" id="login_status">
+				<div class="column_4" id="login_status">
 					<? if ($POD->isAuthenticated()) { ?>
 						Welcome, <a href="<? $POD->currentUser()->write('permalink'); ?>" title="View My Profile"><? $POD->currentUser()->write('nick'); ?></a> |
 						<? if ($POD->libOptions('enable_core_private_messaging')) { ?>
