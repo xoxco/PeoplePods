@@ -137,23 +137,11 @@
 	
 	$description = "$scope $type " . implode(" and ",$conditions);
 	$feedurl = $POD->siteRoot(false) . '/feeds/' . $_GET['args'];
+
 	$POD->header($description,$feedurl);
-	?>
-	
-	<div class="column_8">
-		<? $docs->output('short','header','pager',$description); ?>
-	</div>	
-	<div class="column_4 structure_only">
-		<? $POD->output('sidebars/search'); ?>
-		
-		<? $POD->output('sidebars/ad_unit'); ?>
 
-		<? $POD->output('sidebars/tag_cloud'); ?>
+	$docs->output('short','2col_header','2col_pager',$description); 
 
-		<? $POD->output('sidebars/recent_visitors'); ?>
-		
-	</div>	
-<?		
 	$POD->footer();
 
 ?>
