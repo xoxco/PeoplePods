@@ -15,7 +15,7 @@
 	if ($POD->success()) {
 		header("Location: admin");
 	} else {
-		header("Location: unauthorized");
+		header("Location: install"); //change this or remove file to lock down after install
 	} 
 
 ?>	
